@@ -4,7 +4,7 @@ import 'location_map.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: "Local SEguro2",
+    title: "Locator",
     home: MyApp()
   ));
 }
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Local Seguro",
+      title: "Locator",
       home: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
@@ -28,7 +28,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             elevation: 0,
-            title: const Text("Local Seguro"),
+            title: const Text("Locator"),
             centerTitle: true,
             backgroundColor: Colors.black,
             leading: IconButton(
@@ -70,7 +70,7 @@ class MyApp extends StatelessWidget {
                             TextStyle(fontSize: 25, color: Colors.white))),
               ]),
               Container(
-                  margin: const EdgeInsets.only(top: 60.0),
+                  margin: const EdgeInsets.only(top: 130.0),
                   height: 20,
                   child: Text("©2021 - Universidade Federal do Paraná",
                       style: TextStyle(color: Colors.white))
