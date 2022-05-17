@@ -39,14 +39,14 @@ class _HomePageState extends State<HomePage> {
         children: [
           Container(
             height: 30,
-            color: Colors.lightBlue,
+            color: Colors.cyan,
             child:DropdownButton(
               style: const TextStyle(
                           fontSize: 16,
                           color: Colors.black,
                           fontFamily: "verdana_regular",
                         ),
-              hint: const Text('Please choose a location', style: TextStyle(
+              hint: const Text(' Please choose a location', style: TextStyle(
                             color: Colors.black,
                             fontSize: 16,
                             fontFamily: "verdana_regular",
