@@ -4,7 +4,7 @@ import 'location_map.dart';
 
 void main() {
   runApp(MaterialApp(
-    title: "Locator",
+    title: "WIA",
     home: MyApp()
   ));
 }
@@ -12,15 +12,13 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Locator",
       home: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-              image: AssetImage('ufpr_extc.png'), 
+              image: AssetImage('assets/ufpr_extc.png'), 
               fit: BoxFit.fill
           )
         ),
@@ -28,54 +26,57 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.transparent,
           appBar: AppBar(
             elevation: 0,
-            title: const Text("Locator"),
+            title: const Text("WIA"),
             centerTitle: true,
             backgroundColor: Colors.black,
             leading: IconButton(
                 onPressed: null,
                 icon: Icon(Icons.list, color: Colors.white)),
           ),
-          body: Center(
-            child: Column(
-              children: [
-              Container(
-                  margin: const EdgeInsets.only(top: 210.0),
-                  height: 189,
-                  child: Container(
-                      decoration: const BoxDecoration(
-                        image: DecorationImage(
-                          image: AssetImage('map_mask.png'),
-                          fit: BoxFit.fitHeight)
-                      )
+          body: Column(
+            children: [
+              //Row(
+              //  children: [ 
+              //    Expanded(child: Container()),
+              //  ]),
+              Expanded(child: Container(  
+                decoration: const BoxDecoration(
+                  //color: Colors.black,
+                  image: DecorationImage(
+                    alignment: Alignment.bottomCenter,
+                    image: AssetImage('assets/map_mask.png')
                   )
+                )
+              )
               ),
               Container(
-                  margin: const EdgeInsets.only(top: 95.0),
-                  height: 150,
-                  child: TextButton.icon(
-                      onPressed: () { 
-                        Navigator.push(
-                          context, MaterialPageRoute(
-                            builder: (context) => HomePage(title: "Mapa teste",)
-                          )
-                        );
-                      },
-                      icon: Image.asset('qr_localseguro.png'),
-                      label: Text(""))),
+                margin: const EdgeInsets.only(top: 40),
+                //height: 120,
+                child: TextButton.icon(
+                    onPressed: () { 
+                      Navigator.push(
+                        context, MaterialPageRoute(
+                          builder: (context) => HomePage(title: "Mapa teste",)
+                        )
+                      );
+                    },
+                    icon: Image.asset('assets/qr_localseguro.png'),
+                    label: Text("")
+                    )),
               Column(children: const [
                 TextButton(
-                    onPressed: null,
-                    child: Text("Ler QR Code",
-                        style:
-                            TextStyle(fontSize: 25, color: Colors.white))),
+                  onPressed: null,
+                  child: Text("Ler QR Code",
+                      style:
+                          TextStyle(fontSize: 25, color: Colors.white))),
               ]),
               Container(
-                  margin: const EdgeInsets.only(top: 130.0),
-                  height: 20,
-                  child: Text("©2021 - Universidade Federal do Paraná",
-                      style: TextStyle(color: Colors.white))
+                margin: const EdgeInsets.only(top: 30),
+                //height: 20,
+                child: Text("©2021 - Universidade Federal do Paraná",
+                    style: TextStyle(color: Colors.white))
               )
-            ])
+            ]
           ),
           drawer: Drawer(
             child: ListView(
@@ -90,7 +91,7 @@ class MyApp extends StatelessWidget {
                   title: Text("Compartilhar"),
                   onTap: (){},
                 )
-                ]
+              ]
             )
           )     
         )

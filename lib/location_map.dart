@@ -38,17 +38,16 @@ class _HomePageState extends State<HomePage> {
       body: Column(
         children: [
           Container(
-            height: 30,
             color: Colors.cyan,
             child:DropdownButton(
               style: const TextStyle(
-                          fontSize: 16,
+                          fontSize: 12.5,
                           color: Colors.black,
                           fontFamily: "verdana_regular",
                         ),
               hint: const Text(' Please choose a location', style: TextStyle(
                             color: Colors.black,
-                            fontSize: 16,
+                            //fontSize: 16,
                             fontFamily: "verdana_regular",
                           )
                           ), 
@@ -67,9 +66,8 @@ class _HomePageState extends State<HomePage> {
               }).toList(),
             )
           ),
-          SizedBox(
-            height: 760,
-            child: Center(
+           Container(
+             height: 580,
               child: FlutterMap(
                 options: MapOptions(
                   center: LatLng(-25.42901, -49.26744),
@@ -94,21 +92,18 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
-            )
+            
           ),
-          Container(
-            //margin: const EdgeInsets.only(top: 19),
-            height: 49,
-            color: const Color.fromRGBO(1, 63, 122, 1),
-            child: Center(
-              child: 
-                    Text("©2021 - Universidade Federal do Paraná",
-                      textAlign: TextAlign.center,
-                      style: TextStyle(color: Colors.white)
-                    ),
-                  //style: TextStyle(color: Colors.black, backgroundColor: Colors.blue))
+          Expanded(
+            child: Container(
+              //height: 5,
+              color: Color.fromRGBO(1, 63, 122, 1),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [Text( "©2021 - Universidade Federal do Paraná", textAlign: TextAlign.center, style: TextStyle(color: Colors.white ))]
+              )
             )
-          ),
+          )
         ]
       )
     );

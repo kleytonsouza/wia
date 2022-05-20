@@ -5,18 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "localseguro",
+            "name": "wia",
             "request": "launch",
             "type": "dart"
         },
         {
-            "name": "localseguro (profile mode)",
+            "name": "wia (profile mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile"
         },
         {
-            "name": "localseguro (release mode)",
+            "name": "wia (release mode)",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release"
