@@ -12,13 +12,20 @@
          to allow setting breakpoints, to provide hot reload, etc.
     -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
     <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
 
     <application
         android:appComponentFactory="androidx.core.app.CoreComponentFactory"
         android:debuggable="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label="wia" >
+        android:icon="@mipmap/launcher_icon"
+        android:label="wia"
+        android:largeHeap="true"
+        android:theme="@style/Theme.AppCompat.NoActionBar" >
         <activity
             android:name="com.example.wia.MainActivity"
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
@@ -61,6 +68,8 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+        <activity android:name="com.amolg.flutterbarcodescanner.BarcodeCaptureActivity" />
 
         <service
             android:name="com.baseflow.geolocator.GeolocatorLocationService"

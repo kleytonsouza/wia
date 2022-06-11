@@ -1,16 +1,75 @@
 import 'package:flutter/material.dart';
-import 'scan.dart';
-import 'location_map.dart';
+import 'package:flutter/services.dart';
+import 'dart:async';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+
+// import 'location_map.dart';
 
 void main() {
-  runApp(MaterialApp(
-    title: "WIA",
-    home: MyApp()
-  ));
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String _scanBarcode = 'Unknown';
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  Future<void> startBarcodeScanStream() async {
+    FlutterBarcodeScanner.getBarcodeStreamReceiver(
+            '#ff6666', 'Cancel', true, ScanMode.BARCODE)!
+        .listen((barcode) => print(barcode));
+  }
+
+  Future<void> scanQR() async {
+    String barcodeScanRes;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'Cancel', true, ScanMode.QR);
+      print(barcodeScanRes);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
+    setState(() {
+      _scanBarcode = barcodeScanRes;
+    });
+  }
+
+  // Platform messages are asynchronous, so we initialize in an async method.
+  Future<void> scanBarcodeNormal() async {
+    String barcodeScanRes;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'Cancel', true, ScanMode.BARCODE);
+      print(barcodeScanRes);
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
+    setState(() {
+      _scanBarcode = barcodeScanRes;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -35,13 +94,8 @@ class MyApp extends StatelessWidget {
           ),
           body: Column(
             children: [
-              //Row(
-              //  children: [ 
-              //    Expanded(child: Container()),
-              //  ]),
               Expanded(child: Container(  
                 decoration: const BoxDecoration(
-                  //color: Colors.black,
                   image: DecorationImage(
                     alignment: Alignment.bottomCenter,
                     image: AssetImage('assets/map_mask.png')
@@ -53,13 +107,7 @@ class MyApp extends StatelessWidget {
                 margin: const EdgeInsets.only(top: 40),
                 //height: 120,
                 child: TextButton.icon(
-                    onPressed: () { 
-                      Navigator.push(
-                        context, MaterialPageRoute(
-                          builder: (context) => HomePage(title: "Mapa teste",)
-                        )
-                      );
-                    },
+                    onPressed: () => startBarcodeScanStream(),
                     icon: Image.asset('assets/qr_localseguro.png'),
                     label: Text("")
                     )),

@@ -14,123 +14,142 @@
 14    <uses-permission android:name="android.permission.INTERNET" />
 14-->D:\Users\Ton\flutter\wia\android\app\src\debug\AndroidManifest.xml:6:5-66
 14-->D:\Users\Ton\flutter\wia\android\app\src\debug\AndroidManifest.xml:6:22-64
-15    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
-15-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-77
-15-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-74
+15    <uses-permission android:name="android.permission.CAMERA" />
+15-->[:flutter_barcode_scanner] D:\Users\Ton\flutter\wia\build\flutter_barcode_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:9:5-65
+15-->[:flutter_barcode_scanner] D:\Users\Ton\flutter\wia\build\flutter_barcode_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:9:22-62
 16
-17    <application
-17-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:3:4-41:19
-18        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
-18-->[androidx.core:core:1.6.0] D:\Users\Ton\.gradle\caches\transforms-3\59359da3531dd69a81251f3a64ec192e\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
-19        android:debuggable="true"
-20        android:icon="@mipmap/ic_launcher"
-20-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:5:9-43
-21        android:label="wia" >
-21-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:4:9-28
-22        <activity
-22-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:6:9-35:20
-23            android:name="com.example.wia.MainActivity"
-23-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:7:13-41
-24            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-24-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:11:13-163
-25            android:exported="true"
-25-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:9:13-36
-26            android:hardwareAccelerated="true"
-26-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:12:13-47
-27            android:launchMode="singleTop"
-27-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:8:13-43
-28            android:theme="@style/LaunchTheme"
-28-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:10:13-47
-29            android:windowSoftInputMode="adjustResize" >
-29-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:13:13-55
-30
-31            <!--
-32                 Specifies an Android theme to apply to this Activity as soon as
-33                 the Android process has started. This theme is visible to the user
-34                 while the Flutter UI initializes. After that, this theme continues
-35                 to determine the Window background behind the Flutter UI.
-36            -->
-37            <meta-data
-37-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:18:13-21:17
-38                android:name="io.flutter.embedding.android.NormalTheme"
-38-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:19:15-70
-39                android:resource="@style/NormalTheme" />
-39-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:20:15-52
-40            <!--
-41                 Displays an Android View that continues showing the launch screen
-42                 Drawable until Flutter paints its first frame, then this splash
-43                 screen fades out. A splash screen is useful to avoid any visual
-44                 gap between the end of Android's launch screen and the painting of
-45                 Flutter's first frame.
-46            -->
-47            <meta-data
-47-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:27:13-30:17
-48                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-48-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:28:15-79
-49                android:resource="@drawable/launch_background" />
-49-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:29:15-61
-50
-51            <intent-filter>
-51-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:31:13-34:29
-52                <action android:name="android.intent.action.MAIN" />
-52-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:32:17-68
-52-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:32:25-66
-53
-54                <category android:name="android.intent.category.LAUNCHER" />
-54-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:33:17-76
-54-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:33:27-74
-55            </intent-filter>
-56        </activity>
-57        <!--
-58             Don't delete the meta-data below.
-59             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
-60        -->
-61        <meta-data
-61-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:38:9-40:33
-62            android:name="flutterEmbedding"
-62-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:39:13-44
-63            android:value="2" />
-63-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:40:13-30
-64
-65        <service
-65-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:56
-66            android:name="com.baseflow.geolocator.GeolocatorLocationService"
-66-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-77
-67            android:enabled="true"
-67-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-35
-68            android:exported="false"
-68-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
-69            android:foregroundServiceType="location" />
-69-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-53
-70
-71        <uses-library
-71-->[androidx.window:window:1.0.0-beta04] D:\Users\Ton\.gradle\caches\transforms-3\60237ea24c868527d88f302c3250aaad\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
-72            android:name="androidx.window.extensions"
-72-->[androidx.window:window:1.0.0-beta04] D:\Users\Ton\.gradle\caches\transforms-3\60237ea24c868527d88f302c3250aaad\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
-73            android:required="false" />
-73-->[androidx.window:window:1.0.0-beta04] D:\Users\Ton\.gradle\caches\transforms-3\60237ea24c868527d88f302c3250aaad\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
-74        <uses-library
-74-->[androidx.window:window:1.0.0-beta04] D:\Users\Ton\.gradle\caches\transforms-3\60237ea24c868527d88f302c3250aaad\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
-75            android:name="androidx.window.sidecar"
-75-->[androidx.window:window:1.0.0-beta04] D:\Users\Ton\.gradle\caches\transforms-3\60237ea24c868527d88f302c3250aaad\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
-76            android:required="false" />
-76-->[androidx.window:window:1.0.0-beta04] D:\Users\Ton\.gradle\caches\transforms-3\60237ea24c868527d88f302c3250aaad\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
-77
-78        <activity
-78-->[com.google.android.gms:play-services-base:17.0.0] D:\Users\Ton\.gradle\caches\transforms-3\782774af44ddc6f673d59d789527fa63\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:23:9-26:75
-79            android:name="com.google.android.gms.common.api.GoogleApiActivity"
-79-->[com.google.android.gms:play-services-base:17.0.0] D:\Users\Ton\.gradle\caches\transforms-3\782774af44ddc6f673d59d789527fa63\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:24:13-79
-80            android:exported="false"
-80-->[com.google.android.gms:play-services-base:17.0.0] D:\Users\Ton\.gradle\caches\transforms-3\782774af44ddc6f673d59d789527fa63\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:25:13-37
-81            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
-81-->[com.google.android.gms:play-services-base:17.0.0] D:\Users\Ton\.gradle\caches\transforms-3\782774af44ddc6f673d59d789527fa63\transformed\jetified-play-services-base-17.0.0\AndroidManifest.xml:26:13-72
-82
-83        <meta-data
-83-->[com.google.android.gms:play-services-basement:17.0.0] D:\Users\Ton\.gradle\caches\transforms-3\2db9b2030b542baa1b544a5e319ef405\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:23:9-25:69
-84            android:name="com.google.android.gms.version"
-84-->[com.google.android.gms:play-services-basement:17.0.0] D:\Users\Ton\.gradle\caches\transforms-3\2db9b2030b542baa1b544a5e319ef405\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:24:13-58
-85            android:value="@integer/google_play_services_version" />
-85-->[com.google.android.gms:play-services-basement:17.0.0] D:\Users\Ton\.gradle\caches\transforms-3\2db9b2030b542baa1b544a5e319ef405\transformed\jetified-play-services-basement-17.0.0\AndroidManifest.xml:25:13-66
-86    </application>
-87
-88</manifest>
+17    <uses-feature android:name="android.hardware.camera" />
+17-->[:flutter_barcode_scanner] D:\Users\Ton\flutter\wia\build\flutter_barcode_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:11:5-60
+17-->[:flutter_barcode_scanner] D:\Users\Ton\flutter\wia\build\flutter_barcode_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:11:19-57
+18
+19    <uses-permission android:name="android.permission.FLASHLIGHT" />
+19-->[:flutter_barcode_scanner] D:\Users\Ton\flutter\wia\build\flutter_barcode_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:13:5-69
+19-->[:flutter_barcode_scanner] D:\Users\Ton\flutter\wia\build\flutter_barcode_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:13:22-66
+20    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+20-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:7:5-77
+20-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:7:22-74
+21
+22    <application
+22-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:3:4-41:19
+23        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+23-->[androidx.core:core:1.6.0] D:\Users\Ton\.gradle\caches\transforms-3\59359da3531dd69a81251f3a64ec192e\transformed\core-1.6.0\AndroidManifest.xml:24:18-86
+24        android:debuggable="true"
+25        android:icon="@mipmap/launcher_icon"
+25-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:5:9-45
+26        android:label="wia"
+26-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:4:9-28
+27        android:largeHeap="true"
+27-->[:flutter_barcode_scanner] D:\Users\Ton\flutter\wia\build\flutter_barcode_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:16:9-33
+28        android:theme="@style/Theme.AppCompat.NoActionBar" >
+28-->[:flutter_barcode_scanner] D:\Users\Ton\flutter\wia\build\flutter_barcode_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:17:9-59
+29        <activity
+29-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:6:9-35:20
+30            android:name="com.example.wia.MainActivity"
+30-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:7:13-41
+31            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
+31-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:11:13-163
+32            android:exported="true"
+32-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:9:13-36
+33            android:hardwareAccelerated="true"
+33-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:12:13-47
+34            android:launchMode="singleTop"
+34-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:8:13-43
+35            android:theme="@style/LaunchTheme"
+35-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:10:13-47
+36            android:windowSoftInputMode="adjustResize" >
+36-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:13:13-55
+37
+38            <!--
+39                 Specifies an Android theme to apply to this Activity as soon as
+40                 the Android process has started. This theme is visible to the user
+41                 while the Flutter UI initializes. After that, this theme continues
+42                 to determine the Window background behind the Flutter UI.
+43            -->
+44            <meta-data
+44-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:18:13-21:17
+45                android:name="io.flutter.embedding.android.NormalTheme"
+45-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:19:15-70
+46                android:resource="@style/NormalTheme" />
+46-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:20:15-52
+47            <!--
+48                 Displays an Android View that continues showing the launch screen
+49                 Drawable until Flutter paints its first frame, then this splash
+50                 screen fades out. A splash screen is useful to avoid any visual
+51                 gap between the end of Android's launch screen and the painting of
+52                 Flutter's first frame.
+53            -->
+54            <meta-data
+54-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:27:13-30:17
+55                android:name="io.flutter.embedding.android.SplashScreenDrawable"
+55-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:28:15-79
+56                android:resource="@drawable/launch_background" />
+56-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:29:15-61
+57
+58            <intent-filter>
+58-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:31:13-34:29
+59                <action android:name="android.intent.action.MAIN" />
+59-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:32:17-68
+59-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:32:25-66
+60
+61                <category android:name="android.intent.category.LAUNCHER" />
+61-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:33:17-76
+61-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:33:27-74
+62            </intent-filter>
+63        </activity>
+64        <!--
+65             Don't delete the meta-data below.
+66             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
+67        -->
+68        <meta-data
+68-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:38:9-40:33
+69            android:name="flutterEmbedding"
+69-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:39:13-44
+70            android:value="2" />
+70-->D:\Users\Ton\flutter\wia\android\app\src\main\AndroidManifest.xml:40:13-30
+71
+72        <activity android:name="com.amolg.flutterbarcodescanner.BarcodeCaptureActivity" />
+72-->[:flutter_barcode_scanner] D:\Users\Ton\flutter\wia\build\flutter_barcode_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:18:9-91
+72-->[:flutter_barcode_scanner] D:\Users\Ton\flutter\wia\build\flutter_barcode_scanner\intermediates\merged_manifest\debug\AndroidManifest.xml:18:19-88
+73
+74        <service
+74-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:10:9-14:56
+75            android:name="com.baseflow.geolocator.GeolocatorLocationService"
+75-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:11:13-77
+76            android:enabled="true"
+76-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:12:13-35
+77            android:exported="false"
+77-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:13:13-37
+78            android:foregroundServiceType="location" />
+78-->[:geolocator_android] D:\Users\Ton\flutter\wia\build\geolocator_android\intermediates\merged_manifest\debug\AndroidManifest.xml:14:13-53
+79
+80        <uses-library
+80-->[androidx.window:window:1.0.0-beta04] D:\Users\Ton\.gradle\caches\transforms-3\60237ea24c868527d88f302c3250aaad\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:25:9-27:40
+81            android:name="androidx.window.extensions"
+81-->[androidx.window:window:1.0.0-beta04] D:\Users\Ton\.gradle\caches\transforms-3\60237ea24c868527d88f302c3250aaad\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:26:13-54
+82            android:required="false" />
+82-->[androidx.window:window:1.0.0-beta04] D:\Users\Ton\.gradle\caches\transforms-3\60237ea24c868527d88f302c3250aaad\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:27:13-37
+83        <uses-library
+83-->[androidx.window:window:1.0.0-beta04] D:\Users\Ton\.gradle\caches\transforms-3\60237ea24c868527d88f302c3250aaad\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:28:9-30:40
+84            android:name="androidx.window.sidecar"
+84-->[androidx.window:window:1.0.0-beta04] D:\Users\Ton\.gradle\caches\transforms-3\60237ea24c868527d88f302c3250aaad\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:29:13-51
+85            android:required="false" />
+85-->[androidx.window:window:1.0.0-beta04] D:\Users\Ton\.gradle\caches\transforms-3\60237ea24c868527d88f302c3250aaad\transformed\jetified-window-1.0.0-beta04\AndroidManifest.xml:30:13-37
+86
+87        <activity
+87-->[com.google.android.gms:play-services-base:17.4.0] D:\Users\Ton\.gradle\caches\transforms-3\0535139ec12972f50284e6bbe73dd5cf\transformed\jetified-play-services-base-17.4.0\AndroidManifest.xml:23:9-26:75
+88            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+88-->[com.google.android.gms:play-services-base:17.4.0] D:\Users\Ton\.gradle\caches\transforms-3\0535139ec12972f50284e6bbe73dd5cf\transformed\jetified-play-services-base-17.4.0\AndroidManifest.xml:24:13-79
+89            android:exported="false"
+89-->[com.google.android.gms:play-services-base:17.4.0] D:\Users\Ton\.gradle\caches\transforms-3\0535139ec12972f50284e6bbe73dd5cf\transformed\jetified-play-services-base-17.4.0\AndroidManifest.xml:25:13-37
+90            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+90-->[com.google.android.gms:play-services-base:17.4.0] D:\Users\Ton\.gradle\caches\transforms-3\0535139ec12972f50284e6bbe73dd5cf\transformed\jetified-play-services-base-17.4.0\AndroidManifest.xml:26:13-72
+91
+92        <meta-data
+92-->[com.google.android.gms:play-services-basement:17.4.0] D:\Users\Ton\.gradle\caches\transforms-3\221834462243cbcbcea7f19d915b6ac9\transformed\jetified-play-services-basement-17.4.0\AndroidManifest.xml:23:9-25:69
+93            android:name="com.google.android.gms.version"
+93-->[com.google.android.gms:play-services-basement:17.4.0] D:\Users\Ton\.gradle\caches\transforms-3\221834462243cbcbcea7f19d915b6ac9\transformed\jetified-play-services-basement-17.4.0\AndroidManifest.xml:24:13-58
+94            android:value="@integer/google_play_services_version" />
+94-->[com.google.android.gms:play-services-basement:17.4.0] D:\Users\Ton\.gradle\caches\transforms-3\221834462243cbcbcea7f19d915b6ac9\transformed\jetified-play-services-basement-17.4.0\AndroidManifest.xml:25:13-66
+95    </application>
+96
+97</manifest>

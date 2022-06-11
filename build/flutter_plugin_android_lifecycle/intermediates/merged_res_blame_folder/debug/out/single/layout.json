@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "D:\\Users\\Ton\\flutter\\wia\\build\\flutter_plugin_android_lifecycle\\intermediates\\merged_res\\debug\\layout\\notification_template_part_chronometer.xml",
+        "source": "D:\\Users\\Ton\\.gradle\\caches\\transforms-3\\59359da3531dd69a81251f3a64ec192e\\transformed\\core-1.6.0\\res\\layout\\notification_template_part_chronometer.xml"
+    },
+    {
+        "merged": "D:\\Users\\Ton\\flutter\\wia\\build\\flutter_plugin_android_lifecycle\\intermediates\\merged_res\\debug\\layout\\custom_dialog.xml",
+        "source": "D:\\Users\\Ton\\.gradle\\caches\\transforms-3\\59359da3531dd69a81251f3a64ec192e\\transformed\\core-1.6.0\\res\\layout\\custom_dialog.xml"
+    },
+    {
+        "merged": "D:\\Users\\Ton\\flutter\\wia\\build\\flutter_plugin_android_lifecycle\\intermediates\\merged_res\\debug\\layout\\notification_template_icon_group.xml",
+        "source": "D:\\Users\\Ton\\.gradle\\caches\\transforms-3\\59359da3531dd69a81251f3a64ec192e\\transformed\\core-1.6.0\\res\\layout\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "D:\\Users\\Ton\\flutter\\wia\\build\\flutter_plugin_android_lifecycle\\intermediates\\merged_res\\debug\\layout\\notification_template_part_time.xml",
+        "source": "D:\\Users\\Ton\\.gradle\\caches\\transforms-3\\59359da3531dd69a81251f3a64ec192e\\transformed\\core-1.6.0\\res\\layout\\notification_template_part_time.xml"
+    },
+    {
+        "merged": "D:\\Users\\Ton\\flutter\\wia\\build\\flutter_plugin_android_lifecycle\\intermediates\\merged_res\\debug\\layout\\notification_action.xml",
+        "source": "D:\\Users\\Ton\\.gradle\\caches\\transforms-3\\59359da3531dd69a81251f3a64ec192e\\transformed\\core-1.6.0\\res\\layout\\notification_action.xml"
+    },
+    {
+        "merged": "D:\\Users\\Ton\\flutter\\wia\\build\\flutter_plugin_android_lifecycle\\intermediates\\merged_res\\debug\\layout\\notification_action_tombstone.xml",
+        "source": "D:\\Users\\Ton\\.gradle\\caches\\transforms-3\\59359da3531dd69a81251f3a64ec192e\\transformed\\core-1.6.0\\res\\layout\\notification_action_tombstone.xml"
+    }
+]
