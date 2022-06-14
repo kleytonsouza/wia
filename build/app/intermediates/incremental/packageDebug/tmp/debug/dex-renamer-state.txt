@@ -1,4 +1,0 @@
-#Fri May 20 16:00:42 BRT 2022
-base.0=D\:\\Users\\Ton\\flutter\\wia\\build\\app\\intermediates\\dex\\debug\\mergeDexDebug\\classes.dex
-renamed.0=classes.dex
-path.0=classes.dex
