@@ -11,18 +11,20 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+//-25.39954147933631, -49.250469280756825
 class _HomePageState extends State<HomePage> {
   final List<String> _locations = [
    '1 Gabinete - Financeiro',
    '2 Gabinete - Secretaria',
-   '3 COPEG', '4 COPAC',
+   '3 COPEG', 
+   '4 COPAC',
    '5 COPAP - Seção de Acompanhamento Acadêmico (SAAC)',
    '6 COPAP - Seção de Gerenciamento Acadêmico (SGA)',
    '7 COPAP - Unidade de Diplomas (UD)',
    '8 COPAP - Seção de Ocupação de Vaga (SOCV)',
    '9 COAFE - Unidade de Estágios (UE)',
    '10 COAFE - Unidades de Atividades Formativas (UAF)',
-   '11 COSIS',
+   '11 COSIS - Coord de Sistemas de Informação para a Gestão Acadêmica',
    '12 CIPEAD - Unidade Administrativa',
    '13 CIPEAD - Unidade Pedagógica',
    '14 CIPEAD - LabCIPEAD',
