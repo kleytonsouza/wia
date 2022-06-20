@@ -43,38 +43,45 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Você esta aqui."),
+        title: const Text("Você esta aqui."),
       ),
       body: Column(
+        
         children: [
-          Container(
-            color: Colors.cyan,
-            child: DropdownButton(
-              style: const TextStyle(
-                fontSize: 12.5,
-                color: Colors.black,
-                fontFamily: "verdana_regular",
-              ),
-              hint: const Text(' Please choose a location',
-                  style: TextStyle(
+          Row(
+            children: [
+              Expanded( child:
+                //color: Colors.cyan,
+                DropdownButton(
+                  dropdownColor: const Color.fromRGBO(176, 224, 247, 0.973),
+                  style: const TextStyle(
+                    fontSize: 10.5,
                     color: Colors.black,
-                    //fontSize: 16,
                     fontFamily: "verdana_regular",
-                  )),
-              value: currentSelectedValue,
-              isDense: true,
-              onChanged: (newValue) {
-                setState(() {
-                  currentSelectedValue = newValue;
-                });
-              },
-              items: _locations.map((location) {
-                return DropdownMenuItem(
-                  value: location,
-                  child: Text(location),
-                );
-              }).toList(),
-            )
+                  ),
+                  hint: const Text(' Please choose a location',
+                    style: TextStyle(
+                      color: Colors.black,
+                      //fontSize: 16,
+                      fontFamily: "verdana_regular",
+                    )
+                  ),
+                  value: currentSelectedValue,
+                  isDense: true,
+                  onChanged: (newValue) {
+                    setState(() {
+                      currentSelectedValue = newValue;
+                    });
+                  },
+                  items: _locations.map((location) {
+                    return DropdownMenuItem(
+                      value: location,
+                      child: Text(location),
+                    );
+                  }).toList(),
+                )
+              )
+            ]
           ),
           Expanded(
             //height: 560,
