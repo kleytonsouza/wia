@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
-import 'dart:async';
 
-import 'package:flutter/services.dart';
-import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key, required this.title}) : super(key: key);
@@ -35,74 +32,52 @@ class _HomePageState extends State<HomePage> {
     '15 CIPEAD - Equipe Multidisciplinar'
   ];
   var currentSelectedValue;
-  String _scanBarcode = 'Unknown';
-  String coord = "";
+  
 
   @override
   void initState() {
     super.initState();
-    scanQR();
-  }
-
-  Future<void> scanQR() async {
-    String barcodeScanRes;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-          '#ff6666', 'Cancel', true, ScanMode.QR);
-      print(barcodeScanRes);
-    } on PlatformException {
-      barcodeScanRes = 'Failed to get platform version.';
-    }
-
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
-
-    setState(() {
-      _scanBarcode = barcodeScanRes;
-      coord = barcodeScanRes.split(',') as String;
-    });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: Text("Você esta aqui."),
-        ),
-        body: Column(children: [
+      appBar: AppBar(
+        title: Text("Você esta aqui."),
+      ),
+      body: Column(
+        children: [
           Container(
-              color: Colors.cyan,
-              child: DropdownButton(
-                style: const TextStyle(
-                  fontSize: 12.5,
-                  color: Colors.black,
-                  fontFamily: "verdana_regular",
-                ),
-                hint: const Text(' Please choose a location',
-                    style: TextStyle(
-                      color: Colors.black,
-                      //fontSize: 16,
-                      fontFamily: "verdana_regular",
-                    )),
-                value: currentSelectedValue,
-                isDense: true,
-                onChanged: (newValue) {
-                  setState(() {
-                    currentSelectedValue = newValue;
-                  });
-                },
-                items: _locations.map((location) {
-                  return DropdownMenuItem(
-                    child: Text(location),
-                    value: location,
-                  );
-                }).toList(),
-              )),
-          Container(
-            height: 580,
+            color: Colors.cyan,
+            child: DropdownButton(
+              style: const TextStyle(
+                fontSize: 12.5,
+                color: Colors.black,
+                fontFamily: "verdana_regular",
+              ),
+              hint: const Text(' Please choose a location',
+                  style: TextStyle(
+                    color: Colors.black,
+                    //fontSize: 16,
+                    fontFamily: "verdana_regular",
+                  )),
+              value: currentSelectedValue,
+              isDense: true,
+              onChanged: (newValue) {
+                setState(() {
+                  currentSelectedValue = newValue;
+                });
+              },
+              items: _locations.map((location) {
+                return DropdownMenuItem(
+                  value: location,
+                  child: Text(location),
+                );
+              }).toList(),
+            )
+          ),
+          Expanded(
+            //height: 560,
             child: FlutterMap(
               options: MapOptions(
                 center: LatLng(-25.42901, -49.26744),
@@ -115,31 +90,34 @@ class _HomePageState extends State<HomePage> {
                       "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
                   subdomains: ['a', 'b', 'c'],
                   attributionBuilder: (_) {
-                    return Text("");
+                    return const Text("");
                   },
                 ),
                 MarkerLayerOptions(
                   markers: [
                     Marker(
-                      point: LatLng(coord[0] as double, coord[1] as double),
-                      builder: (ctx) => Icon(Icons.pin_drop, color: Colors.red),
+                      point: LatLng(-25.42901, -49.26744),
+                      builder: (ctx) => const Icon(Icons.pin_drop, color: Colors.red),
                     ),
                   ],
                 ),
               ],
             ),
           ),
-          Expanded(
-              child: Container(
-                  //height: 5,
-                  color: Color.fromRGBO(1, 63, 122, 1),
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text("©2021 - Universidade Federal do Paraná",
-                            textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.white))
-                      ])))
-        ]));
+          Container(
+            height: 35,
+            color: const Color.fromRGBO(1, 63, 122, 1),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text("©2021 - Universidade Federal do Paraná",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(color: Colors.white))
+              ]
+            )
+          )
+        ]
+      )
+    );
   }
 }

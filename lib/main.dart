@@ -4,16 +4,12 @@ import 'location_map.dart';
 //import 'location_map.dart';
 
 // import 'location_map.dart';
-  void main() {
-    runApp(MaterialApp(
-      title: "WIA",
-      home: MyApp()
-    ));
-  }
+void main() {
+  runApp(MaterialApp(title: "WIA", home: MyApp()));
+}
 
-  class MyApp extends StatelessWidget {
-    const MyApp({Key? key}) : super(key: key);
-
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -45,14 +41,14 @@ import 'location_map.dart';
                       margin: const EdgeInsets.only(top: 40),
                       //height: 120,
                       child: TextButton.icon(
-                          onPressed: () { 
+                          onPressed: () {
                             Navigator.push(
-                              context, MaterialPageRoute(
-                                builder: (context) => HomePage(title: "Mapa teste")
-                              )
-                            );
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        HomePage(title: "Mapa teste")));
                           },
-                          icon: Image.asset('assets/qr_localseguro.png'),
+                          icon: Image.asset('assets/qr_wia.png'),
                           label: Text(""))),
                   Column(children: const [
                     TextButton(
