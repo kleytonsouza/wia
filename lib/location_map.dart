@@ -2,18 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
-
-class HomePage extends StatefulWidget {
-  HomePage({Key? key, required this.title}) : super(key: key);
+class Location extends StatefulWidget {
+  Location({Key? key, required this.title, required this.loc})
+      : super(key: key);
 
   final String title;
+  List<String> loc;
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 //-25.39954147933631, -49.250469280756825
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<Location> {
   final List<String> _locations = [
     '1 Gabinete - Financeiro',
     '2 Gabinete - Secretaria',
@@ -33,6 +34,7 @@ class _HomePageState extends State<HomePage> {
   ];
   var currentSelectedValue;
   
+  get loc => loc;
 
   @override
   void initState() {
@@ -42,52 +44,48 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text("Você esta aqui."),
-      ),
-      body: Column(
-        
-        children: [
-          Row(
-            children: [
-              Expanded( child:
-                //color: Colors.cyan,
-                DropdownButton(
-                  dropdownColor: const Color.fromRGBO(176, 224, 247, 0.973),
-                  style: const TextStyle(
-                    fontSize: 10.5,
+        appBar: AppBar(
+          title: const Text("Você esta aqui."),
+        ),
+        body: Column(children: [
+          Row(children: [
+            Expanded(
+                child:
+                    //color: Colors.cyan,
+                    DropdownButton(
+              dropdownColor: const Color.fromRGBO(176, 224, 247, 0.973),
+              style: const TextStyle(
+                fontSize: 10.5,
+                color: Colors.black,
+                fontFamily: "verdana_regular",
+              ),
+              hint: Text(loc,
+                  style: TextStyle(
                     color: Colors.black,
+                    //fontSize: 16,
                     fontFamily: "verdana_regular",
-                  ),
-                  hint: const Text(' Please choose a location',
-                    style: TextStyle(
-                      color: Colors.black,
-                      //fontSize: 16,
-                      fontFamily: "verdana_regular",
-                    )
-                  ),
-                  value: currentSelectedValue,
-                  isDense: true,
-                  onChanged: (newValue) {
-                    setState(() {
-                      currentSelectedValue = newValue;
-                    });
-                  },
-                  items: _locations.map((location) {
-                    return DropdownMenuItem(
-                      value: location,
-                      child: Text(location),
-                    );
-                  }).toList(),
-                )
-              )
-            ]
-          ),
+                  )),
+              value: currentSelectedValue,
+              isDense: true,
+              onChanged: (newValue) {
+                setState(() {
+                  currentSelectedValue = newValue;
+                });
+              },
+              items: _locations.map((location1) {
+                return DropdownMenuItem(
+                  value: location1,
+                  child: Text(location1),
+                );
+              }).toList(),
+            ))
+          ]),
           Expanded(
             //height: 560,
             child: FlutterMap(
               options: MapOptions(
                 center: LatLng(-25.42901, -49.26744),
+                //center: LatLng(loc[0], loc[1]),
                 zoom: 19,
               ),
               layers: [
@@ -104,7 +102,8 @@ class _HomePageState extends State<HomePage> {
                   markers: [
                     Marker(
                       point: LatLng(-25.42901, -49.26744),
-                      builder: (ctx) => const Icon(Icons.pin_drop, color: Colors.red),
+                      builder: (ctx) =>
+                          const Icon(Icons.pin_drop, color: Colors.red),
                     ),
                   ],
                 ),
@@ -112,19 +111,15 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           Container(
-            height: 35,
-            color: const Color.fromRGBO(1, 63, 122, 1),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                Text("©2021 - Universidade Federal do Paraná",
-                    textAlign: TextAlign.center,
-                    style: TextStyle(color: Colors.white))
-              ]
-            )
-          )
-        ]
-      )
-    );
+              height: 35,
+              color: const Color.fromRGBO(1, 63, 122, 1),
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text("©2021 - Universidade Federal do Paraná",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white))
+                  ]))
+        ]));
   }
 }

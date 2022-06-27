@@ -1,15 +1,52 @@
 import 'package:flutter/material.dart';
-import 'location_map.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:wia/location_map.dart';
 
-//import 'location_map.dart';
-
-// import 'location_map.dart';
 void main() {
+
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setPreferredOrientations(
+      [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
+
   runApp(MaterialApp(title: "WIA", home: MyApp()));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  String _scanBarcode = 'Unknown';
+
+ 
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  Future<void> scanQR() async {
+    String barcodeScanRes;
+    // Platform messages may fail, so we use a try/catch PlatformException.
+    try {
+      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+          '#ff6666', 'Cancel', true, ScanMode.QR);
+      print(barcodeScanRes + " tetetete");
+      Navigator.push(context, MaterialPageRoute(builder: (context) => Location(title: "teste", loc: barcodeScanRes.split(','))));
+    } on PlatformException {
+      barcodeScanRes = 'Failed to get platform version.';
+    }
+
+    // If the widget was removed from the tree while the asynchronous platform
+    // message was in flight, we want to discard the reply rather than calling
+    // setState to update our non-existent appearance.
+    if (!mounted) return;
+
+    setState(() {
+      _scanBarcode = barcodeScanRes;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -41,13 +78,7 @@ class MyApp extends StatelessWidget {
                       margin: const EdgeInsets.only(top: 40),
                       //height: 120,
                       child: TextButton.icon(
-                          onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) =>
-                                        HomePage(title: "Mapa teste")));
-                          },
+                          onPressed: () => scanQR(),
                           icon: Image.asset('assets/qr_wia.png'),
                           label: Text(""))),
                   Column(children: const [
