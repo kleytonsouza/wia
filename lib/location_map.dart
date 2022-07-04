@@ -84,8 +84,8 @@ class _HomePageState extends State<Location> {
             //height: 560,
             child: FlutterMap(
               options: MapOptions(
-                center: LatLng(-25.42901, -49.26744),
-                //center: LatLng(loc[0], loc[1]),
+                //center: LatLng(-25.42901, -49.26744),
+                center: LatLng(loc[0], loc[1]),
                 zoom: 19,
               ),
               layers: [
