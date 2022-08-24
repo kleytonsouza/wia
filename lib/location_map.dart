@@ -2,57 +2,69 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
-class HomePage extends StatefulWidget {
-  HomePage({Key? key, required this.title}) : super(key: key);
+class Location extends StatefulWidget {
+  Location({Key? key, required this.title, required this.loc})
+      : super(key: key);
 
   final String title;
+  List<String> loc;
 
   @override
   _HomePageState createState() => _HomePageState();
 }
 
 //-25.39954147933631, -49.250469280756825
-class _HomePageState extends State<HomePage> {
+class _HomePageState extends State<Location> {
   final List<String> _locations = [
-   '1 Gabinete - Financeiro',
-   '2 Gabinete - Secretaria',
-   '3 COPEG', 
-   '4 COPAC',
-   '5 COPAP - Seção de Acompanhamento Acadêmico (SAAC)',
-   '6 COPAP - Seção de Gerenciamento Acadêmico (SGA)',
-   '7 COPAP - Unidade de Diplomas (UD)',
-   '8 COPAP - Seção de Ocupação de Vaga (SOCV)',
-   '9 COAFE - Unidade de Estágios (UE)',
-   '10 COAFE - Unidades de Atividades Formativas (UAF)',
-   '11 COSIS - Coord de Sistemas de Informação para a Gestão Acadêmica',
-   '12 CIPEAD - Unidade Administrativa',
-   '13 CIPEAD - Unidade Pedagógica',
-   '14 CIPEAD - LabCIPEAD',
-   '15 CIPEAD - Equipe Multidisciplinar'];
+    '1 Gabinete - Financeiro',
+    '2 Gabinete - Secretaria',
+    '3 COPEG',
+    '4 COPAC',
+    '5 COPAP - Seção de Acompanhamento Acadêmico (SAAC)',
+    '6 COPAP - Seção de Gerenciamento Acadêmico (SGA)',
+    '7 COPAP - Unidade de Diplomas (UD)',
+    '8 COPAP - Seção de Ocupação de Vaga (SOCV)',
+    '9 COAFE - Unidade de Estágios (UE)',
+    '10 COAFE - Unidades de Atividades Formativas (UAF)',
+    '11 COSIS - Coord de Sistemas de Informação para a Gestão Acadêmica',
+    '12 CIPEAD - Unidade Administrativa',
+    '13 CIPEAD - Unidade Pedagógica',
+    '14 CIPEAD - LabCIPEAD',
+    '15 CIPEAD - Equipe Multidisciplinar'
+  ];
   var currentSelectedValue;
   
+  get loc => loc;
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Você esta aqui."),
-      ),
-      body: Column(
-        children: [
-          Container(
-            color: Colors.cyan,
-            child:DropdownButton(
+        appBar: AppBar(
+          title: const Text("Você esta aqui."),
+        ),
+        body: Column(children: [
+          Row(children: [
+            Expanded(
+                child:
+                    //color: Colors.cyan,
+                    DropdownButton(
+              dropdownColor: const Color.fromRGBO(176, 224, 247, 0.973),
               style: const TextStyle(
-                          fontSize: 12.5,
-                          color: Colors.black,
-                          fontFamily: "verdana_regular",
-                        ),
-              hint: const Text(' Please choose a location', style: TextStyle(
-                            color: Colors.black,
-                            //fontSize: 16,
-                            fontFamily: "verdana_regular",
-                          )
-                          ), 
+                fontSize: 10.5,
+                color: Colors.black,
+                fontFamily: "verdana_regular",
+              ),
+              hint: Text(loc,
+                  style: TextStyle(
+                    color: Colors.black,
+                    //fontSize: 16,
+                    fontFamily: "verdana_regular",
+                  )),
               value: currentSelectedValue,
               isDense: true,
               onChanged: (newValue) {
@@ -60,54 +72,54 @@ class _HomePageState extends State<HomePage> {
                   currentSelectedValue = newValue;
                 });
               },
-              items: _locations.map((location) {
+              items: _locations.map((location1) {
                 return DropdownMenuItem(
-                  child: Text(location),
-                  value: location,
+                  value: location1,
+                  child: Text(location1),
                 );
               }).toList(),
-            )
-          ),
-           Container(
-             height: 580,
-              child: FlutterMap(
-                options: MapOptions(
-                  center: LatLng(-25.42901, -49.26744),
-                  zoom: 19,
-                ),
-                layers: [
-                  TileLayerOptions(
-                      maxZoom: 22,
-                      urlTemplate: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                      subdomains: ['a', 'b', 'c'],
-                      attributionBuilder: (_) {
-                      return Text("");
-                      },
-                      ),
-                  MarkerLayerOptions(
-                    markers: [
-                      Marker(
-                        point: LatLng(-25.42901, -49.26744),
-                        builder: (ctx) => Icon(Icons.pin_drop, color: Colors.red),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            
-          ),
+            ))
+          ]),
           Expanded(
-            child: Container(
-              //height: 5,
-              color: Color.fromRGBO(1, 63, 122, 1),
+            //height: 560,
+            child: FlutterMap(
+              options: MapOptions(
+                //center: LatLng(-25.42901, -49.26744),
+                center: LatLng(loc[0], loc[1]),
+                zoom: 19,
+              ),
+              layers: [
+                TileLayerOptions(
+                  maxZoom: 22,
+                  urlTemplate:
+                      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                  subdomains: ['a', 'b', 'c'],
+                  attributionBuilder: (_) {
+                    return const Text("");
+                  },
+                ),
+                MarkerLayerOptions(
+                  markers: [
+                    Marker(
+                      point: LatLng(-25.42901, -49.26744),
+                      builder: (ctx) =>
+                          const Icon(Icons.pin_drop, color: Colors.red),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+          ),
+          Container(
+              height: 35,
+              color: const Color.fromRGBO(1, 63, 122, 1),
               child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [Text( "©2021 - Universidade Federal do Paraná", textAlign: TextAlign.center, style: TextStyle(color: Colors.white ))]
-              )
-            )
-          )
-        ]
-      )
-    );
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const [
+                    Text("©2021 - Universidade Federal do Paraná",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(color: Colors.white))
+                  ]))
+        ]));
   }
 }
