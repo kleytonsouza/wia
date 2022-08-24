@@ -4,7 +4,6 @@ import 'dart:async';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 
 // import 'location_map.dart';
-
 void main() {
   runApp(MyApp());
 }
