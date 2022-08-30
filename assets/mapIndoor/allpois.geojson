@@ -1,0 +1,95 @@
+{
+    "building": {
+        "floors": [
+            {
+                "floor_number": "0",
+                "pois": [
+                    {
+                        "name": "Atendimento",
+                        "description": "Atendimento PROGRAD",
+                        "puid": "poi_2ec63105-277c-420b-b8d6-4a7dbc77e044",
+                        "pois_type": "Room",
+                        "coordinates_lat": "-25.42891599286216",
+                        "coordinates_lon": "-49.26778987109692",
+                        "overwrite": "false",
+                        "is_building_entrance": "true"
+                    },
+                    {
+                        "name": "COSIS",
+                        "description": "informatica prograd",
+                        "puid": "poi_1a3cbc24-0d60-429d-af6d-54a60c219238",
+                        "pois_type": "Room",
+                        "coordinates_lat": "-25.428866940201342",
+                        "coordinates_lon": "-49.26787484741534",
+                        "overwrite": "false",
+                        "is_building_entrance": "false"
+                    },
+                    {
+                        "name": "CIPEAD",
+                        "description": "Educacao a distancia",
+                        "puid": "poi_1d76a160-c91a-49bd-96d4-aabcd348fabe",
+                        "pois_type": "Room",
+                        "coordinates_lat": "-25.429346601036116",
+                        "coordinates_lon": "-49.267693103338694",
+                        "overwrite": "false",
+                        "is_building_entrance": "false"
+                    },
+                    {
+                        "name": "COPAC",
+                        "description": "unidade de diplomas",
+                        "puid": "poi_1e92cfa4-809f-4c6c-8df3-6adf3b8e00a3",
+                        "pois_type": "Room",
+                        "coordinates_lat": "-25.429374230148117",
+                        "coordinates_lon": "-49.26756194265222",
+                        "overwrite": "false",
+                        "is_building_entrance": "false"
+                    },
+                    {
+                        "name": "COAFE",
+                        "description": "Unidade de Estagio",
+                        "puid": "poi_1d9d3e88-557a-4829-a6f6-abecaa9ef30e",
+                        "pois_type": "Room",
+                        "coordinates_lat": "-25.42928407598989",
+                        "coordinates_lon": "-49.2674235994412",
+                        "overwrite": "false",
+                        "is_building_entrance": "false"
+                    },
+                    {
+                        "name": "Entrada",
+                        "description": "entrada e saida",
+                        "puid": "poi_e964a587-0d50-449e-aad8-a7a7cca3938a",
+                        "pois_type": "Entrance",
+                        "coordinates_lat": "-25.429017353781557",
+                        "coordinates_lon": "-49.26744904190146",
+                        "overwrite": "false",
+                        "is_building_entrance": "true"
+                    },
+                    {
+                        "name": "Entrada lateral",
+                        "description": "entrada e saida lateral rua bufren",
+                        "puid": "poi_28c6fbec-9a20-486a-b051-b79a62ee08c4",
+                        "pois_type": "Entrance",
+                        "coordinates_lat": "-25.42875177229895",
+                        "coordinates_lon": "-49.26782005762164",
+                        "overwrite": "false",
+                        "is_building_entrance": "true"
+                    },
+                    {
+                        "name": "Biblioteca",
+                        "description": "biblioteca",
+                        "puid": "poi_9e75e70a-c05d-44c0-bdff-c402ec2c7156",
+                        "pois_type": "Room",
+                        "coordinates_lat": "-25.428830169535484",
+                        "coordinates_lon": "-49.26774767483376",
+                        "overwrite": "false",
+                        "is_building_entrance": "false"
+                    }
+                ]
+            }
+        ],
+        "buid": "building_c3d3ac09-e3d8-4f96-a5f5-03267ea9e11f_1661374253683",
+        "name": "predio historico",
+        "coordinates_lat": "-25.428701311625034",
+        "coordinates_lon": "-49.267803282142"
+    }
+}
