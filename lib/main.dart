@@ -1,13 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-<<<<<<< HEAD
 
 // import 'location_map.dart';
-=======
 import 'package:wia/location_map.dart';
 
->>>>>>> 82fad8e5774acf825318a1a534bc0438a2971f7f
 void main() {
 
   WidgetsFlutterBinding.ensureInitialized();
