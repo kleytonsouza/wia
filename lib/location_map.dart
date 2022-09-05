@@ -10,11 +10,13 @@ class Location extends StatefulWidget {
   List<String> loc;
 
   @override
-  _HomePageState createState() => _HomePageState();
+  _Location createState() => _Location();
 }
 
 //-25.39954147933631, -49.250469280756825
-class _HomePageState extends State<Location> {
+class _Location extends State<Location> {
+  final MapController _controller = MapController();
+
   final List<String> _locations = [
     '1 Gabinete - Financeiro',
     '2 Gabinete - Secretaria',
@@ -33,8 +35,8 @@ class _HomePageState extends State<Location> {
     '15 CIPEAD - Equipe Multidisciplinar'
   ];
   var currentSelectedValue;
-  
-  get loc => loc;
+
+  //get loc => _locations;
 
   @override
   void initState() {
@@ -43,6 +45,7 @@ class _HomePageState extends State<Location> {
 
   @override
   Widget build(BuildContext context) {
+    print("teste");
     return Scaffold(
         appBar: AppBar(
           title: const Text("Você esta aqui."),
@@ -50,16 +53,14 @@ class _HomePageState extends State<Location> {
         body: Column(children: [
           Row(children: [
             Expanded(
-                child:
-                    //color: Colors.cyan,
-                    DropdownButton(
+                child: DropdownButton(
               dropdownColor: const Color.fromRGBO(176, 224, 247, 0.973),
               style: const TextStyle(
                 fontSize: 10.5,
                 color: Colors.black,
                 fontFamily: "verdana_regular",
               ),
-              hint: Text(loc,
+              hint: Text(_locations[1],
                   style: TextStyle(
                     color: Colors.black,
                     //fontSize: 16,
@@ -83,6 +84,47 @@ class _HomePageState extends State<Location> {
           Expanded(
             //height: 560,
             child: FlutterMap(
+              mapController: _controller,
+              options: MapOptions(
+                //crs: Epsg4326(),
+                center: LatLng(-25.429096, -49.267650),
+                //maxZoom: 18,
+                minZoom: 18,
+                maxZoom: 22,
+                //nePanBoundary: LatLng(25.4286, -49.2672),
+                //swPanBoundary: LatLng(25.4295, -49.2680),
+                //zoom: 20,
+                //maxZoom: 20,
+                //minZoom: 18,
+              ),
+              layers: [
+                TileLayerOptions(
+                  tileProvider: AssetTileProvider(),
+                  //fastReplace: true,
+                  //retinaMode: true,
+                  //tileSize: 512,
+                  maxNativeZoom: 22,
+                  maxZoom: 22,
+                  tms: true,
+                  //zoomOffset: 1.0,
+                  //overrideTilesWhenUrlChanges: true,
+                  //x=coluna, y=linha, z=zoom
+                  //userAgentPackageName: 'com.example.app',
+                  urlTemplate: "k1_tms/Mapnik/{z}/{x}/{y}.png",
+                  //subdomains: ['a', 'b', 'c']
+                ),
+                MarkerLayerOptions(
+                  markers: [
+                    Marker(
+                      point: LatLng(-25.42949615561416, -49.26768522124001),
+                      builder: (ctx) =>
+                          const Icon(Icons.pin_drop, color: Colors.red),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            /* FlutterMap(
               options: MapOptions(
                 //center: LatLng(-25.42901, -49.26744),
                 center: LatLng(loc[0], loc[1]),
@@ -108,7 +150,7 @@ class _HomePageState extends State<Location> {
                   ],
                 ),
               ],
-            ),
+            ), */
           ),
           Container(
               height: 35,

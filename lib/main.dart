@@ -6,7 +6,6 @@ import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:wia/location_map.dart';
 
 void main() {
-
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations(
       [DeviceOrientation.portraitUp, DeviceOrientation.portraitDown]);
@@ -14,50 +13,58 @@ void main() {
   runApp(MaterialApp(title: "WIA", home: MyApp()));
 }
 
-class MyApp extends StatefulWidget {
-  @override
-  _MyAppState createState() => _MyAppState();
-}
+class MyApp extends StatelessWidget {
 
-class _MyAppState extends State<MyApp> {
-  String _scanBarcode = 'Unknown';
+// class MyApp extends StatefulWidget {
+//   @override
+//   _MyAppState createState() => _MyAppState();
+// }
 
- 
-  @override
-  void initState() {
-    super.initState();
-  }
+// class _MyAppState extends State<MyApp> {
+//   String _scanBarcode = 'Unknown';
 
-  Future<void> scanQR() async {
-    String barcodeScanRes;
-    // Platform messages may fail, so we use a try/catch PlatformException.
-    try {
-      barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
-          '#ff6666', 'Cancel', true, ScanMode.QR);
-      print(barcodeScanRes + " tetetete");
-      Navigator.push(context, MaterialPageRoute(builder: (context) => Location(title: "teste", loc: barcodeScanRes.split(','))));
-    } on PlatformException {
-      barcodeScanRes = 'Failed to get platform version.';
-    }
+//   @override
+//   void initState() {
+//     super.initState();
+//   }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
-    if (!mounted) return;
+//   Future<void> scanQR() async {
+//     String barcodeScanRes;
+//     // Platform messages may fail, so we use a try/catch PlatformException.
+//     try {
+//       barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
+//           '#ff6666', 'Cancel', true, ScanMode.QR);
+//       print(barcodeScanRes + " tetetete");
+//       Navigator.push(
+//           context,
+//           MaterialPageRoute(
+//               builder: (context) =>
+//                   Location(title: "teste", loc: barcodeScanRes.split(','))));
+//     } on PlatformException {
+//       barcodeScanRes = 'Failed to get platform version.';
+//     }
 
-    setState(() {
-      _scanBarcode = barcodeScanRes;
-    });
-  }
+//     // If the widget was removed from the tree while the asynchronous platform
+//     // message was in flight, we want to discard the reply rather than calling
+//     // setState to update our non-existent appearance.
+//     if (!mounted) return;
+
+//     setState(() {
+//       _scanBarcode = barcodeScanRes;
+//     });
+//   }
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      theme: ThemeData.light(),
         home: Container(
             decoration: BoxDecoration(
-                image: DecorationImage(
-                    image: AssetImage('assets/ufpr_extc.png'),
-                    fit: BoxFit.fill)),
+              image: DecorationImage(
+                image: AssetImage('assets/ufpr_extc.png'),
+                fit: BoxFit.fill,
+              ),
+            ),
             child: Scaffold(
                 backgroundColor: Colors.transparent,
                 appBar: AppBar(
@@ -66,23 +73,38 @@ class _MyAppState extends State<MyApp> {
                   centerTitle: true,
                   backgroundColor: Colors.black,
                   leading: IconButton(
-                      onPressed: null,
-                      icon: Icon(Icons.list, color: Colors.white)),
+                    onPressed: null,
+                    icon: Icon(Icons.list, color: Colors.white),
+                  ),
                 ),
                 body: Column(children: [
                   Expanded(
-                      child: Container(
-                          decoration: const BoxDecoration(
-                              image: DecorationImage(
-                                  alignment: Alignment.bottomCenter,
-                                  image: AssetImage('assets/map_mask.png'))))),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          alignment: Alignment.bottomCenter,
+                          image: AssetImage('assets/map_mask.png'),
+                        ),
+                      ),
+                    ),
+                  ),
                   Container(
-                      margin: const EdgeInsets.only(top: 40),
-                      //height: 120,
-                      child: TextButton.icon(
-                          onPressed: () => scanQR(),
-                          icon: Image.asset('assets/qr_wia.png'),
-                          label: Text(""))),
+                    margin: const EdgeInsets.only(top: 40),
+                    //height: 120,
+                    child: TextButton.icon(
+                      // onPressed: () => scanQR(),
+                      onPressed: () => Navigator.of(context).push(
+                        MaterialPageRoute(
+                          builder: (_) => Location(
+                            title: "titulo teste",
+                            loc: ["25.42904, -49.26752"],
+                          ),
+                        ),
+                      ),
+                      icon: Image.asset('assets/qr_wia.png'),
+                      label: Text(""),
+                    ),
+                  ),
                   Column(children: const [
                     TextButton(
                         onPressed: null,
