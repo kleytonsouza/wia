@@ -18,7 +18,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: ">=2.12.0 <3.0.0"
+  sdk: ">=2.12.0 <3.0.1"
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -32,15 +32,15 @@ dependencies:
 
   geocoding: ^2.0.1
   #geolocator: ^8.2.1
-  flutter_map: any
+  flutter_map: ^3.0.0
 
   flutter_barcode_scanner: ^2.0.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  vector_map_tiles: ^2.4.0
-  vector_tile_renderer: ^2.6.2
+  #vector_map_tiles: ^2.4.0
+  #vector_tile_renderer: ^2.6.2
 
 dev_dependencies:
   flutter_test:
@@ -77,6 +77,29 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/
+    - assets/k1_tms/Mapnik/18/95196/
+    - assets/k1_tms/Mapnik/19/190392/
+    - assets/k1_tms/Mapnik/19/190393/
+    - assets/k1_tms/Mapnik/20/380784/
+    - assets/k1_tms/Mapnik/20/380785/
+    - assets/k1_tms/Mapnik/20/380786/
+    - assets/k1_tms/Mapnik/21/761568/
+    - assets/k1_tms/Mapnik/21/761569/
+    - assets/k1_tms/Mapnik/21/761570/
+    - assets/k1_tms/Mapnik/21/761571/
+    - assets/k1_tms/Mapnik/21/761572/
+    - assets/k1_tms/Mapnik/21/761573/
+    - assets/k1_tms/Mapnik/22/1523137/
+    - assets/k1_tms/Mapnik/22/1523138/
+    - assets/k1_tms/Mapnik/22/1523139/
+    - assets/k1_tms/Mapnik/22/1523140/
+    - assets/k1_tms/Mapnik/22/1523141/
+    - assets/k1_tms/Mapnik/22/1523142/
+    - assets/k1_tms/Mapnik/22/1523143/
+    - assets/k1_tms/Mapnik/22/1523144/
+    - assets/k1_tms/Mapnik/22/1523145/
+    - assets/k1_tms/Mapnik/22/1523146/
+  #  - assets/k1_tms/Mapnik/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

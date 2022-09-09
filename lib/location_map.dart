@@ -36,7 +36,8 @@ class _Location extends State<Location> {
   ];
   var currentSelectedValue;
 
-  //get loc => _locations;
+  List<String> get locations => _locations;
+  get qrCodeLocation => widget.loc;
 
   @override
   void initState() {
@@ -45,12 +46,12 @@ class _Location extends State<Location> {
 
   @override
   Widget build(BuildContext context) {
-    print("teste");
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Você esta aqui."),
-        ),
-        body: Column(children: [
+      appBar: AppBar(
+        title: const Text("Você esta aqui."),
+      ),
+      body: Column(
+        children: [
           Row(children: [
             Expanded(
                 child: DropdownButton(
@@ -73,7 +74,7 @@ class _Location extends State<Location> {
                   currentSelectedValue = newValue;
                 });
               },
-              items: _locations.map((location1) {
+              items: locations.map((location1) {
                 return DropdownMenuItem(
                   value: location1,
                   child: Text(location1),
@@ -81,50 +82,59 @@ class _Location extends State<Location> {
               }).toList(),
             ))
           ]),
-          Expanded(
+          Flexible(
             //height: 560,
             child: FlutterMap(
-              mapController: _controller,
+              //mapController: _controller,
               options: MapOptions(
                 //crs: Epsg4326(),
                 center: LatLng(-25.429096, -49.267650),
                 //maxZoom: 18,
                 minZoom: 18,
                 maxZoom: 22,
-                //nePanBoundary: LatLng(25.4286, -49.2672),
-                //swPanBoundary: LatLng(25.4295, -49.2680),
-                //zoom: 20,
+                swPanBoundary: LatLng(-25.429230511601687, -49.268042791805925),
+                nePanBoundary: LatLng(-25.42886227622278, -49.267256952072394),
+                //-49.268042791805925,-25.429530511601687,-49.267256952072394,-25.42866227622278
+                zoom: 18,
                 //maxZoom: 20,
                 //minZoom: 18,
               ),
-              layers: [
-                TileLayerOptions(
+              children: [
+                TileLayer(
+                  //evictErrorTileStrategy: EvictErrorTileStrategy.dispose,
                   tileProvider: AssetTileProvider(),
                   //fastReplace: true,
-                  //retinaMode: true,
-                  //tileSize: 512,
-                  maxNativeZoom: 22,
+                  //maxNativeZoom: 22,
                   maxZoom: 22,
                   tms: true,
                   //zoomOffset: 1.0,
                   //overrideTilesWhenUrlChanges: true,
                   //x=coluna, y=linha, z=zoom
                   //userAgentPackageName: 'com.example.app',
-                  urlTemplate: "k1_tms/Mapnik/{z}/{x}/{y}.png",
+                  urlTemplate: "assets/k1_tms/Mapnik/{z}/{x}/{y}.png",
+
                   //subdomains: ['a', 'b', 'c']
                 ),
-                MarkerLayerOptions(
+                MarkerLayer(
                   markers: [
                     Marker(
-                      point: LatLng(-25.42949615561416, -49.26768522124001),
+                      //point: LatLng(-25.4288948, -49.2677837),
+                      point: LatLng(double.parse(qrCodeLocation[0]),
+                          double.parse(qrCodeLocation[1])),
                       builder: (ctx) =>
                           const Icon(Icons.pin_drop, color: Colors.red),
                     ),
+                    // Marker(
+                    //   point: LatLng(-25.428939146212095, -49.2676594759263),
+                    //   builder: (ctx) =>
+                    //       const Icon(Icons.pin_drop, color: Colors.blue),
+                    // )
                   ],
                 ),
               ],
             ),
-            /* FlutterMap(
+          ),
+          /* FlutterMap(
               options: MapOptions(
                 //center: LatLng(-25.42901, -49.26744),
                 center: LatLng(loc[0], loc[1]),
@@ -151,7 +161,6 @@ class _Location extends State<Location> {
                 ),
               ],
             ), */
-          ),
           Container(
               height: 35,
               color: const Color.fromRGBO(1, 63, 122, 1),
@@ -162,6 +171,8 @@ class _Location extends State<Location> {
                         textAlign: TextAlign.center,
                         style: TextStyle(color: Colors.white))
                   ]))
-        ]));
+        ],
+      ),
+    );
   }
 }
