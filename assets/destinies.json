@@ -29,7 +29,7 @@
                         "is_building_entrance": "false"
                     },
                     {
-                        "name": "COPAC",
+                        "name": "COPAP",
                         "description": "unidade de diplomas",
                         "puid": "poi_1e92cfa4-809f-4c6c-8df3-6adf3b8e00a3",
                         "pois_type": "Room",

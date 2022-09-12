@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:wia/models/sector.dart';
+import 'package:wia/data/sector_data.dart';
 
 class Location extends StatefulWidget {
-  Location({Key? key, required this.title, required this.loc})
-      : super(key: key);
+  Location({Key? key, required this.sector}) : super(key: key);
 
-  final String title;
-  List<String> loc;
+  Sector sector;
 
   @override
   _Location createState() => _Location();
@@ -15,29 +15,44 @@ class Location extends StatefulWidget {
 
 //-25.39954147933631, -49.250469280756825
 class _Location extends State<Location> {
-  final MapController _controller = MapController();
+  //final MapController _controller = MapController();
+  Sector currentSelectedValue = locations[0];
+  
+  bool setDestiny = false;
+  
+  List<Marker> markers() {
+    if (setDestiny == true) {
+      return [
+        Marker(
+          //point: LatLng(-25.4288948, -49.2677837),
+          width: 90,
+          height: 90,
+          point: LatLng(double.parse(sector.coordinate[0]),
+              double.parse(sector.coordinate[1])),
+          builder: (ctx) => const Icon(Icons.pin_drop, color: Colors.red),
+        ),
+        Marker(
+          //point: LatLng(-25.4288948, -49.2677837),
+          width: 90,
+          height: 90,
+          point: LatLng(double.parse(currentSelectedValue.coordinate[0]),
+              double.parse(currentSelectedValue.coordinate[1])),
+          builder: (ctx) => const Icon(Icons.pin_drop, color: Colors.deepPurple, ),
+        ),
+      ];
+    } else {
+      return [
+        Marker(
+          //point: LatLng(-25.4288948, -49.2677837),
+          point: LatLng(double.parse(sector.coordinate[0]),
+              double.parse(sector.coordinate[1])),
+          builder: (ctx) => const Icon(Icons.pin_drop, color: Colors.red),
+        ),
+      ];
+    }
+  }
 
-  final List<String> _locations = [
-    '1 Gabinete - Financeiro',
-    '2 Gabinete - Secretaria',
-    '3 COPEG',
-    '4 COPAC',
-    '5 COPAP - Seção de Acompanhamento Acadêmico (SAAC)',
-    '6 COPAP - Seção de Gerenciamento Acadêmico (SGA)',
-    '7 COPAP - Unidade de Diplomas (UD)',
-    '8 COPAP - Seção de Ocupação de Vaga (SOCV)',
-    '9 COAFE - Unidade de Estágios (UE)',
-    '10 COAFE - Unidades de Atividades Formativas (UAF)',
-    '11 COSIS - Coord de Sistemas de Informação para a Gestão Acadêmica',
-    '12 CIPEAD - Unidade Administrativa',
-    '13 CIPEAD - Unidade Pedagógica',
-    '14 CIPEAD - LabCIPEAD',
-    '15 CIPEAD - Equipe Multidisciplinar'
-  ];
-  var currentSelectedValue;
-
-  List<String> get locations => _locations;
-  get qrCodeLocation => widget.loc;
+  Sector get sector => widget.sector;
 
   @override
   void initState() {
@@ -46,42 +61,53 @@ class _Location extends State<Location> {
 
   @override
   Widget build(BuildContext context) {
+    //List<String> qrSplitted = qrCodeLocation.coordinate.split(',');
+    String nameSector = locations
+        .firstWhere((element) => element.coordinate == sector.coordinate)
+        .name;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Você esta aqui."),
+        title: Text("Você esta na $nameSector"),
       ),
       body: Column(
         children: [
-          Row(children: [
-            Expanded(
-                child: DropdownButton(
-              dropdownColor: const Color.fromRGBO(176, 224, 247, 0.973),
-              style: const TextStyle(
-                fontSize: 10.5,
-                color: Colors.black,
-                fontFamily: "verdana_regular",
-              ),
-              hint: Text(_locations[1],
+          Row(
+            children: [
+              Expanded(
+                  child: DropdownButton(
+                dropdownColor: const Color.fromRGBO(176, 224, 247, 0.973),
+                style: const TextStyle(
+                  fontSize: 10.5,
+                  color: Colors.black,
+                  fontFamily: "verdana_regular",
+                ),
+                hint: const Text(
+                  "Selecione um Destino:",
                   style: TextStyle(
                     color: Colors.black,
                     //fontSize: 16,
                     fontFamily: "verdana_regular",
-                  )),
-              value: currentSelectedValue,
-              isDense: true,
-              onChanged: (newValue) {
-                setState(() {
-                  currentSelectedValue = newValue;
-                });
-              },
-              items: locations.map((location1) {
-                return DropdownMenuItem(
-                  value: location1,
-                  child: Text(location1),
-                );
-              }).toList(),
-            ))
-          ]),
+                  ),
+                ),
+                value: currentSelectedValue,
+                isDense: true,
+                onChanged: (newValue) {
+                  newValue as Sector;
+                  setState(() {
+                    currentSelectedValue = newValue;
+                    setDestiny = true;
+                  });
+                },
+                items: locations.map((loc) {
+                  return DropdownMenuItem(
+                    value: loc,
+                    child: Text(loc.name),
+                  );
+                }).toList(),
+              )),
+            ],
+          ),
           Flexible(
             //height: 560,
             child: FlutterMap(
@@ -95,7 +121,7 @@ class _Location extends State<Location> {
                 swPanBoundary: LatLng(-25.429230511601687, -49.268042791805925),
                 nePanBoundary: LatLng(-25.42886227622278, -49.267256952072394),
                 //-49.268042791805925,-25.429530511601687,-49.267256952072394,-25.42866227622278
-                zoom: 18,
+                zoom: 19,
                 //maxZoom: 20,
                 //minZoom: 18,
               ),
@@ -116,20 +142,7 @@ class _Location extends State<Location> {
                   //subdomains: ['a', 'b', 'c']
                 ),
                 MarkerLayer(
-                  markers: [
-                    Marker(
-                      //point: LatLng(-25.4288948, -49.2677837),
-                      point: LatLng(double.parse(qrCodeLocation[0]),
-                          double.parse(qrCodeLocation[1])),
-                      builder: (ctx) =>
-                          const Icon(Icons.pin_drop, color: Colors.red),
-                    ),
-                    // Marker(
-                    //   point: LatLng(-25.428939146212095, -49.2676594759263),
-                    //   builder: (ctx) =>
-                    //       const Icon(Icons.pin_drop, color: Colors.blue),
-                    // )
-                  ],
+                  markers: markers(),
                 ),
               ],
             ),

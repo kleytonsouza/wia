@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-
-// import 'location_map.dart';
 import 'package:wia/location_map.dart';
+
+import 'package:wia/data/sector_data.dart';
+
+import 'models/sector.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
@@ -20,18 +22,62 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
 // class MyApp extends StatefulWidget {
+  // Future<void> scanQR() async {
+  //   //String barcodeScanRes;
+  //   // Platform messages may fail, so we use a try/catch PlatformException.
+  //   try {
+  //     await FlutterBarcodeScanner.scanBarcode(
+  //       '#ff6666',
+  //       'Cancel',
+  //       true,
+  //       ScanMode.QR,
+  //     ).then(
+  //       (barcodeScanRes) {
+  //         Sector sector = locations.firstWhere(
+  //           (location) => location.coordinate == barcodeScanRes.split(","),
+  //         );
+  //         Navigator.push(
+  //           context,
+  //           MaterialPageRoute(
+  //             builder: (context) => Location(
+  //               sector: sector,
+  //             ),
+  //           ),
+  //         );
+  //       },
+  //     );
+  //   } on PlatformException {
+  //     print('Failed to get platform version.');
+  //   }
+
+  //   // If the widget was removed from the tree while the asynchronous platform
+  //   // message was in flight, we want to discard the reply rather than calling
+  //   // setState to update our non-existent appearance.
+  //   if (!mounted) return;
+
+  //   // setState(() {
+  //   //   _scanBarcode = barcodeScanRes;
+  //   // });
+  // }
+
   Future<void> scanQR() async {
     String barcodeScanRes;
     // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
           '#ff6666', 'Cancel', true, ScanMode.QR);
-      print(barcodeScanRes + " tetetete");
+      print(barcodeScanRes.split(","));
+      print("asdf");
+
+      Sector sector = locations.firstWhere(
+            (location) => location.coordinate[0] == barcodeScanRes.split(",")[0],
+          );
       Navigator.push(
           context,
           MaterialPageRoute(
-              builder: (context) =>
-                  Location(title: "teste", loc: barcodeScanRes.split(','))));
+              builder: (context) => Location(
+                    sector: sector,
+                  )));
     } on PlatformException {
       barcodeScanRes = 'Failed to get platform version.';
     }
@@ -91,15 +137,14 @@ class _MyAppState extends State<MyApp> {
                 //   context,
                 //   MaterialPageRoute(
                 //     builder: (context) => Location(
-                //       title: "titulo teste",
-                //       loc: ["-25.42904","-49.26752"],
+                //       sector: locations.firstWhere((element) => element.id == 7),
                 //     ),
                 //   ),
                 // ),
               ),
             ),
             Column(
-              children: [
+              children: const [
                 TextButton(
                     onPressed: null,
                     child: Text("Ler QR Code",
@@ -109,21 +154,21 @@ class _MyAppState extends State<MyApp> {
             Container(
                 margin: const EdgeInsets.only(top: 30),
                 //height: 20,
-                child: Text("©2021 - Universidade Federal do Paraná",
+                child: const Text("©2021 - Universidade Federal do Paraná",
                     style: TextStyle(color: Colors.white)))
           ]),
           drawer: Drawer(
             child: ListView(
-              children: [
+              children: const [
                 ListTile(
                   leading: Icon(Icons.account_circle),
                   title: Text("Login"),
-                  onTap: () {},
+                  onTap: null,
                 ),
                 ListTile(
                   leading: Icon(Icons.location_on),
                   title: Text("Compartilhar"),
-                  onTap: () {},
+                  onTap: null,
                 )
               ],
             ),

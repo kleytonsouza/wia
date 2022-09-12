@@ -1,0 +1,30 @@
+import 'package:wia/models/sector.dart';
+
+final List<Sector> locations = [
+    //'Selecione um destino:' : '',
+    const Sector(id: 0, name: "Selecione um destino", coordinate: ['00.00','00.00'], info: "Selecione um destino"),
+    const Sector(id: 1, name: "Atendimento PROGRAD", coordinate: ['-25.4288948','-49.2677837'], info: "Atendimento ao público PROGRAD"),
+    const Sector(id: 2, name: "Biblioteca", coordinate: ['-25.428810006','-49.26774100'], info: "Biblioteca jurídica"),
+    const Sector(id: 3, name: "COPAP", coordinate: ['-25.42937111','-49.26754533'], info: "Unidade de diplomas"),
+    //const Sector(id: 4, name: "CIPEAD ", coordinate: ['-25.42881006','-49.26774100'], info: "Educacao a distância"),
+    const Sector(id: 4, name: "CIPEAD", coordinate: ['-25.42933392','-49.26767055'], info: "Atendimento PROGRAD"),
+    const Sector(id: 5, name: "COAFE", coordinate: ['-25.42928025','-49.26741163'], info: "Unidade de Estágio"),
+    const Sector(id: 6, name: "COSIS", coordinate: ['-25.42885259','-49.26787655'], info: "Unidade de Informática"),
+    const Sector(id: 7, name: "Entrada/Saida Principal", coordinate: ['-25.42900698','-49.26745130'], info: "Entrada/Saida Principal pela Praça Santos Andrade"),
+    const Sector(id: 8, name: "Entrada/Saida Lateral", coordinate: ['-25.42876089','-49.26780696'], info: "Entrada/Saida Lateral pela rua Alfredo Bufren"),
+       // '1 Gabinete - Financeiro',
+    // '2 Gabinete - Secretaria',
+    // '3 COPEG',
+    // '4 COPAC',
+    // '5 COPAP - Seção de Acompanhamento Acadêmico (SAAC)',
+    // '6 COPAP - Seção de Gerenciamento Acadêmico (SGA)',
+    // '7 COPAP - Unidade de Diplomas (UD)',
+    // '8 COPAP - Seção de Ocupação de Vaga (SOCV)',
+    // '9 COAFE - Unidade de Estágios (UE)',
+    // '10 COAFE - Unidades de Atividades Formativas (UAF)',
+    // '11 COSIS - Coord de Sistemas de Informação para a Gestão Acadêmica',
+    // '12 CIPEAD - Unidade Administrativa',
+    // '13 CIPEAD - Unidade Pedagógica',
+    // '14 CIPEAD - LabCIPEAD',
+    // '15 CIPEAD - Equipe Multidisciplinar'
+  ];
