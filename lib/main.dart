@@ -70,14 +70,16 @@ class _MyAppState extends State<MyApp> {
       print("asdf");
 
       Sector sector = locations.firstWhere(
-            (location) => location.coordinate[0] == barcodeScanRes.split(",")[0],
-          );
+        (location) => location.coordinate[0] == barcodeScanRes.split(",")[0],
+      );
       Navigator.push(
-          context,
-          MaterialPageRoute(
-              builder: (context) => Location(
-                    sector: sector,
-                  )));
+        context,
+        MaterialPageRoute(
+          builder: (context) => Location(
+            sector: sector,
+          ),
+        ),
+      );
     } on PlatformException {
       barcodeScanRes = 'Failed to get platform version.';
     }
@@ -132,15 +134,15 @@ class _MyAppState extends State<MyApp> {
               child: TextButton.icon(
                 icon: Image.asset('assets/qr_wia.png'),
                 label: Text(""),
-                onPressed: () => scanQR(),
-                // onPressed: () => Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => Location(
-                //       sector: locations.firstWhere((element) => element.id == 7),
-                //     ),
-                //   ),
-                // ),
+                //onPressed: () => scanQR(),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Location(
+                      sector: locations.firstWhere((element) => element.id == 7),
+                    ),
+                  ),
+                ),
               ),
             ),
             Column(
