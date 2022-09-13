@@ -3,7 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:wia/location_map.dart';
 
-import 'package:wia/data/sector_data.dart';
+import 'package:wia/data/lst_sector_data.dart';
 
 import 'models/sector.dart';
 
@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
       print(barcodeScanRes.split(","));
       print("asdf");
 
-      Sector sector = sectorsLocations.firstWhere(
+      Sector sector = lstSector.firstWhere(
         (location) => location.coordinate[0] == barcodeScanRes.split(",")[0],
       );
       Navigator.push(
@@ -95,7 +95,7 @@ class _MyAppState extends State<MyApp> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => Location(
-                      sector: sectorsLocations.firstWhere((element) => element.id == 6),
+                      sector: lstSector.firstWhere((element) => element.id == 6),
                     ),
                   ),
                 ),

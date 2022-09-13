@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+
+import 'package:wia/route_from_to.dart';
 import 'package:wia/models/sector.dart';
-import 'package:wia/data/sector_data.dart';
+import 'package:wia/data/lst_all_vertex.dart';
+import 'data/lst_sector_data.dart';
+import 'models/point.dart';
 
 class Location extends StatefulWidget {
   Location({Key? key, required this.sector}) : super(key: key);
@@ -16,7 +20,7 @@ class Location extends StatefulWidget {
 //-25.39954147933631, -49.250469280756825
 class _Location extends State<Location> {
   //final MapController _controller = MapController();
-  Sector currentSelectedValue = sectorsLocations[0];
+  Sector currentSelectedValue = lstSector[0];
 
   bool setDestiny = false;
 
@@ -66,7 +70,7 @@ class _Location extends State<Location> {
     }
   }
 
-  List<Polyline> routeBetweenTwoPoints() {
+  List<Polyline> routeBetweenTwoPoints(int from, int to) {
     List<Polyline> points = [];
     if (setDestiny == false) {
       points.add(
@@ -79,16 +83,25 @@ class _Location extends State<Location> {
       );
       return points;
     }
+    List routeFromTo = RouteFromTo(idFrom: from, idTo: to).listPoints;
     points.add(
       Polyline(points: [
-        LatLng(double.parse(sector.coordinate[0]),
-            double.parse(sector.coordinate[1])),
-        LatLng(-25.42886220, -49.26787319),
-        LatLng(-25.42882776, -49.2677764),
-        LatLng(double.parse(sectorsLocations[8].coordinate[0]),
-            double.parse(sectorsLocations[8].coordinate[1])),
+        ...routeFromTo.map((id) {
+          Point vertex = allVertex.firstWhere((vertex) => vertex.id == id);
+          return LatLng(double.parse(vertex.coordinate[0]) , double.parse(vertex.coordinate[1]),);
+        }),
       ], color: Colors.blue, strokeWidth: 6),
     );
+    // List routeFromTo = RouteFromTo(idFrom: from, idTo: to).listPoints;
+    // points.add(
+    //   Polyline(points: [
+    //     LatLng(double.parse(sector.coordinate[0]),
+    //         double.parse(sector.coordinate[1])),
+    //     LatLng(-25.42886220, -49.26787319),
+    //     LatLng(-25.42882776, -49.2677764),
+    //     LatLng(double.parse(sectorsLocations[8].coordinate[0]),
+    //         double.parse(sectorsLocations[8].coordinate[1])),
+    //   ], color: Colors.blue, strokeWidth: 6),
     //points.add(LatLng());
 
     return points;
@@ -104,7 +117,7 @@ class _Location extends State<Location> {
   @override
   Widget build(BuildContext context) {
     //List<String> qrSplitted = qrCodeLocation.coordinate.split(',');
-    String nameSector = sectorsLocations
+    String nameSector = lstSector
         .firstWhere((element) => element.coordinate == sector.coordinate)
         .name;
 
@@ -146,11 +159,12 @@ class _Location extends State<Location> {
                     setState(
                       () {
                         currentSelectedValue = newValue;
-                        setDestiny = true;
+                        setDestiny =
+                            currentSelectedValue.id != 0 ? true : false;
                       },
                     );
                   },
-                  items: sectorsLocations.map((loc) {
+                  items: lstSector.map((loc) {
                     return DropdownMenuItem(
                       value: loc,
                       child: Text(loc.name),
@@ -182,7 +196,8 @@ class _Location extends State<Location> {
                 ),
                 PolylineLayer(
                   //polylineCulling: false,
-                  polylines: routeBetweenTwoPoints(),
+                  polylines:
+                      routeBetweenTwoPoints(sector.id, currentSelectedValue.id),
                 ),
               ],
             ),

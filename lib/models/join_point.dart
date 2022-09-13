@@ -1,13 +1,11 @@
 
-class JoinPoint {
-  final int id;
-  final String name;
-  final List<String> coordinate;
-  final String info;
+import 'point.dart';
 
-  const JoinPoint(
-      {required this.id,
-      required this.name,
-      required this.coordinate,
-      this.info = "Ponto de Junção"});
+class JoinPoint extends Point{
+
+  JoinPoint(
+      {required int id,
+      String name = "Joint Point",
+      required List<String> coordinate,
+      }) : super(id: id, coordinate: coordinate, name: name);
 }
