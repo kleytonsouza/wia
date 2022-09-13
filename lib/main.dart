@@ -21,44 +21,6 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-// class MyApp extends StatefulWidget {
-  // Future<void> scanQR() async {
-  //   //String barcodeScanRes;
-  //   // Platform messages may fail, so we use a try/catch PlatformException.
-  //   try {
-  //     await FlutterBarcodeScanner.scanBarcode(
-  //       '#ff6666',
-  //       'Cancel',
-  //       true,
-  //       ScanMode.QR,
-  //     ).then(
-  //       (barcodeScanRes) {
-  //         Sector sector = locations.firstWhere(
-  //           (location) => location.coordinate == barcodeScanRes.split(","),
-  //         );
-  //         Navigator.push(
-  //           context,
-  //           MaterialPageRoute(
-  //             builder: (context) => Location(
-  //               sector: sector,
-  //             ),
-  //           ),
-  //         );
-  //       },
-  //     );
-  //   } on PlatformException {
-  //     print('Failed to get platform version.');
-  //   }
-
-  //   // If the widget was removed from the tree while the asynchronous platform
-  //   // message was in flight, we want to discard the reply rather than calling
-  //   // setState to update our non-existent appearance.
-  //   if (!mounted) return;
-
-  //   // setState(() {
-  //   //   _scanBarcode = barcodeScanRes;
-  //   // });
-  // }
 
   Future<void> scanQR() async {
     String barcodeScanRes;
@@ -84,14 +46,8 @@ class _MyAppState extends State<MyApp> {
       barcodeScanRes = 'Failed to get platform version.';
     }
 
-    // If the widget was removed from the tree while the asynchronous platform
-    // message was in flight, we want to discard the reply rather than calling
-    // setState to update our non-existent appearance.
     if (!mounted) return;
 
-    // setState(() {
-    //   _scanBarcode = barcodeScanRes;
-    // });
   }
 
   @override
@@ -134,12 +90,12 @@ class _MyAppState extends State<MyApp> {
               child: TextButton.icon(
                 icon: Image.asset('assets/qr_wia.png'),
                 label: Text(""),
-                //onPressed: () => scanQR(),
+                // onPressed: () => scanQR(),
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
                     builder: (context) => Location(
-                      sector: locations.firstWhere((element) => element.id == 7),
+                      sector: locations.firstWhere((element) => element.id == 6),
                     ),
                   ),
                 ),
@@ -160,6 +116,7 @@ class _MyAppState extends State<MyApp> {
                     style: TextStyle(color: Colors.white)))
           ]),
           drawer: Drawer(
+
             child: ListView(
               children: const [
                 ListTile(

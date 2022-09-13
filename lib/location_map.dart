@@ -17,47 +17,89 @@ class Location extends StatefulWidget {
 class _Location extends State<Location> {
   //final MapController _controller = MapController();
   Sector currentSelectedValue = locations[0];
-  
+
   bool setDestiny = false;
-  
+
   List<Marker> markers() {
     if (setDestiny == true) {
       return [
         Marker(
           //point: LatLng(-25.4288948, -49.2677837),
-          width: 90,
-          height: 90,
+          width: 50,
+          height: 50,
           point: LatLng(double.parse(sector.coordinate[0]),
               double.parse(sector.coordinate[1])),
-          builder: (ctx) => const Icon(Icons.pin_drop, color: Colors.red),
+          builder: (ctx) => const Icon(
+            Icons.location_on,
+            color: Colors.red,
+            size: 50,
+          ),
         ),
         Marker(
           //point: LatLng(-25.4288948, -49.2677837),
-          width: 90,
-          height: 90,
+          width: 50,
+          height: 50,
           point: LatLng(double.parse(currentSelectedValue.coordinate[0]),
               double.parse(currentSelectedValue.coordinate[1])),
-          builder: (ctx) => const Icon(Icons.pin_drop, color: Colors.deepPurple, ),
+          builder: (ctx) => const Icon(
+            Icons.location_on,
+            color: Colors.deepPurple,
+            size: 50,
+          ),
         ),
       ];
     } else {
       return [
         Marker(
           //point: LatLng(-25.4288948, -49.2677837),
+          width: 50,
+          height: 50,
           point: LatLng(double.parse(sector.coordinate[0]),
               double.parse(sector.coordinate[1])),
-          builder: (ctx) => const Icon(Icons.pin_drop, color: Colors.red),
+          builder: (ctx) => const Icon(
+            Icons.location_on,
+            color: Colors.red,
+            size: 50,
+          ),
         ),
       ];
     }
   }
 
+  List<Polyline> routeBetweenTwoPoints() {
+    List<Polyline> points = [];
+    if (setDestiny == false) {
+      points.add(
+        Polyline(
+          points: [
+            LatLng(double.parse(sector.coordinate[0]),
+                double.parse(sector.coordinate[1]))
+          ],
+        ),
+      );
+      return points;
+    }
+    points.add(
+      Polyline(points: [
+        LatLng(double.parse(sector.coordinate[0]),
+            double.parse(sector.coordinate[1])),
+        LatLng(-25.42886220, -49.26787319),
+        LatLng(-25.42882776, -49.2677764),
+        LatLng(double.parse(locations[8].coordinate[0]),
+            double.parse(locations[8].coordinate[1])),
+      ], color: Colors.blue, strokeWidth: 6),
+    );
+    //points.add(LatLng());
+
+    return points;
+  }
+
   Sector get sector => widget.sector;
 
-  @override
-  void initState() {
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   super.initState();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -68,112 +110,83 @@ class _Location extends State<Location> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Você esta na $nameSector"),
+        title: FittedBox(child: Text("Você esta na $nameSector")),
       ),
       body: Column(
         children: [
           Row(
             children: [
-              Expanded(
-                  child: DropdownButton(
-                dropdownColor: const Color.fromRGBO(176, 224, 247, 0.973),
-                style: const TextStyle(
-                  fontSize: 10.5,
-                  color: Colors.black,
-                  fontFamily: "verdana_regular",
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "Destino Selecionado: ",
+                  style: TextStyle(fontWeight: FontWeight.bold),
                 ),
-                hint: const Text(
-                  "Selecione um Destino:",
-                  style: TextStyle(
+              ),
+              Expanded(
+                child: DropdownButton(
+                  dropdownColor: const Color.fromRGBO(176, 224, 247, 0.973),
+                  style: const TextStyle(
+                    fontSize: 10.5,
                     color: Colors.black,
-                    //fontSize: 16,
                     fontFamily: "verdana_regular",
                   ),
+                  hint: const Text(
+                    "Selecione um Destino:",
+                    style: TextStyle(
+                      color: Colors.black,
+                      //fontSize: 16,
+                      fontFamily: "verdana_regular",
+                    ),
+                  ),
+                  value: currentSelectedValue,
+                  isDense: true,
+                  onChanged: (newValue) {
+                    newValue as Sector;
+                    setState(
+                      () {
+                        currentSelectedValue = newValue;
+                        setDestiny = true;
+                      },
+                    );
+                  },
+                  items: locations.map((loc) {
+                    return DropdownMenuItem(
+                      value: loc,
+                      child: Text(loc.name),
+                    );
+                  }).toList(),
                 ),
-                value: currentSelectedValue,
-                isDense: true,
-                onChanged: (newValue) {
-                  newValue as Sector;
-                  setState(() {
-                    currentSelectedValue = newValue;
-                    setDestiny = true;
-                  });
-                },
-                items: locations.map((loc) {
-                  return DropdownMenuItem(
-                    value: loc,
-                    child: Text(loc.name),
-                  );
-                }).toList(),
-              )),
+              ),
             ],
           ),
           Flexible(
-            //height: 560,
             child: FlutterMap(
-              //mapController: _controller,
               options: MapOptions(
-                //crs: Epsg4326(),
                 center: LatLng(-25.429096, -49.267650),
-                //maxZoom: 18,
                 minZoom: 18,
                 maxZoom: 22,
-                swPanBoundary: LatLng(-25.429230511601687, -49.268042791805925),
-                nePanBoundary: LatLng(-25.42886227622278, -49.267256952072394),
-                //-49.268042791805925,-25.429530511601687,-49.267256952072394,-25.42866227622278
+                //swPanBoundary: LatLng(-25.429230511601687, -49.268042791805925),
+                //nePanBoundary: LatLng(-25.42886227622278, -49.267256952072394),
                 zoom: 19,
-                //maxZoom: 20,
-                //minZoom: 18,
               ),
               children: [
                 TileLayer(
-                  //evictErrorTileStrategy: EvictErrorTileStrategy.dispose,
                   tileProvider: AssetTileProvider(),
-                  //fastReplace: true,
-                  //maxNativeZoom: 22,
                   maxZoom: 22,
                   tms: true,
-                  //zoomOffset: 1.0,
-                  //overrideTilesWhenUrlChanges: true,
-                  //x=coluna, y=linha, z=zoom
-                  //userAgentPackageName: 'com.example.app',
                   urlTemplate: "assets/k1_tms/Mapnik/{z}/{x}/{y}.png",
-
-                  //subdomains: ['a', 'b', 'c']
                 ),
                 MarkerLayer(
                   markers: markers(),
                 ),
+                PolylineLayer(
+                  //polylineCulling: false,
+                  polylines: routeBetweenTwoPoints(),
+                ),
               ],
             ),
           ),
-          /* FlutterMap(
-              options: MapOptions(
-                //center: LatLng(-25.42901, -49.26744),
-                center: LatLng(loc[0], loc[1]),
-                zoom: 19,
-              ),
-              layers: [
-                TileLayerOptions(
-                  maxZoom: 22,
-                  urlTemplate:
-                      "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
-                  subdomains: ['a', 'b', 'c'],
-                  attributionBuilder: (_) {
-                    return const Text("");
-                  },
-                ),
-                MarkerLayerOptions(
-                  markers: [
-                    Marker(
-                      point: LatLng(-25.42901, -49.26744),
-                      builder: (ctx) =>
-                          const Icon(Icons.pin_drop, color: Colors.red),
-                    ),
-                  ],
-                ),
-              ],
-            ), */
           Container(
               height: 35,
               color: const Color.fromRGBO(1, 63, 122, 1),
