@@ -31,7 +31,7 @@ class _MyAppState extends State<MyApp> {
       print(barcodeScanRes.split(","));
       print("asdf");
 
-      Sector sector = locations.firstWhere(
+      Sector sector = sectorsLocations.firstWhere(
         (location) => location.coordinate[0] == barcodeScanRes.split(",")[0],
       );
       Navigator.push(
@@ -95,7 +95,7 @@ class _MyAppState extends State<MyApp> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => Location(
-                      sector: locations.firstWhere((element) => element.id == 6),
+                      sector: sectorsLocations.firstWhere((element) => element.id == 6),
                     ),
                   ),
                 ),

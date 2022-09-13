@@ -16,7 +16,7 @@ class Location extends StatefulWidget {
 //-25.39954147933631, -49.250469280756825
 class _Location extends State<Location> {
   //final MapController _controller = MapController();
-  Sector currentSelectedValue = locations[0];
+  Sector currentSelectedValue = sectorsLocations[0];
 
   bool setDestiny = false;
 
@@ -85,8 +85,8 @@ class _Location extends State<Location> {
             double.parse(sector.coordinate[1])),
         LatLng(-25.42886220, -49.26787319),
         LatLng(-25.42882776, -49.2677764),
-        LatLng(double.parse(locations[8].coordinate[0]),
-            double.parse(locations[8].coordinate[1])),
+        LatLng(double.parse(sectorsLocations[8].coordinate[0]),
+            double.parse(sectorsLocations[8].coordinate[1])),
       ], color: Colors.blue, strokeWidth: 6),
     );
     //points.add(LatLng());
@@ -104,7 +104,7 @@ class _Location extends State<Location> {
   @override
   Widget build(BuildContext context) {
     //List<String> qrSplitted = qrCodeLocation.coordinate.split(',');
-    String nameSector = locations
+    String nameSector = sectorsLocations
         .firstWhere((element) => element.coordinate == sector.coordinate)
         .name;
 
@@ -150,7 +150,7 @@ class _Location extends State<Location> {
                       },
                     );
                   },
-                  items: locations.map((loc) {
+                  items: sectorsLocations.map((loc) {
                     return DropdownMenuItem(
                       value: loc,
                       child: Text(loc.name),
