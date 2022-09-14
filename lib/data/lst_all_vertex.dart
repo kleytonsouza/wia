@@ -85,7 +85,7 @@ final List<Point> allVertex = [
   Point(
     id: 16,
     name: "joinPoint",
-    coordinate: ['-25.4290292', '-49.2675979'],
+    coordinate: ['-25.42935418', '-49.26748866'],
   ),
   Point(
     id: 17,

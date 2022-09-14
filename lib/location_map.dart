@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
-import 'package:wia/route_from_to.dart';
+import 'package:wia/util/route_from_to.dart';
 import 'package:wia/models/sector.dart';
 import 'package:wia/data/lst_all_vertex.dart';
 import 'data/lst_sector_data.dart';

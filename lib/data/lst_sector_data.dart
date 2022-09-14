@@ -15,7 +15,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 2,
       name: "Biblioteca",
-      coordinate: ['-25.428810006', '-49.26774100'],
+      coordinate: ['-25.42881006', '-49.26774100'],
       info: "Biblioteca jurídica"),
   Sector(
       id: 3,
