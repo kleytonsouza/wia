@@ -83,12 +83,18 @@ class _Location extends State<Location> {
       );
       return points;
     }
+    print(from);
+    print( to);
     List routeFromTo = RouteFromTo(idFrom: from, idTo: to).listPoints;
+    print(routeFromTo);
     points.add(
       Polyline(points: [
         ...routeFromTo.map((id) {
           Point vertex = allVertex.firstWhere((vertex) => vertex.id == id);
-          return LatLng(double.parse(vertex.coordinate[0]) , double.parse(vertex.coordinate[1]),);
+          return LatLng(
+            double.parse(vertex.coordinate[0]),
+            double.parse(vertex.coordinate[1]),
+          );
         }),
       ], color: Colors.blue, strokeWidth: 6),
     );
@@ -108,11 +114,6 @@ class _Location extends State<Location> {
   }
 
   Sector get sector => widget.sector;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-  // }
 
   @override
   Widget build(BuildContext context) {

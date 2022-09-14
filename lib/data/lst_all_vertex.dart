@@ -64,7 +64,8 @@ final List<Point> allVertex = [
   Point(
     id: 12,
     name: "joinPoint",
-    coordinate: ['-49.2675226', '-25.4292769'],
+    // coordinate: ['-49.2675226', '-25.4292769'],
+    coordinate: ['-25.4292777','-49.2675200'],
   ),
   Point(
     id: 13,
@@ -89,7 +90,8 @@ final List<Point> allVertex = [
   Point(
     id: 17,
     name: "joinPoint",
-    coordinate: ['-25.4290306', '-49.2676106'],
+    // coordinate: ['-25.4290306', '-49.2676106'],
+    coordinate: ['-25.4289675','-49.2677430'],
   ),
   Point(
     id: 18,
@@ -119,7 +121,7 @@ final List<Point> allVertex = [
   Point(
     id: 23,
     name: "joinPoint",
-    coordinate: ['-25.4288313', '-49.2678042'],
+    coordinate: ['-25.4288343', '-49.2678039'],
   ),
   Point(
     id: 24,
@@ -130,5 +132,10 @@ final List<Point> allVertex = [
     id: 25,
     name: "joinPoint",
     coordinate: ['-25.4289478', '-49.2676895'],
+  ),
+  Point(
+    id: 26,
+    name: "joinPoint",
+    coordinate: ['-25.42927164', '-49.26744471'],
   ),
 ];
