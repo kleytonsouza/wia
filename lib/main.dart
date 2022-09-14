@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import 'package:wia/location_map.dart';
+import 'package:wia/views/map_screen.dart';
 
 import 'package:wia/data/lst_sector_data.dart';
 
@@ -90,15 +90,15 @@ class _MyAppState extends State<MyApp> {
               child: TextButton.icon(
                 icon: Image.asset('assets/qr_wia.png'),
                 label: Text(""),
-                onPressed: () => scanQR(),
-                // onPressed: () => Navigator.push(
-                //   context,
-                //   MaterialPageRoute(
-                //     builder: (context) => Location(
-                //       sector: lstSector.firstWhere((element) => element.id == 1),
-                //     ),
-                //   ),
-                // ),
+                //onPressed: () => scanQR(),
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Location(
+                      sector: lstSector.firstWhere((element) => element.id == 1),
+                    ),
+                  ),
+                ),
               ),
             ),
             Column(

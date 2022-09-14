@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
+import 'package:flutter_map_marker_popup/extension_api.dart';
+import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:wia/util/popup.dart';
 
 import 'package:wia/util/route_from_to.dart';
 import 'package:wia/models/sector.dart';
 import 'package:wia/data/lst_all_vertex.dart';
-import 'data/lst_sector_data.dart';
-import 'models/point.dart';
+import '../data/lst_sector_data.dart';
+import '../models/point.dart';
 
 class Location extends StatefulWidget {
   Location({Key? key, required this.sector}) : super(key: key);
@@ -21,8 +24,10 @@ class Location extends StatefulWidget {
 class _Location extends State<Location> {
   //final MapController _controller = MapController();
   Sector currentSelectedValue = lstSector[0];
-
+  bool popupShown = false;
   bool setDestiny = false;
+
+  final PopupController _popupLayerController = PopupController();
 
   List<Marker> markers() {
     if (setDestiny == true) {
@@ -56,16 +61,17 @@ class _Location extends State<Location> {
       return [
         Marker(
           //point: LatLng(-25.4288948, -49.2677837),
-          width: 50,
-          height: 50,
+          width: 40,
+          height: 40,
+          anchorPos: AnchorPos.align(AnchorAlign.top),
           point: LatLng(double.parse(sector.coordinate[0]),
               double.parse(sector.coordinate[1])),
           builder: (ctx) => const Icon(
             Icons.location_on,
-            color: Colors.red,
-            size: 50,
+            color: Colors.deepPurple,
+            size: 40,
           ),
-        ),
+        )
       ];
     }
   }
@@ -84,7 +90,7 @@ class _Location extends State<Location> {
       return points;
     }
     print(from);
-    print( to);
+    print(to);
     List routeFromTo = RouteFromTo(idFrom: from, idTo: to).listPoints;
     print(routeFromTo);
     points.add(
@@ -178,6 +184,7 @@ class _Location extends State<Location> {
           Flexible(
             child: FlutterMap(
               options: MapOptions(
+                onTap: (_, __) => _popupLayerController.hideAllPopups(),
                 center: LatLng(-25.429096, -49.267650),
                 minZoom: 18,
                 maxZoom: 22,
@@ -185,15 +192,38 @@ class _Location extends State<Location> {
                 //nePanBoundary: LatLng(-25.42886227622278, -49.267256952072394),
                 zoom: 19,
               ),
+              // nonRotatedChildren: [
+              //   AttributionWidget.defaultWidget(
+              //     source: '© OpenStreetMap contributors',
+              //     onSourceTapped: () {},
+              //   ),
+              // ],
               children: [
                 TileLayer(
                   tileProvider: AssetTileProvider(),
                   maxZoom: 22,
+                  //retinaMode: true,
                   tms: true,
                   urlTemplate: "assets/k1_tms/Mapnik/{z}/{x}/{y}.png",
                 ),
-                MarkerLayer(
-                  markers: markers(),
+                // MarkerLayer(
+                //   markers: markers(),
+                // ),
+                PopupMarkerLayerWidget(
+                  options: PopupMarkerLayerOptions(
+                    popupController: _popupLayerController,
+                    markers: markers(),
+                    markerRotateAlignment:
+                        PopupMarkerLayerOptions.rotationAlignmentFor(
+                            AnchorAlign.top),
+                    popupBuilder: (BuildContext context, Marker marker) =>
+                        ExamplePopup(marker),
+                    selectedMarkerBuilder: (context, marker) => const Icon(
+                      Icons.location_on,
+                      size: 40,
+                      color: Colors.blue,
+                    ),
+                  ),
                 ),
                 PolylineLayer(
                   //polylineCulling: false,
