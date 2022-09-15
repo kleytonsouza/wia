@@ -79,28 +79,29 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/
-    - assets/k1_tms/Mapnik/18/95196/
-    - assets/k1_tms/Mapnik/19/190392/
-    - assets/k1_tms/Mapnik/19/190393/
-    - assets/k1_tms/Mapnik/20/380784/
-    - assets/k1_tms/Mapnik/20/380785/
-    - assets/k1_tms/Mapnik/20/380786/
-    - assets/k1_tms/Mapnik/21/761568/
-    - assets/k1_tms/Mapnik/21/761569/
-    - assets/k1_tms/Mapnik/21/761570/
-    - assets/k1_tms/Mapnik/21/761571/
-    - assets/k1_tms/Mapnik/21/761572/
-    - assets/k1_tms/Mapnik/21/761573/
-    - assets/k1_tms/Mapnik/22/1523137/
-    - assets/k1_tms/Mapnik/22/1523138/
-    - assets/k1_tms/Mapnik/22/1523139/
-    - assets/k1_tms/Mapnik/22/1523140/
-    - assets/k1_tms/Mapnik/22/1523141/
-    - assets/k1_tms/Mapnik/22/1523142/
-    - assets/k1_tms/Mapnik/22/1523143/
-    - assets/k1_tms/Mapnik/22/1523144/
-    - assets/k1_tms/Mapnik/22/1523145/
-    - assets/k1_tms/Mapnik/22/1523146/
+    - assets/k1k1k1/Mapnik/17/47598/
+    - assets/k1k1k1/Mapnik/18/95196/
+    - assets/k1k1k1/Mapnik/19/190392/
+    - assets/k1k1k1/Mapnik/19/190393/
+    - assets/k1k1k1/Mapnik/20/380784/
+    - assets/k1k1k1/Mapnik/20/380785/
+    - assets/k1k1k1/Mapnik/20/380786/
+    - assets/k1k1k1/Mapnik/21/761568/
+    - assets/k1k1k1/Mapnik/21/761569/
+    - assets/k1k1k1/Mapnik/21/761570/
+    - assets/k1k1k1/Mapnik/21/761571/
+    - assets/k1k1k1/Mapnik/21/761572/
+    - assets/k1k1k1/Mapnik/21/761573/
+    - assets/k1k1k1/Mapnik/22/1523137/
+    - assets/k1k1k1/Mapnik/22/1523138/
+    - assets/k1k1k1/Mapnik/22/1523139/
+    - assets/k1k1k1/Mapnik/22/1523140/
+    - assets/k1k1k1/Mapnik/22/1523141/
+    - assets/k1k1k1/Mapnik/22/1523142/
+    - assets/k1k1k1/Mapnik/22/1523143/
+    - assets/k1k1k1/Mapnik/22/1523144/
+    - assets/k1k1k1/Mapnik/22/1523145/
+    - assets/k1k1k1/Mapnik/22/1523146/
   #  - assets/k1_tms/Mapnik/
 
   # An image asset can refer to one or more resolution-specific "variants", see

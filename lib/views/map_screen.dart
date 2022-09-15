@@ -89,8 +89,6 @@ class _Location extends State<Location> {
       );
       return points;
     }
-    print(from);
-    print(to);
     List routeFromTo = RouteFromTo(idFrom: from, idTo: to).listPoints;
     print(routeFromTo);
     points.add(
@@ -186,7 +184,7 @@ class _Location extends State<Location> {
               options: MapOptions(
                 onTap: (_, __) => _popupLayerController.hideAllPopups(),
                 center: LatLng(-25.429096, -49.267650),
-                minZoom: 18,
+                minZoom: 17,
                 maxZoom: 22,
                 //swPanBoundary: LatLng(-25.429230511601687, -49.268042791805925),
                 //nePanBoundary: LatLng(-25.42886227622278, -49.267256952072394),
@@ -204,7 +202,7 @@ class _Location extends State<Location> {
                   maxZoom: 22,
                   //retinaMode: true,
                   tms: true,
-                  urlTemplate: "assets/k1_tms/Mapnik/{z}/{x}/{y}.png",
+                  urlTemplate: "assets/k1k1k1/Mapnik/{z}/{x}/{y}.png",
                 ),
                 // MarkerLayer(
                 //   markers: markers(),
