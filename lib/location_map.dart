@@ -17,9 +17,7 @@ class Location extends StatefulWidget {
   _Location createState() => _Location();
 }
 
-//-25.39954147933631, -49.250469280756825
 class _Location extends State<Location> {
-  //final MapController _controller = MapController();
   Sector currentSelectedValue = lstSector[0];
 
   bool setDestiny = false;
@@ -31,6 +29,7 @@ class _Location extends State<Location> {
           //point: LatLng(-25.4288948, -49.2677837),
           width: 50,
           height: 50,
+          anchorPos: AnchorPos.align(AnchorAlign.top),
           point: LatLng(double.parse(qrSector.coordinate[0]),
               double.parse(qrSector.coordinate[1])),
           builder: (ctx) => const Icon(
@@ -43,6 +42,7 @@ class _Location extends State<Location> {
           //point: LatLng(-25.4288948, -49.2677837),
           width: 50,
           height: 50,
+          anchorPos: AnchorPos.align(AnchorAlign.top),
           point: LatLng(double.parse(currentSelectedValue.coordinate[0]),
               double.parse(currentSelectedValue.coordinate[1])),
           builder: (ctx) => const Icon(
@@ -63,7 +63,7 @@ class _Location extends State<Location> {
               double.parse(qrSector.coordinate[1])),
           builder: (ctx) => const Icon(
             Icons.location_on,
-            color: Colors.red,
+            color: Colors.blue,
             size: 50,
           ),
         ),
@@ -189,12 +189,11 @@ class _Location extends State<Location> {
   Widget build(BuildContext context) {
     //List<String> qrSplitted = qrCodeLocation.coordinate.split(',');
     Sector sector = lstSector
-        .firstWhere((element) => element.coordinate == qrSector.coordinate)
-        ;
+        .firstWhere((element) => element.coordinate == qrSector.coordinate);
 
     return Scaffold(
       appBar: AppBar(
-        title: FittedBox(child: Text("Você esta na $sector.name")),
+        title: FittedBox(child: Text("Você esta na ${sector.name}")),
       ),
       body: Column(
         children: [
@@ -263,14 +262,6 @@ class _Location extends State<Location> {
                   tms: true,
                   urlTemplate: "assets/k1_tms/Mapnik2/{z}/{x}/{y}.png",
                 ),
-                MarkerLayer(
-                  markers: markers(),
-                ),
-                PolylineLayer(
-                  //polylineCulling: false,
-                  polylines:
-                      routeBetweenTwoPoints(sector.id, currentSelectedValue.id),
-                ),
                 PolygonLayer(
                   polygons: [
                     Polygon(
@@ -279,7 +270,16 @@ class _Location extends State<Location> {
                       points: externalPolygon,
                     ),
                     sector.polygon,
+                    currentSelectedValue.polygon,
                   ],
+                ),
+                PolylineLayer(
+                  //polylineCulling: false,
+                  polylines:
+                      routeBetweenTwoPoints(sector.id, currentSelectedValue.id),
+                ),
+                MarkerLayer(
+                  markers: markers(),
                 ),
               ],
             ),

@@ -24,12 +24,9 @@ class _MyAppState extends State<MyApp> {
 
   Future<void> scanQR() async {
     String barcodeScanRes;
-    // Platform messages may fail, so we use a try/catch PlatformException.
     try {
       barcodeScanRes = await FlutterBarcodeScanner.scanBarcode(
           '#ff6666', 'Cancel', true, ScanMode.QR);
-      print(barcodeScanRes.split(","));
-      print("asdf");
 
       Sector sector = lstSector.firstWhere(
         (location) => location.coordinate[0] == barcodeScanRes.split(",")[0],
@@ -95,7 +92,7 @@ class _MyAppState extends State<MyApp> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => Location(
-                      sector: lstSector.firstWhere((element) => element.id == 8),
+                      sector: lstSector.firstWhere((element) => element.id == 2),
                     ),
                   ),
                 ),
