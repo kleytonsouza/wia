@@ -1,15 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:flutter_map_marker_popup/extension_api.dart';
-import 'package:flutter_map_marker_popup/flutter_map_marker_popup.dart';
 import 'package:latlong2/latlong.dart';
-import 'package:wia/util/popup.dart';
 
 import 'package:wia/util/route_from_to.dart';
 import 'package:wia/models/sector.dart';
 import 'package:wia/data/lst_all_vertex.dart';
-import '../data/lst_sector_data.dart';
-import '../models/point.dart';
+import 'data/lst_sector_data.dart';
+import 'models/point.dart';
 
 class Location extends StatefulWidget {
   Location({Key? key, required this.sector}) : super(key: key);
@@ -24,10 +21,8 @@ class Location extends StatefulWidget {
 class _Location extends State<Location> {
   //final MapController _controller = MapController();
   Sector currentSelectedValue = lstSector[0];
-  bool popupShown = false;
-  bool setDestiny = false;
 
-  final PopupController _popupLayerController = PopupController();
+  bool setDestiny = false;
 
   List<Marker> markers() {
     if (setDestiny == true) {
@@ -36,11 +31,11 @@ class _Location extends State<Location> {
           //point: LatLng(-25.4288948, -49.2677837),
           width: 50,
           height: 50,
-          point: LatLng(double.parse(sector.coordinate[0]),
-              double.parse(sector.coordinate[1])),
+          point: LatLng(double.parse(qrSector.coordinate[0]),
+              double.parse(qrSector.coordinate[1])),
           builder: (ctx) => const Icon(
             Icons.location_on,
-            color: Colors.red,
+            color: Colors.green,
             size: 50,
           ),
         ),
@@ -61,20 +56,85 @@ class _Location extends State<Location> {
       return [
         Marker(
           //point: LatLng(-25.4288948, -49.2677837),
-          width: 40,
-          height: 40,
+          width: 50,
+          height: 50,
           anchorPos: AnchorPos.align(AnchorAlign.top),
-          point: LatLng(double.parse(sector.coordinate[0]),
-              double.parse(sector.coordinate[1])),
+          point: LatLng(double.parse(qrSector.coordinate[0]),
+              double.parse(qrSector.coordinate[1])),
           builder: (ctx) => const Icon(
             Icons.location_on,
-            color: Colors.deepPurple,
-            size: 40,
+            color: Colors.red,
+            size: 50,
           ),
-        )
+        ),
       ];
     }
   }
+
+  List<LatLng> lstLngLat = [
+    LatLng(-25.428825, -49.26805),
+    LatLng(-25.429043, -49.267934),
+    LatLng(-25.429037, -49.267917),
+    LatLng(-25.429275, -49.267807),
+    LatLng(-25.429282, -49.267824),
+    LatLng(-25.429535, -49.267708),
+    LatLng(-25.429358, -49.267259),
+    LatLng(-25.429319, -49.267279),
+    LatLng(-25.429311, -49.267261),
+    LatLng(-25.429159, -49.267341),
+    LatLng(-25.429162, -49.267351),
+    LatLng(-25.42914, -49.267359),
+    LatLng(-25.429151, -49.267384),
+    LatLng(-25.429104, -49.267407),
+    LatLng(-25.429071, -49.267328),
+    LatLng(-25.428891, -49.267418),
+    LatLng(-25.42892, -49.267492),
+    LatLng(-25.428876, -49.267512),
+    LatLng(-25.42887, -49.267494),
+    LatLng(-25.428839, -49.267506),
+    LatLng(-25.428834, -49.267498),
+    LatLng(-25.42868, -49.267579),
+    LatLng(-25.428682, -49.267588),
+    LatLng(-25.428645, -49.26761),
+    LatLng(-25.428825, -49.26805)
+  ];
+
+  List<LatLng> externalPolygon = [
+    LatLng(-25.4295195, -49.2676900),
+    LatLng(-25.42950141, -49.26770472),
+    LatLng(-25.42947593, -49.26771699),
+    LatLng(-25.42947960, -49.26772737),
+    LatLng(-25.42934317, -49.26778943),
+    LatLng(-25.42933905, -49.26777809),
+    LatLng(-25.42903154, -49.26792655),
+    LatLng(-25.42903589, -49.26793505),
+    LatLng(-25.42888604, -49.26799674),
+    LatLng(-25.42883350, -49.26802124),
+    LatLng(-25.42879328, -49.26791909),
+    LatLng(-25.42880016, -49.26791043),
+    LatLng(-25.42872074, -49.26769747),
+    LatLng(-25.42870684, -49.26770278),
+    LatLng(-25.42867116, -49.26760787),
+    LatLng(-25.42872129, -49.26757904),
+    LatLng(-25.42871858, -49.26756821),
+    LatLng(-25.42886299, -49.26749736),
+    LatLng(-25.42886709, -49.26750949),
+    LatLng(-25.42889050, -49.26749779),
+    LatLng(-25.42890034, -49.26751973),
+    LatLng(-25.42895996, -49.26749036),
+    LatLng(-25.42895070, -49.26746465),
+    LatLng(-25.42909557, -49.26739476),
+    LatLng(-25.42910542, -49.26742175),
+    LatLng(-25.42916131, -49.26739608),
+    LatLng(-25.42915425, -49.26737676),
+    LatLng(-25.42917371, -49.26735325),
+    LatLng(-25.42930610, -49.26729425),
+    LatLng(-25.42935827, -49.26728318),
+    LatLng(-25.42939433, -49.26736972),
+    LatLng(-25.42938472, -49.26737420),
+    LatLng(-25.42947287, -49.26759167),
+    LatLng(-25.42948207, -49.26759049),
+  ];
 
   List<Polyline> routeBetweenTwoPoints(int from, int to) {
     List<Polyline> points = [];
@@ -82,11 +142,15 @@ class _Location extends State<Location> {
       points.add(
         Polyline(
           points: [
-            LatLng(double.parse(sector.coordinate[0]),
-                double.parse(sector.coordinate[1]))
+            //...lstLngLat.toList()
+            // LatLng(double.parse(sector.coordinate[0]),
+            //     double.parse(sector.coordinate[1]))
           ],
+          color: Colors.black,
+          strokeWidth: 6,
         ),
       );
+      print('passou');
       return points;
     }
     print(from);
@@ -119,18 +183,18 @@ class _Location extends State<Location> {
     return points;
   }
 
-  Sector get sector => widget.sector;
+  Sector get qrSector => widget.sector;
 
   @override
   Widget build(BuildContext context) {
     //List<String> qrSplitted = qrCodeLocation.coordinate.split(',');
-    String nameSector = lstSector
-        .firstWhere((element) => element.coordinate == sector.coordinate)
-        .name;
+    Sector sector = lstSector
+        .firstWhere((element) => element.coordinate == qrSector.coordinate)
+        ;
 
     return Scaffold(
       appBar: AppBar(
-        title: FittedBox(child: Text("Você esta na $nameSector")),
+        title: FittedBox(child: Text("Você esta na $sector.name")),
       ),
       body: Column(
         children: [
@@ -184,7 +248,7 @@ class _Location extends State<Location> {
           Flexible(
             child: FlutterMap(
               options: MapOptions(
-                onTap: (_, __) => _popupLayerController.hideAllPopups(),
+                //crs: ,
                 center: LatLng(-25.429096, -49.267650),
                 minZoom: 18,
                 maxZoom: 22,
@@ -192,43 +256,30 @@ class _Location extends State<Location> {
                 //nePanBoundary: LatLng(-25.42886227622278, -49.267256952072394),
                 zoom: 19,
               ),
-              // nonRotatedChildren: [
-              //   AttributionWidget.defaultWidget(
-              //     source: '© OpenStreetMap contributors',
-              //     onSourceTapped: () {},
-              //   ),
-              // ],
               children: [
                 TileLayer(
                   tileProvider: AssetTileProvider(),
                   maxZoom: 22,
-                  //retinaMode: true,
                   tms: true,
-                  urlTemplate: "assets/k1_tms/Mapnik/{z}/{x}/{y}.png",
+                  urlTemplate: "assets/k1_tms/Mapnik2/{z}/{x}/{y}.png",
                 ),
-                // MarkerLayer(
-                //   markers: markers(),
-                // ),
-                PopupMarkerLayerWidget(
-                  options: PopupMarkerLayerOptions(
-                    popupController: _popupLayerController,
-                    markers: markers(),
-                    markerRotateAlignment:
-                        PopupMarkerLayerOptions.rotationAlignmentFor(
-                            AnchorAlign.top),
-                    popupBuilder: (BuildContext context, Marker marker) =>
-                        ExamplePopup(marker),
-                    selectedMarkerBuilder: (context, marker) => const Icon(
-                      Icons.location_on,
-                      size: 40,
-                      color: Colors.blue,
-                    ),
-                  ),
+                MarkerLayer(
+                  markers: markers(),
                 ),
                 PolylineLayer(
                   //polylineCulling: false,
                   polylines:
                       routeBetweenTwoPoints(sector.id, currentSelectedValue.id),
+                ),
+                PolygonLayer(
+                  polygons: [
+                    Polygon(
+                      borderStrokeWidth: 3,
+                      borderColor: Colors.red,
+                      points: externalPolygon,
+                    ),
+                    sector.polygon,
+                  ],
                 ),
               ],
             ),
