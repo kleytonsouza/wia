@@ -278,17 +278,19 @@ class _MyLocation extends State<MyLocation> {
                   tms: true,
                   urlTemplate: "assets/k1_tms/Mapnik2/{z}/{x}/{y}.png",
                 ),
-                PolygonLayer(
-                  polygons: [
-                    Polygon(
-                      borderStrokeWidth: 3,
-                      borderColor: Colors.red,
-                      points: externalPolygon,
-                    ),
-                    //sector.polygon,
-                    //currentSelectedValue.polygon,
-                  ],
-                ),
+                // PolygonLayer(
+                //   polygons: [
+                //     Polygon(
+                //       borderStrokeWidth: 6,
+                //       holePointsList: [[LatLng(-25.42901660,-49.26743412), LatLng(-25.42903196,-49.26742703)]],
+                //       borderColor: Colors.black87,
+                //       points: externalPolygon,
+                //       color: Colors.grey,
+                //     ),
+                //     //sector.polygon,
+                //     //currentSelectedValue.polygon,
+                //   ],
+                // ),
                 PolylineLayer(
                   //polylineCulling: false,
                   polylines:

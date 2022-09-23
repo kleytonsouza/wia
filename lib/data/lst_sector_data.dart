@@ -14,7 +14,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 1,
       name: "Atendimento PROGRAD",
-      coordinate: ['-25.42894910','-49.26779594'],
+      coordinate: ['-25.42894910', '-49.26779594'],
       polygon: Polygon(
         points: [
           LatLng(-25.42889940, -49.26777964),
@@ -34,7 +34,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 2,
       name: "Biblioteca",
-      coordinate: ['-25.42876287','-49.26762365'],
+      coordinate: ['-25.42876287', '-49.26762365'],
       polygon: Polygon(
         points: [
           LatLng(-25.42875461, -49.26778727),
@@ -61,7 +61,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 3,
       name: "Diplomas",
-      coordinate: ['-25.42937633','-49.26758581'],
+      coordinate: ['-25.42937633', '-49.26758581'],
       polygon: Polygon(
         points: [
           LatLng(-25.42939441, -49.26753453),
@@ -79,7 +79,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 4,
       name: "CIPEAD",
-      coordinate: ['-25.42940820','-49.26768838'],
+      coordinate: ['-25.42940820', '-49.26768838'],
       polygon: Polygon(
         points: [
           LatLng(-25.42930632, -49.26767670),
@@ -101,7 +101,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 5,
       name: "COAFE",
-      coordinate: ['-25.42931260','-49.26733883'],
+      coordinate: ['-25.42931260', '-49.26733883'],
       polygon: Polygon(
         points: [
           LatLng(-25.42928883, -49.26741180),
@@ -122,7 +122,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 6,
       name: "COSIS",
-      coordinate: ['-25.42882162','-49.26786466'],
+      coordinate: ['-25.42882162', '-49.26786466'],
       polygon: Polygon(
         points: [
           LatLng(-25.42880165, -49.26791642),
@@ -140,7 +140,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 7,
       name: "Entrada/Saida Principal",
-      coordinate: ['-25.42900698', '-49.26745130'],
+      coordinate: ['-25.42903573', '-49.26746404'],
       polygon: Polygon(
         points: [
           LatLng(-25.42906312, -49.26741320),
@@ -178,15 +178,15 @@ final List<Sector> lstSector = [
       ),
       info: "Entrada/Saida Lateral pela rua Alfredo Bufren"),
   Sector(
-      id: 9,
+      id: 6,
       name: "Financeiro",
       coordinate: ['-25.42881067', '-49.26781387'],
       polygon: Polygon(
         points: [
-          LatLng(-25.4288035,-49.2678398),
-          LatLng(-25.4287862,-49.2678072),
-          LatLng(-25.4288239,-49.2677878),
-          LatLng(-25.4288382,-49.2678255),
+          LatLng(-25.4288035, -49.2678398),
+          LatLng(-25.4287862, -49.2678072),
+          LatLng(-25.4288239, -49.2677878),
+          LatLng(-25.4288382, -49.2678255),
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.blue.shade200,
@@ -196,9 +196,9 @@ final List<Sector> lstSector = [
       ),
       info: "Financeiro"),
   Sector(
-      id: 10,
+      id: 27,
       name: "COPAC/COPEG",
-      coordinate: ['-25.42892420','-49.26790200'],
+      coordinate: ['-25.42892420', '-49.26790200'],
       polygon: Polygon(
         points: [
           LatLng(-25.42880669, -49.26795429),
@@ -216,15 +216,15 @@ final List<Sector> lstSector = [
       ),
       info: "COPAC/COPEG"),
   Sector(
-      id: 11,
+      id: 27,
       name: "Gabinete Pró-reitora",
-      coordinate: ['-25.42884055','-49.26791694'],
+      coordinate: ['-25.42884055', '-49.26791694'],
       polygon: Polygon(
         points: [
-          LatLng(-25.42879225,-49.26792142),
-          LatLng(-25.42886295,-49.26788607),
-          LatLng(-25.42887889,-49.26791744),
-          LatLng(-25.42880669,-49.26795279),
+          LatLng(-25.42879225, -49.26792142),
+          LatLng(-25.42886295, -49.26788607),
+          LatLng(-25.42887889, -49.26791744),
+          LatLng(-25.42880669, -49.26795279),
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.red.shade100,
@@ -234,35 +234,15 @@ final List<Sector> lstSector = [
       ),
       info: "Gabinete Pró-reitora"),
   Sector(
-      id: 12,
-      name: "COPAP",
-      coordinate: ['-25.42898545','-49.26789005'],
-      polygon: Polygon(
-        points: [
-          LatLng(-25.42896354,-49.26796723),
-          LatLng(-25.42892121,-49.26785968),
-          LatLng(-25.42901582,-49.26781735),
-          LatLng(-25.42905367,-49.26791146),
-          LatLng(-25.42902976,-49.26792391),
-          LatLng(-25.42903325,-49.26793487),
-        ],
-        borderStrokeWidth: 5,
-        borderColor: Colors.orange.shade200,
-        color: Colors.pink,
-        isFilled: true,
-        label: "COPAP",
-      ),
-      info: "COPAP"),
-    Sector(
-      id: 13,
+      id: 27,
       name: "Secretaria PROGRAD",
-      coordinate: ['-25.42877982','-49.26779419'],
+      coordinate: ['-25.42889062', '-49.26788334'],
       polygon: Polygon(
         points: [
-          LatLng(-25.42888885,-49.26789354),
-          LatLng(-25.42892818,-49.26788059),
-          LatLng(-25.42891823,-49.26785968),
-          LatLng(-25.42888287,-49.26787661),
+          LatLng(-25.42888885, -49.26789354),
+          LatLng(-25.42892818, -49.26788059),
+          LatLng(-25.42891823, -49.26785968),
+          LatLng(-25.42888287, -49.26787661),
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.orange.shade200,
@@ -271,5 +251,24 @@ final List<Sector> lstSector = [
         label: "Secretaria PROGRAD",
       ),
       info: "Secretaria PROGRAD"),
-      
+  Sector(
+      id: 28,
+      name: "COPAP",
+      coordinate: ['-25.42898545', '-49.26789005'],
+      polygon: Polygon(
+        points: [
+          LatLng(-25.42896354, -49.26796723),
+          LatLng(-25.42892121, -49.26785968),
+          LatLng(-25.42901582, -49.26781735),
+          LatLng(-25.42905367, -49.26791146),
+          LatLng(-25.42902976, -49.26792391),
+          LatLng(-25.42903325, -49.26793487),
+        ],
+        borderStrokeWidth: 5,
+        borderColor: Colors.orange.shade200,
+        color: Colors.pink,
+        isFilled: true,
+        label: "COPAP",
+      ),
+      info: "COPAP"),
 ];
