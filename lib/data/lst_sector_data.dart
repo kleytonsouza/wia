@@ -1,7 +1,12 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:wia/models/sector.dart';
 import 'package:latlong2/latlong.dart';
+
+import 'lst_polygon_data.dart';
+
 
 final List<Sector> lstSector = [
   //'Selecione um destino:' : '',
@@ -14,7 +19,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 1,
       name: "Atendimento PROGRAD",
-      coordinate: ['-25.42894910', '-49.26779594'],
+      coordinate: ['-25.42891780','-49.26780143'],
       polygon: Polygon(
         points: [
           LatLng(-25.42889940, -49.26777964),
@@ -26,7 +31,7 @@ final List<Sector> lstSector = [
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.purple,
-        color: Colors.pink,
+        color: Colors.lightGreen,
         isFilled: true,
         label: "Atendimento",
       ),
@@ -34,18 +39,18 @@ final List<Sector> lstSector = [
   Sector(
       id: 2,
       name: "Biblioteca",
-      coordinate: ['-25.42876287', '-49.26762365'],
+      coordinate: ['-25.42879171','-49.26766299'],
       polygon: Polygon(
         points: [
           LatLng(-25.42875461, -49.26778727),
-          LatLng(-25.42872167, -49.26769659),
-          LatLng(-25.42870500, -49.26770327),
-          LatLng(-25.42866996, -49.26760808),
-          LatLng(-25.42872306, -49.26758057),
-          LatLng(-25.42871912, -49.26756977),
-          LatLng(-25.42886047, -49.26750056),
-          LatLng(-25.42889169, -49.26749919),
-          LatLng(-25.42889214, -49.26749898),
+          pointsExternalPolygon[14],
+          pointsExternalPolygon[15],
+          pointsExternalPolygon[16],
+          pointsExternalPolygon[17],
+          pointsExternalPolygon[18],
+          pointsExternalPolygon[19],
+          pointsExternalPolygon[20],
+          pointsExternalPolygon[21],
           LatLng(-25.42895430, -49.26766998),
           LatLng(-25.42882535, -49.26773395),
           LatLng(-25.42881175, -49.26774249),
@@ -53,7 +58,8 @@ final List<Sector> lstSector = [
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.blueGrey,
-        color: Colors.pink,
+        color: Colors.blueGrey,
+        labelStyle: TextStyle(color: Colors.white),
         isFilled: true,
         label: "Biblioteca",
       ),
@@ -61,7 +67,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 3,
       name: "Diplomas",
-      coordinate: ['-25.42937633', '-49.26758581'],
+      coordinate: ['-25.42938526','-49.26755379'],
       polygon: Polygon(
         points: [
           LatLng(-25.42939441, -49.26753453),
@@ -79,7 +85,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 4,
       name: "CIPEAD",
-      coordinate: ['-25.42940820', '-49.26768838'],
+      coordinate: ['-25.42935469','-49.26766968'],
       polygon: Polygon(
         points: [
           LatLng(-25.42930632, -49.26767670),
@@ -101,7 +107,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 5,
       name: "COAFE",
-      coordinate: ['-25.42931260', '-49.26733883'],
+      coordinate: ['-25.42930129','-49.26739021'],
       polygon: Polygon(
         points: [
           LatLng(-25.42928883, -49.26741180),
@@ -122,7 +128,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 6,
       name: "COSIS",
-      coordinate: ['-25.42882162', '-49.26786466'],
+      coordinate: ['-25.42885259', '-49.26787655'],
       polygon: Polygon(
         points: [
           LatLng(-25.42880165, -49.26791642),
@@ -153,8 +159,8 @@ final List<Sector> lstSector = [
           LatLng(-25.42898770, -49.26745057),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.pink.shade50,
-        color: Colors.pink,
+        borderColor: Colors.white70,
+        color: Colors.teal,
         isFilled: true,
         label: "Entr. Principal",
       ),
@@ -172,7 +178,7 @@ final List<Sector> lstSector = [
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.orange.shade200,
-        color: Colors.pink,
+        color: Colors.indigoAccent,
         isFilled: true,
         label: "Entr. Lateral",
       ),
@@ -190,7 +196,7 @@ final List<Sector> lstSector = [
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.blue.shade200,
-        color: Colors.pink,
+        color: Colors.amberAccent,
         isFilled: true,
         label: "Financeiro",
       ),
@@ -198,7 +204,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 27,
       name: "COPAC/COPEG",
-      coordinate: ['-25.42892420', '-49.26790200'],
+      coordinate: ['-25.42892616', '-49.26792775'],
       polygon: Polygon(
         points: [
           LatLng(-25.42880669, -49.26795429),
@@ -210,7 +216,7 @@ final List<Sector> lstSector = [
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.blueGrey.shade200,
-        color: Colors.pink,
+        color: Colors.cyan,
         isFilled: true,
         label: "COPAC/COPEG",
       ),
@@ -218,7 +224,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 27,
       name: "Gabinete Pró-reitora",
-      coordinate: ['-25.42884055', '-49.26791694'],
+      coordinate: ['-25.42886347', '-49.26791467'],
       polygon: Polygon(
         points: [
           LatLng(-25.42879225, -49.26792142),
@@ -228,7 +234,7 @@ final List<Sector> lstSector = [
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.red.shade100,
-        color: Colors.pink,
+        color: Colors.brown,
         isFilled: true,
         label: "Gabinete Pró-reitora",
       ),
@@ -236,7 +242,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 27,
       name: "Secretaria PROGRAD",
-      coordinate: ['-25.42889062', '-49.26788334'],
+      coordinate: ['-25.42890854', '-49.26788761'],
       polygon: Polygon(
         points: [
           LatLng(-25.42888885, -49.26789354),
@@ -246,7 +252,7 @@ final List<Sector> lstSector = [
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.orange.shade200,
-        color: Colors.pink,
+        color: Colors.deepPurpleAccent,
         isFilled: true,
         label: "Secretaria PROGRAD",
       ),
@@ -254,7 +260,7 @@ final List<Sector> lstSector = [
   Sector(
       id: 28,
       name: "COPAP",
-      coordinate: ['-25.42898545', '-49.26789005'],
+      coordinate: ['-25.42900906','-49.26783690'],
       polygon: Polygon(
         points: [
           LatLng(-25.42896354, -49.26796723),
@@ -266,7 +272,7 @@ final List<Sector> lstSector = [
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.orange.shade200,
-        color: Colors.pink,
+        color: Colors.limeAccent,
         isFilled: true,
         label: "COPAP",
       ),
