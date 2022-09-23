@@ -30,8 +30,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  geocoding: ^2.0.1
-  #geolocator: ^8.2.1
   flutter_map: ^3.0.0
 
   flutter_barcode_scanner: ^2.0.0
@@ -40,8 +38,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   dijkstra: ^0.0.2
-  #vector_map_tiles: ^2.4.0
-  #vector_tile_renderer: ^2.6.2
+ 
 
 dev_dependencies:
   flutter_test:
@@ -78,6 +75,29 @@ flutter:
   #   - images/a_dot_ham.jpeg
   assets:
     - assets/
+    # - assets/k1_tms/Mapnik/17/47598/
+    # - assets/k1_tms/Mapnik/18/95196/
+    # - assets/k1_tms/Mapnik/19/190392/
+    # - assets/k1_tms/Mapnik/19/190393/
+    # - assets/k1_tms/Mapnik/20/380784/
+    # - assets/k1_tms/Mapnik/20/380785/
+    # - assets/k1_tms/Mapnik/20/380786/
+    # - assets/k1_tms/Mapnik/21/761568/
+    # - assets/k1_tms/Mapnik/21/761569/
+    # - assets/k1_tms/Mapnik/21/761570/
+    # - assets/k1_tms/Mapnik/21/761571/
+    # - assets/k1_tms/Mapnik/21/761572/
+    # - assets/k1_tms/Mapnik/21/761573/
+    # - assets/k1_tms/Mapnik/22/1523137/
+    # - assets/k1_tms/Mapnik/22/1523138/
+    # - assets/k1_tms/Mapnik/22/1523139/
+    # - assets/k1_tms/Mapnik/22/1523140/
+    # - assets/k1_tms/Mapnik/22/1523141/
+    # - assets/k1_tms/Mapnik/22/1523142/
+    # - assets/k1_tms/Mapnik/22/1523143/
+    # - assets/k1_tms/Mapnik/22/1523144/
+    # - assets/k1_tms/Mapnik/22/1523145/
+    # - assets/k1_tms/Mapnik/22/1523146/
     - assets/k1_tms/Mapnik2/18/95196/
     - assets/k1_tms/Mapnik2/19/190392/
     - assets/k1_tms/Mapnik2/19/190393/

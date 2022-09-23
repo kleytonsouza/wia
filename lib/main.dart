@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
-import 'package:wia/location_map.dart';
+import 'package:wia/views/location_map.dart';
 
 import 'package:wia/data/lst_sector_data.dart';
 
@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp> {
       Navigator.push(
         context,
         MaterialPageRoute(
-          builder: (context) => Location(
+          builder: (context) => MyLocation(
             sector: sector,
           ),
         ),
@@ -91,7 +91,7 @@ class _MyAppState extends State<MyApp> {
                 onPressed: () => Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => Location(
+                    builder: (context) => MyLocation(
                       sector: lstSector.firstWhere((element) => element.id == 2),
                     ),
                   ),
