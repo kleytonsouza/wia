@@ -257,7 +257,7 @@ Polygon externalPolygon = createPolygon(
 
 Polygon internalRightSpan = createPolygon(
   pointsInternalRightSpan,
-  "Jardim Aberto",
+  "Área Aberta",
   Colors.green,
 );
 
@@ -269,37 +269,43 @@ Polygon internalLeftSpan = createPolygon(
 
 Polygon unknownSector1 = createPolygon(
   pointsUnknownSector1,
-  "",
+  "Setor A",
   Colors.grey.shade500,
 );
 
 Polygon unknownSector3 = createPolygon(
   pointsUnknownSector3,
-  "",
+  "Setor B",
   Colors.grey.shade500,
 );
 
 Polygon unknownSector4 = createPolygon(
   pointsUnknownSector4,
-  "",
+  "Setor C",
   Colors.grey.shade500,
 );
 
 Polygon unknownSector5 = createPolygon(
   pointsUnknownSector5,
-  "",
+  "Setor D",
   Colors.grey.shade500,
 );
 
 Polygon unknownSector6 = createPolygon(
   pointsUnknownSector6,
-  "",
+  "Setor E",
   Colors.grey.shade500,
 );
 
 Polygon unknownSector7 = createPolygon(
   pointsUnknownSector7,
-  "",
+  "Setor F",
+  Colors.grey.shade500,
+);
+
+Polygon unknownSector2 = createPolygon(
+  pointsUnknownSector2,
+  "Setor G",
   Colors.grey.shade500,
 );
 
@@ -333,11 +339,7 @@ Polygon stair2 = createPolygon(
   Colors.brown.shade300,
 );
 
-Polygon unknownSector2 = createPolygon(
-  pointsUnknownSector2,
-  "",
-  Colors.grey.shade500,
-);
+
 
 // Polygon elevatorEntrance = Polygon(
 //   borderStrokeWidth: 5,

@@ -5,7 +5,7 @@ import 'package:latlong2/latlong.dart';
 
 import 'lst_polygon_data.dart';
 
-final List<Sector> lstSector = [
+List<Sector> lstSector = [
   //'Selecione um destino:' : '',
   Sector(
       id: 0,
@@ -469,3 +469,5 @@ final List<Sector> lstSector = [
       ),
       info: "COPAP"),
 ];
+
+

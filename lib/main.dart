@@ -29,7 +29,8 @@ class _MyAppState extends State<MyApp> {
           '#ff6666', 'Cancel', true, ScanMode.QR);
 
       Sector sector = lstSector.firstWhere(
-        (location) => location.coordinate[0] == barcodeScanRes.split(",")[0],
+        // (location) => location.coordinate[0] == barcodeScanRes.split(",")[0],
+        (location) => location.name == barcodeScanRes,
       );
       Navigator.push(
         context,

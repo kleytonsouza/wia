@@ -180,10 +180,9 @@ class _MyLocation extends State<MyLocation> {
               ),
               Expanded(
                 child: DropdownButton(
-                  icon: setDestiny ? Icon(
-                    Icons.location_on,
-                    color: Colors.purple) :
-                    Icon(Icons.account_tree_sharp),
+                  icon: setDestiny
+                      ? Icon(Icons.location_on, color: Colors.purple)
+                      : Icon(Icons.account_tree_sharp),
                   dropdownColor: const Color.fromRGBO(176, 224, 247, 0.973),
                   style: const TextStyle(
                     fontSize: 10.5,
@@ -215,7 +214,7 @@ class _MyLocation extends State<MyLocation> {
                       value: loc,
                       child: Text(loc.name),
                     );
-                  }).toList(),
+                  }).toList()..sort(((a, b) => a.value!.name.compareTo(b.value!.name))),
                 ),
               ),
             ],
