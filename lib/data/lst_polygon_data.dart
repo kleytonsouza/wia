@@ -2,6 +2,96 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
+final List<LatLng> pointsDegreeStairs = [
+  LatLng(-25.42936799, -49.26752942),
+  LatLng(-25.42933114, -49.26754635),
+  LatLng(-25.42931396, -49.26750352),
+  LatLng(-25.42935169, -49.26748647),
+  LatLng(-25.42934259, -49.26749103),
+  LatLng(-25.42935965, -49.26753315),
+];
+
+final List<LatLng> pointsElevatorEntrance = [
+  LatLng(-25.42909702, -49.26757035),
+  LatLng(-25.42910574, -49.26759318),
+  LatLng(-25.42907163, -49.26760892),
+  LatLng(-25.42906332, -49.26758649),
+];
+
+final List<LatLng> pointsElevatorSideEntrance = [
+  LatLng(-25.42889189, -49.26776163),
+  LatLng(-25.42887816, -49.26772692),
+  LatLng(-25.42886061, -49.26773497),
+  LatLng(-25.42887405, -49.26777075),
+];
+
+final List<LatLng> pointsUnknownSector1 = [
+  LatLng(-25.42910574, -49.26759318),
+  LatLng(-25.42907163, -49.26760892),
+  LatLng(-25.42906581, -49.26759333),
+  LatLng(-25.42904105, -49.26760511),
+  LatLng(-25.42908433, -49.26771718),
+  LatLng(-25.42914330, -49.26768991),
+];
+
+final List<LatLng> pointsUnknownSector2 = [
+  LatLng(-25.42915542, -49.26771676),
+  LatLng(-25.42916684, -49.26774470),
+  LatLng(-25.42930574, -49.26767782),
+  LatLng(-25.42934877, -49.26778542),
+  pointsExternalPolygon[5],
+  pointsExternalPolygon[6],
+  LatLng(-25.42908550, -49.26789826),
+  LatLng(-25.42904752, -49.26780113),
+  LatLng(-25.42910589, -49.26777338),
+  LatLng(-25.42909535, -49.26774554),
+];
+
+final List<LatLng> pointsUnknownSector3 = [
+  LatLng(-25.42889723, -49.26777781),
+  LatLng(-25.42885290, -49.26779892),
+  LatLng(-25.42888249, -49.26787641),
+  LatLng(-25.42892648, -49.26785514),
+ 
+];
+
+final List<LatLng> pointsStair3 = [
+  LatLng(-25.42908472, -49.26746664),
+  LatLng(-25.42911538, -49.26754707),
+  LatLng(-25.42909370, -49.26755745),
+  LatLng(-25.42908686, -49.26754168),
+  LatLng(-25.42909279, -49.26753896),
+  LatLng(-25.42906711, -49.26747527),
+];
+
+final List<LatLng> pointsStair4 = [
+  LatLng(-25.42901936, -49.26749763),
+  LatLng(-25.42904424, -49.26756217),
+  LatLng(-25.42905114, -49.26755910),
+  LatLng(-25.42905732, -49.26757456),
+  LatLng(-25.42903498, -49.26758463),
+  LatLng(-25.42900333, -49.26750374),
+];
+
+final List<LatLng> pointsStair2 = [
+  //LatLng(-25.42890106, -49.26772675),
+  LatLng(-25.42889587, -49.26771439),
+  LatLng(-25.42893931, -49.26769388),
+  LatLng(-25.42895931, -49.26768383),
+  LatLng(-25.42897571, -49.26772738),
+  LatLng(-25.42891242, -49.26775872),
+  //LatLng(-25.42890812, -49.26774424),
+  //LatLng(-25.42893710, -49.26773037),
+  //LatLng(-25.42893021, -49.26771296),
+];
+
+final List<LatLng> pointsStair1 = [
+  LatLng(-25.42914345, -49.26768957),
+  LatLng(-25.42908442, -49.26771742),
+  LatLng(-25.42909556, -49.26774574),
+  LatLng(-25.42915532, -49.26771762),
+];
+
 final List<LatLng> pointsInternalRightSpan = [
   LatLng(-25.42896155, -49.26764407),
   LatLng(-25.42903922, -49.26760672),
@@ -69,29 +159,109 @@ final List<LatLng> pointsExternalPolygon = [
   LatLng(-25.42947997, -49.26758701),
 ];
 
-Polygon externalPolygon = Polygon(
-  borderStrokeWidth: 5,
-  borderColor: Colors.black87,
-  isFilled: true,
-  points: pointsExternalPolygon,
-  color: Colors.grey.shade500,
+Polygon createPolygon(List<LatLng> points, String label, Color color) {
+  return Polygon(
+    borderStrokeWidth: 5,
+    borderColor: Colors.black87,
+    isFilled: true,
+    points: points,
+    color: color,
+    label: label,
+  );
+}
+
+Polygon degreeStairs = createPolygon(
+  pointsDegreeStairs,
+  "Escada",
+  Colors.brown.shade300,
+);
+Polygon elevatorEntrance = createPolygon(
+  pointsElevatorEntrance,
+  "Elevador",
+  Colors.brown.shade500,
+);
+Polygon elevatorSideEntrance = createPolygon(
+  pointsElevatorSideEntrance,
+  "Elevador",
+  Colors.brown.shade500,
+);
+Polygon externalPolygon = createPolygon(
+  pointsExternalPolygon,
+  "",
+  Colors.grey.shade500,
+);
+Polygon internalRightSpan = createPolygon(
+  pointsInternalRightSpan,
+  "Jardim Aberto",
+  Colors.green,
+);
+Polygon internalLeftSpan = createPolygon(
+  pointsInternalLeftSpan,
+  "Jardim Aberto",
+  Colors.green,
+);
+Polygon unknownSector1 =
+    createPolygon(pointsUnknownSector1, "", Colors.grey.shade500,);
+Polygon unknownSector3 =
+    createPolygon(pointsUnknownSector3, "", Colors.grey.shade500,);
+Polygon stair1 = createPolygon(
+  pointsStair1,
+  "Escada",
+  Colors.grey.shade500,
+);
+Polygon stair3 = createPolygon(
+  pointsStair3,
+  "Escada",
+  Colors.grey.shade500,
+);
+Polygon stair4 = createPolygon(
+  pointsStair4,
+  "Escada",
+  Colors.grey.shade500,
+);
+Polygon stair2 = createPolygon(
+  pointsStair2,
+  "Escada",
+  Colors.grey.shade500,
+);
+Polygon unknownSector2 = createPolygon(
+  pointsUnknownSector2,
+  "",
+  Colors.grey.shade500,
 );
 
-Polygon internalRightSpan = Polygon(
-  points: pointsInternalRightSpan,
-  borderStrokeWidth: 5,
-  borderColor: Colors.black87,
-  isFilled: true,
-  color: Colors.green,
-  label: "Jardim Aberto"
-);
+// Polygon elevatorEntrance = Polygon(
+//   borderStrokeWidth: 5,
+//   borderColor: Colors.black87,
+//   isFilled: true,
+//   points: pointsElevatorEntrance,
+//   color: Colors.grey.shade500,
+//   label: "Elevador",
+// );
 
-Polygon internalLeftSpan = Polygon(
-  points: pointsInternalLeftSpan,
-  borderStrokeWidth: 5,
-  borderColor: Colors.black87,
-  isFilled: true,
-  color: Colors.green,
-  label: "Jardim Aberto"
-);
+// Polygon externalPolygon = Polygon(
+//   borderStrokeWidth: 5,
+//   borderColor: Colors.black87,
+//   isFilled: true,
+//   points: pointsExternalPolygon,
+//   color: Colors.grey.shade500,
+// );
+
+// Polygon internalRightSpan = Polygon(
+//   points: pointsInternalRightSpan,
+//   borderStrokeWidth: 5,
+//   borderColor: Colors.black87,
+//   isFilled: true,
+//   color: Colors.green,
+//   label: "Jardim Aberto"
+// );
+
+// Polygon internalLeftSpan = Polygon(
+//   points: pointsInternalLeftSpan,
+//   borderStrokeWidth: 5,
+//   borderColor: Colors.black87,
+//   isFilled: true,
+//   color: Colors.green,
+//   label: "Jardim Aberto"
+// );
 

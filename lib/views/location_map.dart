@@ -150,7 +150,6 @@ class _MyLocation extends State<MyLocation> {
 
   @override
   Widget build(BuildContext context) {
-
     Sector sector = lstSector
         .firstWhere((element) => element.coordinate == qrSector.coordinate);
 
@@ -230,6 +229,16 @@ class _MyLocation extends State<MyLocation> {
                         externalPolygon,
                         internalLeftSpan,
                         internalRightSpan,
+                        degreeStairs,
+                        elevatorEntrance,
+                        unknownSector1,
+                        stair1,
+                        unknownSector2,
+                        unknownSector3,
+                        stair2,
+                        stair3,
+                        stair4,
+                        elevatorSideEntrance,
                       ] +
                       lstSector.map((e) => e.polygon).toList(),
                 ),
@@ -266,6 +275,93 @@ class _MyLocation extends State<MyLocation> {
                           points: [
                             LatLng(-25.42914149, -49.26761575),
                             LatLng(-25.42913153, -49.26758985)
+                          ],
+                          borderStrokeWidth: 6,
+                          color: Colors.white,
+                          borderColor: Colors.white,
+                        ),
+                        Polyline(
+                          points: [
+                            LatLng(-25.42917085, -49.26774241),
+                            LatLng(-25.42918741, -49.26773472)
+                          ],
+                          borderStrokeWidth: 6,
+                          color: Colors.white,
+                          borderColor: Colors.white,
+                        ),
+                        Polyline(
+                          points: [
+                            LatLng(-25.42908515, -49.26746704),
+                            LatLng(-25.42906745, -49.26747542)
+                          ],
+                          borderStrokeWidth: 6,
+                          color: Colors.white,
+                          borderColor: Colors.white,
+                        ),
+                        Polyline(
+                          points: [
+                            LatLng(-25.42901934, -49.26749680),
+                            LatLng(-25.42900390, -49.26750381)
+                          ],
+                          borderStrokeWidth: 6,
+                          color: Colors.white,
+                          borderColor: Colors.white,
+                        ),
+                        Polyline(
+                          points: [
+                            LatLng(-25.42885274, -49.26779926),
+                            LatLng(-25.42883553, -49.26780746)
+                          ],
+                          borderStrokeWidth: 6,
+                          color: Colors.white,
+                          borderColor: Colors.white,
+                        ),
+                        Polyline(
+                          points: [
+                            LatLng(-25.42887040, -49.26776226),
+                            LatLng(-25.42886299, -49.26774227),
+                          ],
+                          borderStrokeWidth: 6,
+                          color: Colors.white,
+                          borderColor: Colors.white,
+                        ),
+                        Polyline(
+                          points: [
+                            LatLng(-25.42894423, -49.26774313),
+                            LatLng(-25.42895530, -49.26773896)
+                          ],
+                          borderStrokeWidth: 6,
+                          color: Colors.white,
+                          borderColor: Colors.white,
+                        ),
+                        Polyline(
+                          points: [
+                            LatLng(
+                              -25.42889625,
+                              -49.26771467,
+                            ),
+                            LatLng(
+                              -25.42890090,
+                              -49.26772708,
+                            )
+                          ],
+                          borderStrokeWidth: 6,
+                          color: Colors.white,
+                          borderColor: Colors.white,
+                        ),
+                        Polyline(
+                          points: [
+                            LatLng(-25.42906823, -49.26758401),
+                            LatLng(-25.42908966, -49.26757372),
+                          ],
+                          borderStrokeWidth: 6,
+                          color: Colors.white,
+                          borderColor: Colors.white,
+                        ),
+                        Polyline(
+                          points: [
+                            LatLng(-25.42914345, -49.26768957),
+                            LatLng(-25.42915532, -49.26771762),
                           ],
                           borderStrokeWidth: 6,
                           color: Colors.white,

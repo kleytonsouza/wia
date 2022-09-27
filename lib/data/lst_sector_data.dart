@@ -135,14 +135,14 @@ final List<Sector> lstSector = [
       ],
       polygon: Polygon(
         points: [
-          LatLng(-25.42930632, -49.26767670),
-          LatLng(-25.42948136, -49.26759728),
-          LatLng(-25.42951875, -49.26768807),
-          LatLng(-25.42949688, -49.26769772),
-          LatLng(-25.42950022, -49.26770606),
-          LatLng(-25.42947365, -49.26771625),
-          LatLng(-25.42947651, -49.26772590),
-          LatLng(-25.42934882, -49.26778435),
+          LatLng(-25.42930513, -49.26767768),
+          LatLng(-25.42948090, -49.26759140),
+          pointsExternalPolygon[0],
+          pointsExternalPolygon[1],
+          pointsExternalPolygon[2],
+          pointsExternalPolygon[3],
+          pointsExternalPolygon[4],
+          LatLng(-25.42934882, -49.26778635),
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.black87,
@@ -169,12 +169,16 @@ final List<Sector> lstSector = [
       polygon: Polygon(
         points: [
           LatLng(-25.42928883, -49.26741180),
-          LatLng(-25.42925191, -49.26731967),
-          LatLng(-25.42930784, -49.26729469),
-          LatLng(-25.42931223, -49.26730528),
-          LatLng(-25.42935670, -49.26728400),
-          LatLng(-25.42938992, -49.26736466),
-          LatLng(-25.42938992, -49.26736466),
+          LatLng(-25.42925100, -49.26731952),
+          pointsExternalPolygon[31],
+          pointsExternalPolygon[32],
+          pointsExternalPolygon[33],
+          pointsExternalPolygon[34],
+          // LatLng(-25.42930784, -49.26729469),
+          // LatLng(-25.42931223, -49.26730528),
+          // LatLng(-25.42935670, -49.26728400),
+          // LatLng(-25.42938992, -49.26736466),
+          // LatLng(-25.42938992, -49.26736466),
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.black87,
@@ -190,8 +194,8 @@ final List<Sector> lstSector = [
       entries: [
         Polyline(
           points: [
-            LatLng(-25.42886314, -49.26787667),
-            LatLng(-25.42885791, -49.26786422)
+            LatLng(-25.42886314, -49.26787367),
+            LatLng(-25.42885791, -49.26786122)
           ],
           borderStrokeWidth: 6,
           color: Colors.white,
@@ -200,8 +204,8 @@ final List<Sector> lstSector = [
       ],
       polygon: Polygon(
         points: [
-          LatLng(-25.42880165, -49.26791642),
-          LatLng(-25.42878077, -49.26785749),
+          pointsExternalPolygon[13],
+          LatLng(-25.42878020, -49.26785951),
           LatLng(-25.42884398, -49.26782691),
           LatLng(-25.42886715, -49.26788368),
         ],
@@ -229,7 +233,7 @@ final List<Sector> lstSector = [
         ),
         Polyline(
           points: [
-            LatLng(-25.42905784, -49.26757516),
+            LatLng(-25.42905784, -49.26757416),
             LatLng(-25.42909344, -49.26755848),
           ],
           borderStrokeWidth: 6,
@@ -239,14 +243,18 @@ final List<Sector> lstSector = [
       ],
       polygon: Polygon(
         points: [
-          LatLng(-25.42906312, -49.26741320),
-          LatLng(-25.42908377, -49.26746456),
-          LatLng(-25.42906341, -49.26747625),
-          LatLng(-25.42908727, -49.26754040),
-          LatLng(-25.42904539, -49.26755663),
-          LatLng(-25.42902237, -49.26749429),
-          LatLng(-25.42900441, -49.26749937),
-          LatLng(-25.42898770, -49.26745057),
+          LatLng(-25.42898347, -49.26744996),
+          LatLng(-25.42906281, -49.26741251),
+          LatLng(-25.42908440, -49.26746690),
+          LatLng(-25.42906715, -49.26747498),
+          LatLng(-25.42909161, -49.26753953),
+          LatLng(-25.42908661, -49.26754177),
+          LatLng(-25.42909345, -49.26755864),
+          LatLng(-25.42905769, -49.26757443),
+          LatLng(-25.42905131, -49.26755918),
+          LatLng(-25.42904461, -49.26756245),
+          LatLng(-25.42901938, -49.26749693),
+          LatLng(-25.42900381, -49.26750356),
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.black87,
@@ -301,10 +309,10 @@ final List<Sector> lstSector = [
       ],
       polygon: Polygon(
         points: [
-          LatLng(-25.4288035, -49.2678398),
-          LatLng(-25.4287862, -49.2678072),
-          LatLng(-25.4288239, -49.2677878),
-          LatLng(-25.4288382, -49.2678255),
+          LatLng(-25.42884398, -49.26782691),
+          LatLng(-25.42880375, -49.26784717),
+          LatLng(-25.42878741, -49.26780409),
+          LatLng(-25.42882762, -49.26778466),
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.black87,
