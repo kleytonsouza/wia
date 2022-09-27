@@ -19,7 +19,6 @@ class MyLocation extends StatefulWidget {
 }
 
 class _MyLocation extends State<MyLocation> {
-  
   Sector currentSelectedValue = lstSector[0];
 
   bool setDestiny = false;
@@ -151,7 +150,7 @@ class _MyLocation extends State<MyLocation> {
 
   @override
   Widget build(BuildContext context) {
-    //List<String> qrSplitted = qrCodeLocation.coordinate.split(',');
+
     Sector sector = lstSector
         .firstWhere((element) => element.coordinate == qrSector.coordinate);
 
@@ -211,7 +210,6 @@ class _MyLocation extends State<MyLocation> {
           Flexible(
             child: FlutterMap(
               options: MapOptions(
-                //crs: ,
                 center: LatLng(-25.429096, -49.267650),
                 minZoom: 17,
                 maxZoom: 22,
@@ -226,18 +224,60 @@ class _MyLocation extends State<MyLocation> {
                   tms: true,
                   urlTemplate: "assets/k1_tms/Mapnik/{z}/{x}/{y}.png",
                 ),
+                //desenha os polygonos e destaca o(s) selecionado(s)
                 PolygonLayer(
                   polygons: [
-                    externalPolygon,
-                    sector.polygon,
-                    currentSelectedValue.polygon,
-                  ],
+                        externalPolygon,
+                        internalLeftSpan,
+                        internalRightSpan,
+                      ] +
+                      lstSector.map((e) => e.polygon).toList(),
                 ),
+                currentSelectedValue != lstSector[0]
+                    ? PolygonLayer(
+                        polygons: [
+                          Polygon(
+                              points: sector.polygon.points,
+                              isFilled: true,
+                              color: Colors.cyan,
+                              label: sector.name),
+                          Polygon(
+                              points: currentSelectedValue.polygon.points,
+                              isFilled: true,
+                              color: Colors.deepPurple.shade300,
+                              label: currentSelectedValue.name),
+                        ],
+                      )
+                    : PolygonLayer(
+                        polygons: [
+                          Polygon(
+                              points: sector.polygon.points,
+                              isFilled: true,
+                              color: Colors.cyan,
+                              label: sector.name),
+                        ],
+                      ),
+                //desenha a rota qndo selecionada
                 PolylineLayer(
-                  //polylineCulling: false,
-                  polylines:
-                      routeBetweenTwoPoints(sector.id, currentSelectedValue.id),
+                  polylines: routeBetweenTwoPoints(
+                          sector.id, currentSelectedValue.id) +
+                      [
+                        Polyline(
+                          points: [
+                            LatLng(-25.42914149, -49.26761575),
+                            LatLng(-25.42913153, -49.26758985)
+                          ],
+                          borderStrokeWidth: 6,
+                          color: Colors.white,
+                          borderColor: Colors.white,
+                        )
+                      ],
                 ),
+                //desenhas as portas/entradas dos polygons
+                PolylineLayer(
+                    polylines: lstSector
+                        .expand((element) => element.entries)
+                        .toList()),
                 MarkerLayer(
                   markers: markers(),
                 ),

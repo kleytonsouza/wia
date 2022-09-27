@@ -2,7 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 
+final List<LatLng> pointsInternalRightSpan = [
+  LatLng(-25.42896155, -49.26764407),
+  LatLng(-25.42903922, -49.26760672),
+  LatLng(-25.42910396, -49.26777453),
+  LatLng(-25.42902578, -49.26781038),
+];
 
+final List<LatLng> pointsInternalLeftSpan = [
+  LatLng(-25.42912238, -49.26756888),
+  LatLng(-25.42920006, -49.26753253),
+  LatLng(-25.42920753, -49.26755294),
+  LatLng(-25.42928421, -49.26751759),
+  LatLng(-25.42933550, -49.26764656),
+  LatLng(-25.42929815, -49.26766398),
+  LatLng(-25.42930363, -49.26767892),
+  LatLng(-25.42924189, -49.26770780),
+  LatLng(-25.42923492, -49.26769287),
+  LatLng(-25.42918164, -49.26771826),
+  LatLng(-25.42912238, -49.26756838),
+];
 
 final List<LatLng> pointsExternalPolygon = [
   // primeiro ponto da lista representa, esquina da pres. faria com xv de novembro, pontos seguintes
@@ -22,7 +41,7 @@ final List<LatLng> pointsExternalPolygon = [
       -49.26802124), //esquina esquina pres. faria com alfredo bufren
   LatLng(-25.42879328, -49.26791909),
   LatLng(-25.42880016, -49.26791543),
-  LatLng(-25.42872074, -49.26769747),//ponto inicial biblioteca
+  LatLng(-25.42872074, -49.26769747), //ponto inicial biblioteca
   LatLng(-25.42870684, -49.26770498),
   LatLng(-25.42867116,
       -49.26760787), //esquina alfredo bufren com praca santos andrade
@@ -50,16 +69,29 @@ final List<LatLng> pointsExternalPolygon = [
   LatLng(-25.42947997, -49.26758701),
 ];
 
-
 Polygon externalPolygon = Polygon(
-  borderStrokeWidth: 6,
-  //holePointsList: [
-  //  [LatLng(-25.42901660, -49.26743412), LatLng(-25.42903196, -49.26742703)]
-  //],
+  borderStrokeWidth: 5,
   borderColor: Colors.black87,
-  //isFilled: true,
+  isFilled: true,
   points: pointsExternalPolygon,
-  color: Colors.grey,
+  color: Colors.grey.shade500,
 );
 
+Polygon internalRightSpan = Polygon(
+  points: pointsInternalRightSpan,
+  borderStrokeWidth: 5,
+  borderColor: Colors.black87,
+  isFilled: true,
+  color: Colors.green,
+  label: "Jardim Aberto"
+);
+
+Polygon internalLeftSpan = Polygon(
+  points: pointsInternalLeftSpan,
+  borderStrokeWidth: 5,
+  borderColor: Colors.black87,
+  isFilled: true,
+  color: Colors.green,
+  label: "Jardim Aberto"
+);
 

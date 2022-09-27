@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:wia/models/sector.dart';
@@ -7,19 +5,21 @@ import 'package:latlong2/latlong.dart';
 
 import 'lst_polygon_data.dart';
 
-
 final List<Sector> lstSector = [
   //'Selecione um destino:' : '',
   Sector(
       id: 0,
       name: "Selecione um destino",
       coordinate: ['00.00', '00.00'],
+      entries: [
+        Polyline(points: [LatLng(0, 0)])
+      ],
       polygon: Polygon(points: [LatLng(0, 0), LatLng(0, 0)]),
       info: "Selecione um destino"),
   Sector(
       id: 1,
       name: "Atendimento PROGRAD",
-      coordinate: ['-25.42891780','-49.26780143'],
+      coordinate: ['-25.42891780', '-49.26780143'],
       polygon: Polygon(
         points: [
           LatLng(-25.42889940, -49.26777964),
@@ -30,16 +30,38 @@ final List<Sector> lstSector = [
           LatLng(-25.42892675, -49.26785479),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.purple,
-        color: Colors.lightGreen,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         isFilled: true,
         label: "Atendimento",
       ),
+      entries: [
+        Polyline(
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+          points: [
+            LatLng(-25.42889837, -49.26777957),
+            LatLng(-25.42891567, -49.26777098),
+          ],
+        )
+      ],
       info: "Atendimento ao público PROGRAD"),
   Sector(
       id: 2,
       name: "Biblioteca",
-      coordinate: ['-25.42879171','-49.26766299'],
+      coordinate: ['-25.42879171', '-49.26766299'],
+      entries: [
+        Polyline(
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+          points: [
+            LatLng(-25.42881113, -49.26774175),
+            LatLng(-25.42882187, -49.26773507),
+          ],
+        )
+      ],
       polygon: Polygon(
         points: [
           LatLng(-25.42875461, -49.26778727),
@@ -57,8 +79,8 @@ final List<Sector> lstSector = [
           LatLng(-25.42881783, -49.26775669),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.blueGrey,
-        color: Colors.blueGrey,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         labelStyle: TextStyle(color: Colors.white),
         isFilled: true,
         label: "Biblioteca",
@@ -67,7 +89,21 @@ final List<Sector> lstSector = [
   Sector(
       id: 3,
       name: "Diplomas",
-      coordinate: ['-25.42938526','-49.26755379'],
+      coordinate: ['-25.42938526', '-49.26755379'],
+      entries: [
+        Polyline(
+          points: [
+            LatLng(
+              -25.42938648,
+              -49.26753782,
+            ),
+            LatLng(-25.42937204, -49.26754400),
+          ],
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+        )
+      ],
       polygon: Polygon(
         points: [
           LatLng(-25.42939441, -49.26753453),
@@ -76,8 +112,8 @@ final List<Sector> lstSector = [
           LatLng(-25.42932025, -49.26756636),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.green,
-        color: Colors.deepPurple.shade200,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         isFilled: true,
         label: "Diplomas",
       ),
@@ -85,7 +121,18 @@ final List<Sector> lstSector = [
   Sector(
       id: 4,
       name: "CIPEAD",
-      coordinate: ['-25.42935469','-49.26766968'],
+      coordinate: ['-25.42935469', '-49.26766968'],
+      entries: [
+        Polyline(
+          points: [
+            LatLng(-25.42934191, -49.26766031),
+            LatLng(-25.42935386, -49.26765484)
+          ],
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+        )
+      ],
       polygon: Polygon(
         points: [
           LatLng(-25.42930632, -49.26767670),
@@ -98,8 +145,8 @@ final List<Sector> lstSector = [
           LatLng(-25.42934882, -49.26778435),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.yellow,
-        color: Colors.cyan,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         isFilled: true,
         label: "CIPEAD",
       ),
@@ -107,7 +154,18 @@ final List<Sector> lstSector = [
   Sector(
       id: 5,
       name: "COAFE",
-      coordinate: ['-25.42930129','-49.26739021'],
+      coordinate: ['-25.42930129', '-49.26739021'],
+      entries: [
+        Polyline(
+          points: [
+            LatLng(-25.42928914, -49.26741159),
+            LatLng(-25.42929884, -49.26740662)
+          ],
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+        )
+      ],
       polygon: Polygon(
         points: [
           LatLng(-25.42928883, -49.26741180),
@@ -119,8 +177,8 @@ final List<Sector> lstSector = [
           LatLng(-25.42938992, -49.26736466),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.yellow,
-        color: Colors.brown.shade100,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         isFilled: true,
         label: "COAFE",
       ),
@@ -129,6 +187,17 @@ final List<Sector> lstSector = [
       id: 6,
       name: "COSIS",
       coordinate: ['-25.42885259', '-49.26787655'],
+      entries: [
+        Polyline(
+          points: [
+            LatLng(-25.42886314, -49.26787667),
+            LatLng(-25.42885791, -49.26786422)
+          ],
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+        )
+      ],
       polygon: Polygon(
         points: [
           LatLng(-25.42880165, -49.26791642),
@@ -137,16 +206,37 @@ final List<Sector> lstSector = [
           LatLng(-25.42886715, -49.26788368),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.yellow,
-        color: Colors.green.shade50,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         isFilled: true,
         label: "COSIS",
+        labelStyle: TextStyle(color: Colors.black),
       ),
       info: "Unidade de Informática"),
   Sector(
       id: 7,
       name: "Entrada/Saida Principal",
       coordinate: ['-25.42903573', '-49.26746404'],
+      entries: [
+        Polyline(
+          points: [
+            LatLng(-25.42901451, -49.26743524),
+            LatLng(-25.42903244, -49.26742678),
+          ],
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+        ),
+        Polyline(
+          points: [
+            LatLng(-25.42905784, -49.26757516),
+            LatLng(-25.42909344, -49.26755848),
+          ],
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+        )
+      ],
       polygon: Polygon(
         points: [
           LatLng(-25.42906312, -49.26741320),
@@ -159,8 +249,8 @@ final List<Sector> lstSector = [
           LatLng(-25.42898770, -49.26745057),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.white70,
-        color: Colors.teal,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         isFilled: true,
         label: "Entr. Principal",
       ),
@@ -169,6 +259,17 @@ final List<Sector> lstSector = [
       id: 8,
       name: "Entrada/Saida Lateral",
       coordinate: ['-25.42877982', '-49.26779419'],
+      entries: [
+        Polyline(
+          points: [
+            LatLng(-25.42876405, -49.26781467),
+            LatLng(-25.42875310, -49.26778928),
+          ],
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+        )
+      ],
       polygon: Polygon(
         points: [
           LatLng(-25.42876456, -49.26781450),
@@ -177,8 +278,8 @@ final List<Sector> lstSector = [
           LatLng(-25.42883527, -49.26777878),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.orange.shade200,
-        color: Colors.indigoAccent,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         isFilled: true,
         label: "Entr. Lateral",
       ),
@@ -187,6 +288,17 @@ final List<Sector> lstSector = [
       id: 6,
       name: "Financeiro",
       coordinate: ['-25.42881067', '-49.26781387'],
+      entries: [
+        Polyline(
+          points: [
+            LatLng(-25.42884248, -49.26782687),
+            LatLng(-25.42883003, -49.26783285),
+          ],
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+        )
+      ],
       polygon: Polygon(
         points: [
           LatLng(-25.4288035, -49.2678398),
@@ -195,8 +307,8 @@ final List<Sector> lstSector = [
           LatLng(-25.4288382, -49.2678255),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.blue.shade200,
-        color: Colors.amberAccent,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         isFilled: true,
         label: "Financeiro",
       ),
@@ -205,6 +317,17 @@ final List<Sector> lstSector = [
       id: 27,
       name: "COPAC/COPEG",
       coordinate: ['-25.42892616', '-49.26792775'],
+      entries: [
+        Polyline(
+          points: [
+            LatLng(-25.42891623, -49.26790144),
+            LatLng(-25.42893018, -49.26789652),
+          ],
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+        )
+      ],
       polygon: Polygon(
         points: [
           LatLng(-25.42880669, -49.26795429),
@@ -215,8 +338,8 @@ final List<Sector> lstSector = [
           LatLng(-25.42882860, -49.26801902),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.blueGrey.shade200,
-        color: Colors.cyan,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         isFilled: true,
         label: "COPAC/COPEG",
       ),
@@ -225,6 +348,17 @@ final List<Sector> lstSector = [
       id: 27,
       name: "Gabinete Pró-reitora",
       coordinate: ['-25.42886347', '-49.26791467'],
+      entries: [
+        Polyline(
+          points: [
+            LatLng(-25.42887403, -49.26790654),
+            LatLng(-25.42887752, -49.26791426),
+          ],
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+        )
+      ],
       polygon: Polygon(
         points: [
           LatLng(-25.42879225, -49.26792142),
@@ -233,8 +367,8 @@ final List<Sector> lstSector = [
           LatLng(-25.42880669, -49.26795279),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.red.shade100,
-        color: Colors.brown,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         isFilled: true,
         label: "Gabinete Pró-reitora",
       ),
@@ -243,6 +377,17 @@ final List<Sector> lstSector = [
       id: 27,
       name: "Secretaria PROGRAD",
       coordinate: ['-25.42890854', '-49.26788761'],
+      entries: [
+        Polyline(
+          points: [
+            LatLng(-25.42887030, -49.26788152),
+            LatLng(-25.42888125, -49.26787667),
+          ],
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+        )
+      ],
       polygon: Polygon(
         points: [
           LatLng(-25.42888885, -49.26789354),
@@ -251,8 +396,8 @@ final List<Sector> lstSector = [
           LatLng(-25.42888287, -49.26787661),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.orange.shade200,
-        color: Colors.deepPurpleAccent,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         isFilled: true,
         label: "Secretaria PROGRAD",
       ),
@@ -260,19 +405,57 @@ final List<Sector> lstSector = [
   Sector(
       id: 28,
       name: "COPAP",
-      coordinate: ['-25.42900906','-49.26783690'],
+      coordinate: ['-25.42900906', '-49.26783690'],
+      entries: [
+        Polyline(
+            points: [
+              LatLng(-25.42905360, -49.26791380),
+              LatLng(-25.42901700, -49.26781632),
+            ],
+            borderStrokeWidth: 6,
+            color: Colors.black87,
+            borderColor: Colors.black87),
+        Polyline(
+            points: [
+              LatLng(-25.429002906, -49.267796998),
+              LatLng(-25.429006174, -49.267806054),
+            ],
+            borderStrokeWidth: 6,
+            color: Colors.white,
+            borderColor: Colors.white),
+        Polyline(
+            points: [
+              LatLng(-25.42902858, -49.26784583),
+              LatLng(-25.42902335, -49.26782977),
+            ],
+            borderStrokeWidth: 6,
+            color: Colors.white,
+            borderColor: Colors.white),
+        Polyline(
+            points: [
+              LatLng(-25.42895576, -49.26795450),
+              LatLng(-25.42895987, -49.26796645),
+            ],
+            borderStrokeWidth: 6,
+            color: Colors.white,
+            borderColor: Colors.white),
+      ],
       polygon: Polygon(
         points: [
           LatLng(-25.42896354, -49.26796723),
           LatLng(-25.42892121, -49.26785968),
-          LatLng(-25.42901582, -49.26781735),
-          LatLng(-25.42905367, -49.26791146),
+          LatLng(-25.42899385, -49.26782379),
+          LatLng(-25.42898451, -49.26780325),
+          LatLng(-25.42900057, -49.26779541),
+          LatLng(-25.42900954, -49.26781931),
+          LatLng(-25.42904613, -49.26780213),
+          LatLng(-25.42908497, -49.26789848),
           LatLng(-25.42902976, -49.26792391),
           LatLng(-25.42903325, -49.26793487),
         ],
         borderStrokeWidth: 5,
-        borderColor: Colors.orange.shade200,
-        color: Colors.limeAccent,
+        borderColor: Colors.black87,
+        color: Colors.grey.shade400,
         isFilled: true,
         label: "COPAP",
       ),
