@@ -7,8 +7,6 @@ final List<LatLng> pointsDegreeStairs = [
   LatLng(-25.42933114, -49.26754635),
   LatLng(-25.42931396, -49.26750352),
   LatLng(-25.42935169, -49.26748647),
-  LatLng(-25.42934259, -49.26749103),
-  LatLng(-25.42935965, -49.26753315),
 ];
 
 final List<LatLng> pointsElevatorEntrance = [
@@ -16,6 +14,13 @@ final List<LatLng> pointsElevatorEntrance = [
   LatLng(-25.42910574, -49.26759318),
   LatLng(-25.42907163, -49.26760892),
   LatLng(-25.42906332, -49.26758649),
+];
+
+final List<LatLng> pointsElevatorEntrance1 = [
+  LatLng(-25.42933380,-49.26748164),
+  LatLng(-25.42931445,-49.26743418),
+  LatLng(-25.42929554,-49.26744189),
+  LatLng(-25.42931500,-49.26749042),
 ];
 
 final List<LatLng> pointsElevatorSideEntrance = [
@@ -52,7 +57,50 @@ final List<LatLng> pointsUnknownSector3 = [
   LatLng(-25.42885290, -49.26779892),
   LatLng(-25.42888249, -49.26787641),
   LatLng(-25.42892648, -49.26785514),
- 
+];
+
+final List<LatLng> pointsUnknownSector4 = [
+  pointsExternalPolygon[22],
+  pointsExternalPolygon[23],
+  pointsExternalPolygon[24],
+  LatLng(-25.42898366, -49.26745027),
+  LatLng(-25.42903710, -49.26759102),
+  LatLng(-25.42894104, -49.26763649),
+];
+
+final List<LatLng> pointsUnknownSector5 = [
+  LatLng(-25.429062690, -49.267412375),
+  pointsExternalPolygon[25],
+  pointsExternalPolygon[26],
+  pointsExternalPolygon[27],
+  pointsExternalPolygon[28],
+  pointsExternalPolygon[29],
+  pointsExternalPolygon[30],
+  LatLng(-25.42925085, -49.26731968),
+  LatLng(-25.42928757, -49.26741145),
+  LatLng(-25.42926407, -49.26742195),
+  LatLng(-25.42927946, -49.26746213),
+  LatLng(-25.42927546, -49.26746331),
+  LatLng(-25.42929080, -49.26750089),
+  LatLng(-25.42921737, -49.26753481),
+  LatLng(-25.42920548, -49.26750594),
+  LatLng(-25.42911526, -49.26754846),
+];
+
+final List<LatLng> pointsUnknownSector6 = [
+  pointsExternalPolygon[36],
+  pointsExternalPolygon[37],
+  LatLng(-25.42948185,-49.26759612),
+  LatLng(-25.42942732,-49.26762039),
+  LatLng(-25.42939239,-49.26753591),
+  LatLng(-25.42944201,-49.26751271),
+];
+
+final List<LatLng> pointsUnknownSector7 = [
+  LatLng(-25.42933383,-49.26748135),
+  LatLng(-25.42930285,-49.26740382),
+  LatLng(-25.42938217,-49.26736748),
+  LatLng(-25.42941338,-49.26744562),
 ];
 
 final List<LatLng> pointsStair3 = [
@@ -90,6 +138,13 @@ final List<LatLng> pointsStair1 = [
   LatLng(-25.42908442, -49.26771742),
   LatLng(-25.42909556, -49.26774574),
   LatLng(-25.42915532, -49.26771762),
+];
+
+final List<LatLng> pointsStair5 = [
+  LatLng(-25.42930385,-49.26743776),
+  LatLng(-25.42929672,-49.26742044),
+  LatLng(-25.42930798,-49.26741565),
+  LatLng(-25.42931496,-49.26743330),
 ];
 
 final List<LatLng> pointsInternalRightSpan = [
@@ -175,55 +230,109 @@ Polygon degreeStairs = createPolygon(
   "Escada",
   Colors.brown.shade300,
 );
+
 Polygon elevatorEntrance = createPolygon(
   pointsElevatorEntrance,
   "Elevador",
   Colors.brown.shade500,
 );
+
+Polygon elevator1 = createPolygon(
+  pointsElevatorEntrance1,
+  "Elevador",
+  Colors.brown.shade500,
+);
+
 Polygon elevatorSideEntrance = createPolygon(
   pointsElevatorSideEntrance,
   "Elevador",
   Colors.brown.shade500,
 );
+
 Polygon externalPolygon = createPolygon(
   pointsExternalPolygon,
   "",
   Colors.grey.shade500,
 );
+
 Polygon internalRightSpan = createPolygon(
   pointsInternalRightSpan,
   "Jardim Aberto",
   Colors.green,
 );
+
 Polygon internalLeftSpan = createPolygon(
   pointsInternalLeftSpan,
   "Jardim Aberto",
   Colors.green,
 );
-Polygon unknownSector1 =
-    createPolygon(pointsUnknownSector1, "", Colors.grey.shade500,);
-Polygon unknownSector3 =
-    createPolygon(pointsUnknownSector3, "", Colors.grey.shade500,);
+
+Polygon unknownSector1 = createPolygon(
+  pointsUnknownSector1,
+  "",
+  Colors.grey.shade500,
+);
+
+Polygon unknownSector3 = createPolygon(
+  pointsUnknownSector3,
+  "",
+  Colors.grey.shade500,
+);
+
+Polygon unknownSector4 = createPolygon(
+  pointsUnknownSector4,
+  "",
+  Colors.grey.shade500,
+);
+
+Polygon unknownSector5 = createPolygon(
+  pointsUnknownSector5,
+  "",
+  Colors.grey.shade500,
+);
+
+Polygon unknownSector6 = createPolygon(
+  pointsUnknownSector6,
+  "",
+  Colors.grey.shade500,
+);
+
+Polygon unknownSector7 = createPolygon(
+  pointsUnknownSector7,
+  "",
+  Colors.grey.shade500,
+);
+
 Polygon stair1 = createPolygon(
   pointsStair1,
   "Escada",
-  Colors.grey.shade500,
+  Colors.brown.shade300,
 );
+
+Polygon stair5 = createPolygon(
+  pointsStair5,
+  "Escada",
+  Colors.brown.shade300,
+);
+
 Polygon stair3 = createPolygon(
   pointsStair3,
   "Escada",
-  Colors.grey.shade500,
+  Colors.brown.shade300,
 );
+
 Polygon stair4 = createPolygon(
   pointsStair4,
   "Escada",
-  Colors.grey.shade500,
+  Colors.brown.shade300,
 );
+
 Polygon stair2 = createPolygon(
   pointsStair2,
   "Escada",
-  Colors.grey.shade500,
+  Colors.brown.shade300,
 );
+
 Polygon unknownSector2 = createPolygon(
   pointsUnknownSector2,
   "",

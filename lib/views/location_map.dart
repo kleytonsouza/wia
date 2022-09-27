@@ -46,9 +46,9 @@ class _MyLocation extends State<MyLocation> {
           anchorPos: AnchorPos.align(AnchorAlign.top),
           point: LatLng(double.parse(currentSelectedValue.coordinate[0]),
               double.parse(currentSelectedValue.coordinate[1])),
-          builder: (ctx) => const Icon(
+          builder: (ctx) => Icon(
             Icons.location_on,
-            color: Colors.red,
+            color: Colors.purple,
             size: 50,
           ),
         ),
@@ -64,7 +64,7 @@ class _MyLocation extends State<MyLocation> {
               double.parse(qrSector.coordinate[1])),
           builder: (ctx) => const Icon(
             Icons.location_on,
-            color: Colors.blue,
+            color: Colors.yellowAccent,
             size: 50,
           ),
         ),
@@ -155,7 +155,17 @@ class _MyLocation extends State<MyLocation> {
 
     return Scaffold(
       appBar: AppBar(
-        title: FittedBox(child: Text("Você esta na ${sector.name}")),
+        title: FittedBox(
+            child: Row(
+          children: [
+            Text("Você esta na ${sector.name}"),
+            Icon(
+              Icons.location_on,
+              color: setDestiny ? Colors.green : Colors.yellowAccent,
+              size: 40,
+            ),
+          ],
+        )),
       ),
       body: Column(
         children: [
@@ -170,6 +180,10 @@ class _MyLocation extends State<MyLocation> {
               ),
               Expanded(
                 child: DropdownButton(
+                  icon: setDestiny ? Icon(
+                    Icons.location_on,
+                    color: Colors.purple) :
+                    Icon(Icons.account_tree_sharp),
                   dropdownColor: const Color.fromRGBO(176, 224, 247, 0.973),
                   style: const TextStyle(
                     fontSize: 10.5,
@@ -235,10 +249,16 @@ class _MyLocation extends State<MyLocation> {
                         stair1,
                         unknownSector2,
                         unknownSector3,
+                        unknownSector4,
+                        unknownSector5,
+                        unknownSector6,
+                        unknownSector7,
                         stair2,
                         stair3,
                         stair4,
+                        stair5,
                         elevatorSideEntrance,
+                        elevator1,
                       ] +
                       lstSector.map((e) => e.polygon).toList(),
                 ),
@@ -297,6 +317,15 @@ class _MyLocation extends State<MyLocation> {
                           borderStrokeWidth: 6,
                           color: Colors.white,
                           borderColor: Colors.white,
+                        ),
+                        Polyline(
+                          points: [
+                            LatLng(-25.42929894, -49.26751301),
+                            LatLng(-25.42931432, -49.26755223)
+                          ],
+                          borderStrokeWidth: 6,
+                          color: Colors.black87,
+                          borderColor: Colors.black87,
                         ),
                         Polyline(
                           points: [
