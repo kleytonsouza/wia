@@ -88,15 +88,15 @@ class _MyAppState extends State<MyApp> {
               child: TextButton.icon(
                 icon: Image.asset('assets/qr_wia.png'),
                 label: Text(""),
-                //onPressed: () => scanQR(),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => MyLocation(
-                      sector: lstSector.firstWhere((element) => element.id == 3),
-                    ),
-                  ),
-                ),
+                onPressed: () => scanQR(),
+                // onPressed: () => Navigator.push(
+                //   context,
+                //   MaterialPageRoute(
+                //     builder: (context) => MyLocation(
+                //       sector: lstSector.firstWhere((element) => element.id == 3),
+                //     ),
+                //   ),
+                // ),
               ),
             ),
             Column(

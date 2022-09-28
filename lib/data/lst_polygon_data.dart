@@ -224,9 +224,9 @@ List<Polygon> lstPolygon = [
     points: [
       //pointsUnknownSector7
       LatLng(-25.42933383, -49.26748135),
-      LatLng(-25.42930285, -49.26740382),
-      LatLng(-25.42938217, -49.26736748),
-      LatLng(-25.42941338, -49.26744562),
+      LatLng(-25.42930285, -49.26740282),
+      LatLng(-25.42938217, -49.26736248),
+      LatLng(-25.42941338, -49.26744162),
     ],
     borderStrokeWidth: 5,
     borderColor: Colors.black87,
@@ -320,7 +320,7 @@ List<Polygon> lstPolygon = [
     borderStrokeWidth: 5,
     borderColor: Colors.black87,
     isFilled: true,
-    color: Colors.green,
+    color: Colors.green.shade200,
     label: "Área Aberta",
   ),
   Polygon(
@@ -341,7 +341,7 @@ List<Polygon> lstPolygon = [
     borderStrokeWidth: 5,
     borderColor: Colors.black87,
     isFilled: true,
-    color: Colors.green,
+    color: Colors.green.shade200,
     label: "Jardim Aberto",
   ),
 ];

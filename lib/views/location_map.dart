@@ -72,33 +72,33 @@ class _MyLocation extends State<MyLocation> {
     }
   }
 
-  List<LatLng> lstLngLat = [
-    LatLng(-25.428825, -49.26805),
-    LatLng(-25.429043, -49.267934),
-    LatLng(-25.429037, -49.267917),
-    LatLng(-25.429275, -49.267807),
-    LatLng(-25.429282, -49.267824),
-    LatLng(-25.429535, -49.267708),
-    LatLng(-25.429358, -49.267259),
-    LatLng(-25.429319, -49.267279),
-    LatLng(-25.429311, -49.267261),
-    LatLng(-25.429159, -49.267341),
-    LatLng(-25.429162, -49.267351),
-    LatLng(-25.42914, -49.267359),
-    LatLng(-25.429151, -49.267384),
-    LatLng(-25.429104, -49.267407),
-    LatLng(-25.429071, -49.267328),
-    LatLng(-25.428891, -49.267418),
-    LatLng(-25.42892, -49.267492),
-    LatLng(-25.428876, -49.267512),
-    LatLng(-25.42887, -49.267494),
-    LatLng(-25.428839, -49.267506),
-    LatLng(-25.428834, -49.267498),
-    LatLng(-25.42868, -49.267579),
-    LatLng(-25.428682, -49.267588),
-    LatLng(-25.428645, -49.26761),
-    LatLng(-25.428825, -49.26805)
-  ];
+  // List<LatLng> lstLngLat = [
+  //   LatLng(-25.428825, -49.26805),
+  //   LatLng(-25.429043, -49.267934),
+  //   LatLng(-25.429037, -49.267917),
+  //   LatLng(-25.429275, -49.267807),
+  //   LatLng(-25.429282, -49.267824),
+  //   LatLng(-25.429535, -49.267708),
+  //   LatLng(-25.429358, -49.267259),
+  //   LatLng(-25.429319, -49.267279),
+  //   LatLng(-25.429311, -49.267261),
+  //   LatLng(-25.429159, -49.267341),
+  //   LatLng(-25.429162, -49.267351),
+  //   LatLng(-25.42914, -49.267359),
+  //   LatLng(-25.429151, -49.267384),
+  //   LatLng(-25.429104, -49.267407),
+  //   LatLng(-25.429071, -49.267328),
+  //   LatLng(-25.428891, -49.267418),
+  //   LatLng(-25.42892, -49.267492),
+  //   LatLng(-25.428876, -49.267512),
+  //   LatLng(-25.42887, -49.267494),
+  //   LatLng(-25.428839, -49.267506),
+  //   LatLng(-25.428834, -49.267498),
+  //   LatLng(-25.42868, -49.267579),
+  //   LatLng(-25.428682, -49.267588),
+  //   LatLng(-25.428645, -49.26761),
+  //   LatLng(-25.428825, -49.26805)
+  // ];
 
   List<Polyline> routeBetweenTwoPoints(int from, int to) {
     List<Polyline> points = [];
@@ -150,7 +150,6 @@ class _MyLocation extends State<MyLocation> {
 
   @override
   Widget build(BuildContext context) {
-
     final mediaQuery = MediaQuery.of(context);
 
     Sector sector = lstSector
@@ -227,7 +226,9 @@ class _MyLocation extends State<MyLocation> {
             child: FlutterMap(
               options: MapOptions(
                 center: LatLng(-25.4290388, -49.2675310),
-                minZoom: 16,
+                // center: LatLng(double.parse(qrSector.coordinate[0]),
+                //     double.parse(qrSector.coordinate[1])),
+                minZoom: 18,
                 maxZoom: 22,
                 //adaptiveBoundaries: true,
                 //screenSize: Size(mediaQuery.size.width, mediaQuery.size.height),
@@ -247,7 +248,7 @@ class _MyLocation extends State<MyLocation> {
                   polygons: [
                         externalPolygon,
                         ...lstPolygon
-            
+
                         // internalLeftSpan,
                         // internalRightSpan,
                         // degreeStairs,
