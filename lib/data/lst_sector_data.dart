@@ -41,8 +41,8 @@ List<Sector> lstSector = [
           color: Colors.white,
           borderColor: Colors.white,
           points: [
-            LatLng(-25.42889837, -49.26777957),
-            LatLng(-25.42891567, -49.26777098),
+            LatLng(-25.42890037, -49.26777957),
+            LatLng(-25.42891567, -49.26777200),
           ],
         )
       ],
@@ -81,7 +81,7 @@ List<Sector> lstSector = [
         borderStrokeWidth: 5,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
-        labelStyle: TextStyle(color: Colors.white),
+        //labelStyle: TextStyle(color: Colors.white),
         isFilled: true,
         label: "Biblioteca",
       ),
@@ -125,8 +125,8 @@ List<Sector> lstSector = [
       entries: [
         Polyline(
           points: [
-            LatLng(-25.42934191, -49.26766031),
-            LatLng(-25.42935386, -49.26765484)
+            LatLng(-25.42934191, -49.26765931),
+            LatLng(-25.42935386, -49.26765384)
           ],
           borderStrokeWidth: 6,
           color: Colors.white,
@@ -158,8 +158,8 @@ List<Sector> lstSector = [
       entries: [
         Polyline(
           points: [
-            LatLng(-25.42928914, -49.26741159),
-            LatLng(-25.42929884, -49.26740662)
+            LatLng(-25.42928914, -49.26741129),
+            LatLng(-25.42930084, -49.26740662)
           ],
           borderStrokeWidth: 6,
           color: Colors.white,
@@ -224,8 +224,8 @@ List<Sector> lstSector = [
       entries: [
         Polyline(
           points: [
-            LatLng(-25.42901451, -49.26743524),
-            LatLng(-25.42903244, -49.26742678),
+            LatLng(-25.42901451, -49.26743450),
+            LatLng(-25.42903244, -49.26742620),
           ],
           borderStrokeWidth: 6,
           color: Colors.white,
@@ -270,8 +270,17 @@ List<Sector> lstSector = [
       entries: [
         Polyline(
           points: [
-            LatLng(-25.42876405, -49.26781467),
-            LatLng(-25.42875310, -49.26778928),
+            LatLng(-25.42876306, -49.26781550),
+            LatLng(-25.42875431, -49.26778916),
+          ],
+          borderStrokeWidth: 6,
+          color: Colors.white,
+          borderColor: Colors.white,
+        ),
+        Polyline(
+          points: [
+            LatLng(-25.42881783, -49.26775769),
+            LatLng(-25.42882762, -49.26778466),
           ],
           borderStrokeWidth: 6,
           color: Colors.white,
@@ -280,10 +289,10 @@ List<Sector> lstSector = [
       ],
       polygon: Polygon(
         points: [
-          LatLng(-25.42876456, -49.26781450),
-          LatLng(-25.42875431, -49.26779016),
-          LatLng(-25.42882923, -49.26775522),
-          LatLng(-25.42883527, -49.26777878),
+          LatLng(-25.42876306, -49.26781550),
+          LatLng(-25.42875431, -49.26778916),
+          LatLng(-25.42881783, -49.26775769),
+          LatLng(-25.42882762, -49.26778466),
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.black87,
@@ -299,8 +308,8 @@ List<Sector> lstSector = [
       entries: [
         Polyline(
           points: [
-            LatLng(-25.42884248, -49.26782687),
-            LatLng(-25.42883003, -49.26783285),
+            LatLng(-25.42884248, -49.26782787),
+            LatLng(-25.42883003, -49.26783385),
           ],
           borderStrokeWidth: 6,
           color: Colors.white,
@@ -328,8 +337,8 @@ List<Sector> lstSector = [
       entries: [
         Polyline(
           points: [
-            LatLng(-25.42891623, -49.26790144),
-            LatLng(-25.42893018, -49.26789652),
+            LatLng(-25.42891123, -49.26790244),
+            LatLng(-25.42893218, -49.26789252),
           ],
           borderStrokeWidth: 6,
           color: Colors.white,
@@ -338,12 +347,14 @@ List<Sector> lstSector = [
       ],
       polygon: Polygon(
         points: [
-          LatLng(-25.42880669, -49.26795429),
-          LatLng(-25.42893018, -49.26789652),
-          LatLng(-25.42895906, -49.26796723),
-          LatLng(-25.42888436, -49.26800806),
-          LatLng(-25.42888038, -49.26799412),
-          LatLng(-25.42882860, -49.26801902),
+          LatLng(-25.42880669, -49.26795279),
+          LatLng(-25.42893918, -49.26788852),
+          LatLng(-25.42896354, -49.26797023),
+          pointsExternalPolygon[9],
+          pointsExternalPolygon[10],
+          pointsExternalPolygon[11],
+          // LatLng(-25.42888038, -49.26799412),
+          // LatLng(-25.42882860, -49.26801902),
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.black87,
@@ -359,7 +370,7 @@ List<Sector> lstSector = [
       entries: [
         Polyline(
           points: [
-            LatLng(-25.42887403, -49.26790654),
+            LatLng(-25.42887403, -49.26790454),
             LatLng(-25.42887752, -49.26791426),
           ],
           borderStrokeWidth: 6,
@@ -369,8 +380,9 @@ List<Sector> lstSector = [
       ],
       polygon: Polygon(
         points: [
-          LatLng(-25.42879225, -49.26792142),
-          LatLng(-25.42886295, -49.26788607),
+          //LatLng(-25.42879225, -49.26792142),
+          pointsExternalPolygon[12],
+          LatLng(-25.42886715, -49.26788368),
           LatLng(-25.42887889, -49.26791744),
           LatLng(-25.42880669, -49.26795279),
         ],
@@ -398,10 +410,10 @@ List<Sector> lstSector = [
       ],
       polygon: Polygon(
         points: [
-          LatLng(-25.42888885, -49.26789354),
-          LatLng(-25.42892818, -49.26788059),
-          LatLng(-25.42891823, -49.26785968),
-          LatLng(-25.42888287, -49.26787661),
+          LatLng(-25.42887889, -49.26791744),
+          LatLng(-25.42886715, -49.26788368),
+          LatLng(-25.42892121, -49.26785868),
+          LatLng(-25.42893618, -49.26789052),
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.black87,
@@ -416,6 +428,7 @@ List<Sector> lstSector = [
       coordinate: ['-25.42900906', '-49.26783690'],
       entries: [
         Polyline(
+            // divisão sala coordenação
             points: [
               LatLng(-25.42905360, -49.26791380),
               LatLng(-25.42901700, -49.26781632),
@@ -424,6 +437,7 @@ List<Sector> lstSector = [
             color: Colors.black87,
             borderColor: Colors.black87),
         Polyline(
+            //entrada lateral externa
             points: [
               LatLng(-25.429002906, -49.267796998),
               LatLng(-25.429006174, -49.267806054),
@@ -432,17 +446,19 @@ List<Sector> lstSector = [
             color: Colors.white,
             borderColor: Colors.white),
         Polyline(
+            //Entrada sala da coordenação
             points: [
-              LatLng(-25.42902858, -49.26784583),
-              LatLng(-25.42902335, -49.26782977),
+              LatLng(-25.42902858, -49.26784723),
+              LatLng(-25.42902335, -49.26783277),
             ],
             borderStrokeWidth: 6,
             color: Colors.white,
             borderColor: Colors.white),
         Polyline(
+            //Entrada fundos COPAP/COPEG
             points: [
-              LatLng(-25.42895576, -49.26795450),
-              LatLng(-25.42895987, -49.26796645),
+              LatLng(-25.42896254, -49.26796823),
+              LatLng(-25.42895887, -49.26795845),
             ],
             borderStrokeWidth: 6,
             color: Colors.white,
@@ -450,16 +466,16 @@ List<Sector> lstSector = [
       ],
       polygon: Polygon(
         points: [
-          LatLng(-25.42896354, -49.26796723),
-          LatLng(-25.42892121, -49.26785968),
+          LatLng(-25.42896354, -49.26797023),
+          LatLng(-25.42892121, -49.26785868),
           LatLng(-25.42899385, -49.26782379),
-          LatLng(-25.42898451, -49.26780325),
-          LatLng(-25.42900057, -49.26779541),
-          LatLng(-25.42900954, -49.26781931),
-          LatLng(-25.42904613, -49.26780213),
-          LatLng(-25.42908497, -49.26789848),
-          LatLng(-25.42902976, -49.26792391),
-          LatLng(-25.42903325, -49.26793487),
+          LatLng(-25.42898691, -49.26780325),
+          LatLng(-25.42900290, -49.26779599),
+          LatLng(-25.42901154, -49.26781831),
+          LatLng(-25.42904813, -49.26780113),
+          LatLng(-25.42908497, -49.26789948),
+          pointsExternalPolygon[7],
+          pointsExternalPolygon[8],
         ],
         borderStrokeWidth: 5,
         borderColor: Colors.black87,
@@ -468,6 +484,5 @@ List<Sector> lstSector = [
         label: "COPAP",
       ),
       info: "COPAP"),
+
 ];
-
-

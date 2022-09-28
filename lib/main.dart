@@ -93,7 +93,7 @@ class _MyAppState extends State<MyApp> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => MyLocation(
-                      sector: lstSector.firstWhere((element) => element.id == 2),
+                      sector: lstSector.firstWhere((element) => element.id == 3),
                     ),
                   ),
                 ),

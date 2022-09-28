@@ -150,6 +150,9 @@ class _MyLocation extends State<MyLocation> {
 
   @override
   Widget build(BuildContext context) {
+
+    final mediaQuery = MediaQuery.of(context);
+
     Sector sector = lstSector
         .firstWhere((element) => element.coordinate == qrSector.coordinate);
 
@@ -158,7 +161,7 @@ class _MyLocation extends State<MyLocation> {
         title: FittedBox(
             child: Row(
           children: [
-            Text("Você esta na ${sector.name}"),
+            Text("Você esta em ${sector.name}"),
             Icon(
               Icons.location_on,
               color: setDestiny ? Colors.green : Colors.yellowAccent,
@@ -214,7 +217,8 @@ class _MyLocation extends State<MyLocation> {
                       value: loc,
                       child: Text(loc.name),
                     );
-                  }).toList()..sort(((a, b) => a.value!.name.compareTo(b.value!.name))),
+                  }).toList()
+                    ..sort(((a, b) => a.value!.name.compareTo(b.value!.name))),
                 ),
               ),
             ],
@@ -222,11 +226,13 @@ class _MyLocation extends State<MyLocation> {
           Flexible(
             child: FlutterMap(
               options: MapOptions(
-                center: LatLng(-25.429096, -49.267650),
-                minZoom: 17,
+                center: LatLng(-25.4290388, -49.2675310),
+                minZoom: 16,
                 maxZoom: 22,
-                //swPanBoundary: LatLng(-25.429230511601687, -49.268042791805925),
-                //nePanBoundary: LatLng(-25.42886227622278, -49.267256952072394),
+                //adaptiveBoundaries: true,
+                //screenSize: Size(mediaQuery.size.width, mediaQuery.size.height),
+                swPanBoundary: LatLng(-25.4295623, -49.2679661),
+                nePanBoundary: LatLng(-25.4286214, -49.2673541),
                 zoom: 19,
               ),
               children: [
@@ -234,30 +240,32 @@ class _MyLocation extends State<MyLocation> {
                   tileProvider: AssetTileProvider(),
                   maxZoom: 22,
                   tms: true,
-                  urlTemplate: "assets/k1_tms/Mapnik/{z}/{x}/{y}.png",
+                  urlTemplate: "assets/k1_tms/Mapnik3/{z}/{x}/{y}.png",
                 ),
                 //desenha os polygonos e destaca o(s) selecionado(s)
                 PolygonLayer(
                   polygons: [
                         externalPolygon,
-                        internalLeftSpan,
-                        internalRightSpan,
-                        degreeStairs,
-                        elevatorEntrance,
-                        unknownSector1,
-                        stair1,
-                        unknownSector2,
-                        unknownSector3,
-                        unknownSector4,
-                        unknownSector5,
-                        unknownSector6,
-                        unknownSector7,
-                        stair2,
-                        stair3,
-                        stair4,
-                        stair5,
-                        elevatorSideEntrance,
-                        elevator1,
+                        ...lstPolygon
+            
+                        // internalLeftSpan,
+                        // internalRightSpan,
+                        // degreeStairs,
+                        // elevatorEntrance,
+                        // unknownSector1,
+                        // stair1,
+                        // unknownSector2,
+                        // unknownSector3,
+                        // unknownSector4,
+                        // unknownSector5,
+                        // unknownSector6,
+                        // unknownSector7,
+                        // stair2,
+                        // stair3,
+                        // stair4,
+                        // stair5,
+                        // elevatorSideEntrance,
+                        // elevator1,
                       ] +
                       lstSector.map((e) => e.polygon).toList(),
                 ),
