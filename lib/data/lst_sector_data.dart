@@ -3,7 +3,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:wia/models/sector.dart';
 import 'package:latlong2/latlong.dart';
 
-import 'lst_polygon_data.dart';
+import 'lst_infra_sector_data.dart';
 
 List<Sector> lstSector = [
   //'Selecione um destino:' : '',
@@ -29,7 +29,7 @@ List<Sector> lstSector = [
           LatLng(-25.42899399, -49.26782344),
           LatLng(-25.42892675, -49.26785479),
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         isFilled: true,
@@ -37,7 +37,7 @@ List<Sector> lstSector = [
       ),
       entries: [
         Polyline(
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
           points: [
@@ -53,7 +53,7 @@ List<Sector> lstSector = [
       coordinate: ['-25.42879171', '-49.26766299'],
       entries: [
         Polyline(
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
           points: [
@@ -78,7 +78,7 @@ List<Sector> lstSector = [
           LatLng(-25.42881175, -49.26774249),
           LatLng(-25.42881783, -49.26775669),
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         //labelStyle: TextStyle(color: Colors.white),
@@ -99,7 +99,7 @@ List<Sector> lstSector = [
             ),
             LatLng(-25.42937204, -49.26754400),
           ],
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
         )
@@ -111,7 +111,7 @@ List<Sector> lstSector = [
           LatLng(-25.42935551, -49.26765376),
           LatLng(-25.42932025, -49.26756636),
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         isFilled: true,
@@ -128,7 +128,7 @@ List<Sector> lstSector = [
             LatLng(-25.42934191, -49.26765931),
             LatLng(-25.42935386, -49.26765384)
           ],
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
         )
@@ -144,7 +144,7 @@ List<Sector> lstSector = [
           pointsExternalPolygon[4],
           LatLng(-25.42934882, -49.26778635),
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         isFilled: true,
@@ -161,7 +161,7 @@ List<Sector> lstSector = [
             LatLng(-25.42928914, -49.26741129),
             LatLng(-25.42930084, -49.26740662)
           ],
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
         )
@@ -180,7 +180,7 @@ List<Sector> lstSector = [
           // LatLng(-25.42938992, -49.26736466),
           // LatLng(-25.42938992, -49.26736466),
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         isFilled: true,
@@ -197,7 +197,7 @@ List<Sector> lstSector = [
             LatLng(-25.42886314, -49.26787367),
             LatLng(-25.42885791, -49.26786122)
           ],
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
         )
@@ -209,7 +209,7 @@ List<Sector> lstSector = [
           LatLng(-25.42884398, -49.26782691),
           LatLng(-25.42886715, -49.26788368),
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         isFilled: true,
@@ -227,7 +227,7 @@ List<Sector> lstSector = [
             LatLng(-25.42901451, -49.26743450),
             LatLng(-25.42903244, -49.26742620),
           ],
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
         ),
@@ -236,7 +236,7 @@ List<Sector> lstSector = [
             LatLng(-25.42905784, -49.26757416),
             LatLng(-25.42909344, -49.26755848),
           ],
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
         )
@@ -256,7 +256,7 @@ List<Sector> lstSector = [
           LatLng(-25.42901938, -49.26749693),
           LatLng(-25.42900381, -49.26750356),
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         isFilled: true,
@@ -273,7 +273,7 @@ List<Sector> lstSector = [
             LatLng(-25.42876306, -49.26781550),
             LatLng(-25.42875431, -49.26778916),
           ],
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
         ),
@@ -282,7 +282,7 @@ List<Sector> lstSector = [
             LatLng(-25.42881783, -49.26775769),
             LatLng(-25.42882762, -49.26778466),
           ],
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
         )
@@ -294,7 +294,7 @@ List<Sector> lstSector = [
           LatLng(-25.42881783, -49.26775769),
           LatLng(-25.42882762, -49.26778466),
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         isFilled: true,
@@ -311,7 +311,7 @@ List<Sector> lstSector = [
             LatLng(-25.42884248, -49.26782787),
             LatLng(-25.42883003, -49.26783385),
           ],
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
         )
@@ -323,7 +323,7 @@ List<Sector> lstSector = [
           LatLng(-25.42878741, -49.26780409),
           LatLng(-25.42882762, -49.26778466),
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         isFilled: true,
@@ -340,7 +340,7 @@ List<Sector> lstSector = [
             LatLng(-25.42891123, -49.26790244),
             LatLng(-25.42893218, -49.26789252),
           ],
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
         )
@@ -356,7 +356,7 @@ List<Sector> lstSector = [
           // LatLng(-25.42888038, -49.26799412),
           // LatLng(-25.42882860, -49.26801902),
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         isFilled: true,
@@ -373,7 +373,7 @@ List<Sector> lstSector = [
             LatLng(-25.42887403, -49.26790454),
             LatLng(-25.42887752, -49.26791426),
           ],
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
         )
@@ -386,7 +386,7 @@ List<Sector> lstSector = [
           LatLng(-25.42887889, -49.26791744),
           LatLng(-25.42880669, -49.26795279),
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         isFilled: true,
@@ -400,10 +400,10 @@ List<Sector> lstSector = [
       entries: [
         Polyline(
           points: [
-            LatLng(-25.42887030, -49.26788152),
-            LatLng(-25.42888125, -49.26787667),
+            LatLng(-25.42886830, -49.26788302),
+            LatLng(-25.42888125, -49.26787707),
           ],
-          borderStrokeWidth: 6,
+          borderStrokeWidth: 5,
           color: Colors.white,
           borderColor: Colors.white,
         )
@@ -415,7 +415,7 @@ List<Sector> lstSector = [
           LatLng(-25.42892121, -49.26785868),
           LatLng(-25.42893618, -49.26789052),
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         isFilled: true,
@@ -433,7 +433,7 @@ List<Sector> lstSector = [
               LatLng(-25.42905360, -49.26791380),
               LatLng(-25.42901700, -49.26781632),
             ],
-            borderStrokeWidth: 6,
+            borderStrokeWidth: 5,
             color: Colors.black87,
             borderColor: Colors.black87),
         Polyline(
@@ -442,7 +442,7 @@ List<Sector> lstSector = [
               LatLng(-25.429002906, -49.267796998),
               LatLng(-25.429006174, -49.267806054),
             ],
-            borderStrokeWidth: 6,
+            borderStrokeWidth: 5,
             color: Colors.white,
             borderColor: Colors.white),
         Polyline(
@@ -451,7 +451,7 @@ List<Sector> lstSector = [
               LatLng(-25.42902858, -49.26784723),
               LatLng(-25.42902335, -49.26783277),
             ],
-            borderStrokeWidth: 6,
+            borderStrokeWidth: 5,
             color: Colors.white,
             borderColor: Colors.white),
         Polyline(
@@ -460,7 +460,7 @@ List<Sector> lstSector = [
               LatLng(-25.42896254, -49.26796823),
               LatLng(-25.42895887, -49.26795845),
             ],
-            borderStrokeWidth: 6,
+            borderStrokeWidth: 5,
             color: Colors.white,
             borderColor: Colors.white),
       ],
@@ -477,7 +477,7 @@ List<Sector> lstSector = [
           pointsExternalPolygon[7],
           pointsExternalPolygon[8],
         ],
-        borderStrokeWidth: 5,
+        borderStrokeWidth: 4,
         borderColor: Colors.black87,
         color: Colors.grey.shade400,
         isFilled: true,

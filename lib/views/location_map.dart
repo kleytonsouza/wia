@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:wia/models/infra_sector.dart';
 
 import 'package:wia/utils/route_from_to.dart';
 import 'package:wia/models/sector.dart';
 import 'package:wia/data/lst_all_vertex.dart';
-import '../data/lst_polygon_data.dart';
+import '../data/lst_infra_sector_data.dart';
 import '../data/lst_sector_data.dart';
 import '../models/point.dart';
 
@@ -226,12 +227,8 @@ class _MyLocation extends State<MyLocation> {
             child: FlutterMap(
               options: MapOptions(
                 center: LatLng(-25.4290388, -49.2675310),
-                // center: LatLng(double.parse(qrSector.coordinate[0]),
-                //     double.parse(qrSector.coordinate[1])),
                 minZoom: 18,
                 maxZoom: 22,
-                //adaptiveBoundaries: true,
-                //screenSize: Size(mediaQuery.size.width, mediaQuery.size.height),
                 swPanBoundary: LatLng(-25.4295623, -49.2679661),
                 nePanBoundary: LatLng(-25.4286214, -49.2673541),
                 zoom: 19,
@@ -245,31 +242,11 @@ class _MyLocation extends State<MyLocation> {
                 ),
                 //desenha os polygonos e destaca o(s) selecionado(s)
                 PolygonLayer(
-                  polygons: [
-                        externalPolygon,
-                        ...lstPolygon
-
-                        // internalLeftSpan,
-                        // internalRightSpan,
-                        // degreeStairs,
-                        // elevatorEntrance,
-                        // unknownSector1,
-                        // stair1,
-                        // unknownSector2,
-                        // unknownSector3,
-                        // unknownSector4,
-                        // unknownSector5,
-                        // unknownSector6,
-                        // unknownSector7,
-                        // stair2,
-                        // stair3,
-                        // stair4,
-                        // stair5,
-                        // elevatorSideEntrance,
-                        // elevator1,
-                      ] +
-                      lstSector.map((e) => e.polygon).toList(),
-                ),
+                    polygons: [infraSectorPredioHistorico.polygon] +
+                        lstInfraSector
+                            .map((InfraSector e) => e.polygon)
+                            .toList() +
+                        lstSector.map((Sector e) => e.polygon).toList()),
                 currentSelectedValue != lstSector[0]
                     ? PolygonLayer(
                         polygons: [
@@ -296,121 +273,16 @@ class _MyLocation extends State<MyLocation> {
                       ),
                 //desenha a rota qndo selecionada
                 PolylineLayer(
-                  polylines: routeBetweenTwoPoints(
-                          sector.id, currentSelectedValue.id) +
-                      [
-                        Polyline(
-                          points: [
-                            LatLng(-25.42914149, -49.26761575),
-                            LatLng(-25.42913153, -49.26758985)
-                          ],
-                          borderStrokeWidth: 6,
-                          color: Colors.white,
-                          borderColor: Colors.white,
-                        ),
-                        Polyline(
-                          points: [
-                            LatLng(-25.42917085, -49.26774241),
-                            LatLng(-25.42918741, -49.26773472)
-                          ],
-                          borderStrokeWidth: 6,
-                          color: Colors.white,
-                          borderColor: Colors.white,
-                        ),
-                        Polyline(
-                          points: [
-                            LatLng(-25.42908515, -49.26746704),
-                            LatLng(-25.42906745, -49.26747542)
-                          ],
-                          borderStrokeWidth: 6,
-                          color: Colors.white,
-                          borderColor: Colors.white,
-                        ),
-                        Polyline(
-                          points: [
-                            LatLng(-25.42929894, -49.26751301),
-                            LatLng(-25.42931432, -49.26755223)
-                          ],
-                          borderStrokeWidth: 6,
-                          color: Colors.black87,
-                          borderColor: Colors.black87,
-                        ),
-                        Polyline(
-                          points: [
-                            LatLng(-25.42901934, -49.26749680),
-                            LatLng(-25.42900390, -49.26750381)
-                          ],
-                          borderStrokeWidth: 6,
-                          color: Colors.white,
-                          borderColor: Colors.white,
-                        ),
-                        Polyline(
-                          points: [
-                            LatLng(-25.42885274, -49.26779926),
-                            LatLng(-25.42883553, -49.26780746)
-                          ],
-                          borderStrokeWidth: 6,
-                          color: Colors.white,
-                          borderColor: Colors.white,
-                        ),
-                        Polyline(
-                          points: [
-                            LatLng(-25.42887040, -49.26776226),
-                            LatLng(-25.42886299, -49.26774227),
-                          ],
-                          borderStrokeWidth: 6,
-                          color: Colors.white,
-                          borderColor: Colors.white,
-                        ),
-                        Polyline(
-                          points: [
-                            LatLng(-25.42894423, -49.26774313),
-                            LatLng(-25.42895530, -49.26773896)
-                          ],
-                          borderStrokeWidth: 6,
-                          color: Colors.white,
-                          borderColor: Colors.white,
-                        ),
-                        Polyline(
-                          points: [
-                            LatLng(
-                              -25.42889625,
-                              -49.26771467,
-                            ),
-                            LatLng(
-                              -25.42890090,
-                              -49.26772708,
-                            )
-                          ],
-                          borderStrokeWidth: 6,
-                          color: Colors.white,
-                          borderColor: Colors.white,
-                        ),
-                        Polyline(
-                          points: [
-                            LatLng(-25.42906823, -49.26758401),
-                            LatLng(-25.42908966, -49.26757372),
-                          ],
-                          borderStrokeWidth: 6,
-                          color: Colors.white,
-                          borderColor: Colors.white,
-                        ),
-                        Polyline(
-                          points: [
-                            LatLng(-25.42914345, -49.26768957),
-                            LatLng(-25.42915532, -49.26771762),
-                          ],
-                          borderStrokeWidth: 6,
-                          color: Colors.white,
-                          borderColor: Colors.white,
-                        )
-                      ],
-                ),
+                    polylines: routeBetweenTwoPoints(
+                        sector.id, currentSelectedValue.id)),
                 //desenhas as portas/entradas dos polygons
                 PolylineLayer(
-                    polylines: lstSector
-                        .expand((element) => element.entries)
-                        .toList()),
+                  polylines: infraSectorPredioHistorico.entries +
+                      lstSector.expand((element) => element.entries).toList() +
+                      lstInfraSector
+                          .expand((InfraSector e) => e.entries)
+                          .toList(),
+                ),
                 MarkerLayer(
                   markers: markers(),
                 ),
