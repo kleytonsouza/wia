@@ -29,6 +29,9 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  plugin_pdr:
+    path: ../plugin_pdr
 
   flutter_map: ^3.0.0
 
