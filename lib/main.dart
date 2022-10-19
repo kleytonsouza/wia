@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
+import 'package:plugin_pdr/plugin_pdr.dart';
 import 'package:wia/views/location_map.dart';
 
 import 'package:wia/data/lst_sector_data.dart';
@@ -93,7 +94,7 @@ class _MyAppState extends State<MyApp> {
                   context,
                   MaterialPageRoute(
                     builder: (context) => MyLocation(
-                      sector: lstSector.firstWhere((element) => element.id == 3),
+                      sector: lstSector.firstWhere((element) => element.id == 7),
                     ),
                   ),
                 ),

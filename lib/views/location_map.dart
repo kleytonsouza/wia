@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
+import 'package:plugin_pdr/plugin_pdr.dart';
 import 'package:wia/models/infra_sector.dart';
 
 import 'package:wia/utils/route_from_to.dart';
@@ -20,8 +22,20 @@ class MyLocation extends StatefulWidget {
 }
 
 class _MyLocation extends State<MyLocation> {
-  Sector currentSelectedValue = lstSector[0];
+  final _pluginPdrPlugin = PluginPdr();
+  final EventChannel _eventChannel = const EventChannel('plugin_pdr/stream');
+  Stream<dynamic> _pdrStream = const Stream.empty();
 
+  Future<void> _pdr() async {
+    return await _pluginPdrPlugin.pdr();
+  }
+
+  Stream<dynamic> pdrStream() {
+    _pdrStream = _eventChannel.receiveBroadcastStream();
+    return _pdrStream;
+  }
+
+  Sector currentSelectedValue = lstSector[0];
   bool setDestiny = false;
 
   List<Marker> markers() {
@@ -73,34 +87,6 @@ class _MyLocation extends State<MyLocation> {
     }
   }
 
-  // List<LatLng> lstLngLat = [
-  //   LatLng(-25.428825, -49.26805),
-  //   LatLng(-25.429043, -49.267934),
-  //   LatLng(-25.429037, -49.267917),
-  //   LatLng(-25.429275, -49.267807),
-  //   LatLng(-25.429282, -49.267824),
-  //   LatLng(-25.429535, -49.267708),
-  //   LatLng(-25.429358, -49.267259),
-  //   LatLng(-25.429319, -49.267279),
-  //   LatLng(-25.429311, -49.267261),
-  //   LatLng(-25.429159, -49.267341),
-  //   LatLng(-25.429162, -49.267351),
-  //   LatLng(-25.42914, -49.267359),
-  //   LatLng(-25.429151, -49.267384),
-  //   LatLng(-25.429104, -49.267407),
-  //   LatLng(-25.429071, -49.267328),
-  //   LatLng(-25.428891, -49.267418),
-  //   LatLng(-25.42892, -49.267492),
-  //   LatLng(-25.428876, -49.267512),
-  //   LatLng(-25.42887, -49.267494),
-  //   LatLng(-25.428839, -49.267506),
-  //   LatLng(-25.428834, -49.267498),
-  //   LatLng(-25.42868, -49.267579),
-  //   LatLng(-25.428682, -49.267588),
-  //   LatLng(-25.428645, -49.26761),
-  //   LatLng(-25.428825, -49.26805)
-  // ];
-
   List<Polyline> routeBetweenTwoPoints(int from, int to) {
     List<Polyline> points = [];
     if (setDestiny == false) {
@@ -132,18 +118,6 @@ class _MyLocation extends State<MyLocation> {
         }),
       ], color: Colors.blue, strokeWidth: 6),
     );
-    // List routeFromTo = RouteFromTo(idFrom: from, idTo: to).listPoints;
-    // points.add(
-    //   Polyline(points: [
-    //     LatLng(double.parse(sector.coordinate[0]),
-    //         double.parse(sector.coordinate[1])),
-    //     LatLng(-25.42886220, -49.26787319),
-    //     LatLng(-25.42882776, -49.2677764),
-    //     LatLng(double.parse(sectorsLocations[8].coordinate[0]),
-    //         double.parse(sectorsLocations[8].coordinate[1])),
-    //   ], color: Colors.blue, strokeWidth: 6),
-    //points.add(LatLng());
-
     return points;
   }
 
@@ -159,16 +133,17 @@ class _MyLocation extends State<MyLocation> {
     return Scaffold(
       appBar: AppBar(
         title: FittedBox(
-            child: Row(
-          children: [
-            Text("Você esta em ${sector.name}"),
-            Icon(
-              Icons.location_on,
-              color: setDestiny ? Colors.green : Colors.yellowAccent,
-              size: 40,
-            ),
-          ],
-        )),
+          child: Row(
+            children: [
+              Text("Você esta em ${sector.name}"),
+              Icon(
+                Icons.location_on,
+                color: setDestiny ? Colors.green : Colors.yellowAccent,
+                size: 40,
+              ),
+            ],
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -220,6 +195,17 @@ class _MyLocation extends State<MyLocation> {
                   }).toList()
                     ..sort(((a, b) => a.value!.name.compareTo(b.value!.name))),
                 ),
+              ),
+            ],
+          ),
+          Row(
+            children: [
+              Text("Iniciar PDR"),
+              MaterialButton(
+                color: Colors.green,
+                textColor: Colors.white,
+                child: Text('PDR leitura'),
+                onPressed: () => _pdr(),
               ),
             ],
           ),
@@ -285,6 +271,31 @@ class _MyLocation extends State<MyLocation> {
                 ),
                 MarkerLayer(
                   markers: markers(),
+                ),
+                StreamBuilder(
+                  stream: pdrStream(),
+                  builder: (context, snapshot) {
+                    List splitted = ["0", "0"];
+                    if (snapshot.hasData) {
+                      splitted = snapshot.data.toString().split(',');
+                    }
+                    return MarkerLayer(
+                      markers: [
+                        Marker(
+                          width: 50,
+                          height: 50,
+                          anchorPos: AnchorPos.align(AnchorAlign.top),
+                          point: LatLng(double.parse(splitted[0]),
+                              double.parse(splitted[1])),
+                          builder: (ctx) => const Icon(
+                            Icons.location_on,
+                            color: Colors.black87,
+                            size: 50,
+                          ),
+                        )
+                      ],
+                    );
+                  },
                 ),
               ],
             ),
