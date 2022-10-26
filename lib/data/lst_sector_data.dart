@@ -13,7 +13,10 @@ List<Sector> lstSector = [
       entries: [
         Polyline(points: [LatLng(0, 0)])
       ],
-      polygon: Polygon(points: [LatLng(0, 0), LatLng(0, 0)]),
+      polygon: Polygon(points: [
+        LatLng(0, 0),
+        LatLng(0, 0),
+      ]),
       info: "Selecione um destino"),
   Sector(
       id: 1,
@@ -483,5 +486,4 @@ List<Sector> lstSector = [
         label: "COPAP",
       ),
       info: "COPAP"),
-
 ];

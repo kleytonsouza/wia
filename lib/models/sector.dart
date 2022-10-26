@@ -6,7 +6,6 @@ class Sector extends Point {
   final String info;
   final Polygon polygon;
   final List<Polyline> entries;
-
  
   Sector(
       {required int id,
