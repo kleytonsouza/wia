@@ -3,14 +3,14 @@ import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:plugin_pdr/plugin_pdr.dart';
-import 'package:wia/models/infra_sector.dart';
 
-import 'package:wia/utils/route_from_to.dart';
-import 'package:wia/models/sector.dart';
-import 'package:wia/data/lst_all_vertex.dart';
+import '../utils/route_from_to.dart';
+import '../models/infra_sector.dart';
+import '../models/sector.dart';
+import '../models/point.dart';
+import '../data/lst_all_vertex.dart';
 import '../data/lst_infra_sector_data.dart';
 import '../data/lst_sector_data.dart';
-import '../models/point.dart';
 
 class MyLocation extends StatefulWidget {
   MyLocation({Key? key, required this.sector}) : super(key: key);
@@ -42,12 +42,13 @@ class _MyLocation extends State<MyLocation> {
     if (setDestiny == true) {
       return [
         Marker(
-          //point: LatLng(-25.4288948, -49.2677837),
           width: 50,
           height: 50,
           anchorPos: AnchorPos.align(AnchorAlign.top),
-          point: LatLng(double.parse(qrSector.coordinate[0]),
-              double.parse(qrSector.coordinate[1])),
+          point: LatLng(
+            double.parse(qrSector.coordinate[0]),
+            double.parse(qrSector.coordinate[1]),
+          ),
           builder: (ctx) => const Icon(
             Icons.location_on,
             color: Colors.green,
@@ -55,13 +56,14 @@ class _MyLocation extends State<MyLocation> {
           ),
         ),
         Marker(
-          //point: LatLng(-25.4288948, -49.2677837),
           width: 50,
           height: 50,
           anchorPos: AnchorPos.align(AnchorAlign.top),
-          point: LatLng(double.parse(currentSelectedValue.coordinate[0]),
-              double.parse(currentSelectedValue.coordinate[1])),
-          builder: (ctx) => Icon(
+          point: LatLng(
+            double.parse(currentSelectedValue.coordinate[0]),
+            double.parse(currentSelectedValue.coordinate[1]),
+          ),
+          builder: (ctx) => const Icon(
             Icons.location_on,
             color: Colors.purple,
             size: 50,
@@ -71,12 +73,13 @@ class _MyLocation extends State<MyLocation> {
     } else {
       return [
         Marker(
-          //point: LatLng(-25.4288948, -49.2677837),
           width: 50,
           height: 50,
           anchorPos: AnchorPos.align(AnchorAlign.top),
-          point: LatLng(double.parse(qrSector.coordinate[0]),
-              double.parse(qrSector.coordinate[1])),
+          point: LatLng(
+            double.parse(qrSector.coordinate[0]),
+            double.parse(qrSector.coordinate[1]),
+          ),
           builder: (ctx) => const Icon(
             Icons.location_on,
             color: Colors.yellowAccent,
@@ -92,21 +95,14 @@ class _MyLocation extends State<MyLocation> {
     if (setDestiny == false) {
       points.add(
         Polyline(
-          points: [
-            //...lstLngLat.toList()
-            // LatLng(double.parse(sector.coordinate[0]),
-            //     double.parse(sector.coordinate[1]))
-          ],
+          points: [],
           color: Colors.black,
           strokeWidth: 6,
         ),
       );
       return points;
     }
-    print(from);
-    print(to);
     List routeFromTo = RouteFromTo(idFrom: from, idTo: to).listPoints;
-    print(routeFromTo);
     points.add(
       Polyline(points: [
         ...routeFromTo.map((id) {
@@ -125,8 +121,6 @@ class _MyLocation extends State<MyLocation> {
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-
     Sector sector = lstSector
         .firstWhere((element) => element.coordinate == qrSector.coordinate);
 
@@ -159,11 +153,11 @@ class _MyLocation extends State<MyLocation> {
               Expanded(
                 child: DropdownButton(
                   icon: setDestiny
-                      ? Icon(Icons.location_on, color: Colors.purple)
-                      : Icon(Icons.account_tree_sharp),
+                      ? const Icon(Icons.location_on, color: Colors.purple)
+                      : const Icon(Icons.account_tree_sharp),
                   dropdownColor: const Color.fromRGBO(176, 224, 247, 0.973),
                   style: const TextStyle(
-                    fontSize: 10.5,
+                    //fontSize: 10.5,
                     color: Colors.black,
                     fontFamily: "verdana_regular",
                   ),
@@ -171,7 +165,6 @@ class _MyLocation extends State<MyLocation> {
                     "Selecione um Destino:",
                     style: TextStyle(
                       color: Colors.black,
-                      //fontSize: 16,
                       fontFamily: "verdana_regular",
                     ),
                   ),
@@ -193,19 +186,25 @@ class _MyLocation extends State<MyLocation> {
                       child: Text(loc.name),
                     );
                   }).toList()
-                    ..sort(((a, b) => a.value!.name.compareTo(b.value!.name))),
+                    ..sort(
+                      (a, b) => a.value!.name.compareTo(b.value!.name),
+                    ),
                 ),
               ),
             ],
           ),
           Row(
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
-              Text("Iniciar PDR"),
-              MaterialButton(
-                color: Colors.green,
-                textColor: Colors.white,
-                child: Text('PDR leitura'),
-                onPressed: () => _pdr(),
+              //Text("Iniciar PDR"),
+              Padding(
+                padding: const EdgeInsets.only(right: 20),
+                child: MaterialButton(
+                  color: Colors.green,
+                  textColor: Colors.white,
+                  child: Text('PDR leitura'),
+                  onPressed: () => _pdr(),
+                ),
               ),
             ],
           ),
@@ -228,11 +227,12 @@ class _MyLocation extends State<MyLocation> {
                 ),
                 //desenha os polygonos e destaca o(s) selecionado(s)
                 PolygonLayer(
-                    polygons: [infraSectorPredioHistorico.polygon] +
-                        lstInfraSector
-                            .map((InfraSector e) => e.polygon)
-                            .toList() +
-                        lstSector.map((Sector e) => e.polygon).toList()),
+                  polygons: [infraSectorPredioHistorico.polygon] +
+                      lstInfraSector
+                          .map((InfraSector e) => e.polygon)
+                          .toList() +
+                      lstSector.map((Sector e) => e.polygon).toList(),
+                ),
                 currentSelectedValue != lstSector[0]
                     ? PolygonLayer(
                         polygons: [
@@ -259,8 +259,9 @@ class _MyLocation extends State<MyLocation> {
                       ),
                 //desenha a rota qndo selecionada
                 PolylineLayer(
-                    polylines: routeBetweenTwoPoints(
-                        sector.id, currentSelectedValue.id)),
+                  polylines:
+                      routeBetweenTwoPoints(sector.id, currentSelectedValue.id),
+                ),
                 //desenhas as portas/entradas dos polygons
                 PolylineLayer(
                   polylines: infraSectorPredioHistorico.entries +
@@ -285,14 +286,16 @@ class _MyLocation extends State<MyLocation> {
                           width: 50,
                           height: 50,
                           anchorPos: AnchorPos.align(AnchorAlign.top),
-                          point: LatLng(double.parse(splitted[0]),
-                              double.parse(splitted[1])),
+                          point: LatLng(
+                            double.parse(splitted[0]),
+                            double.parse(splitted[1]),
+                          ),
                           builder: (ctx) => const Icon(
                             Icons.location_on,
                             color: Colors.black87,
                             size: 50,
                           ),
-                        )
+                        ),
                       ],
                     );
                   },
@@ -301,15 +304,19 @@ class _MyLocation extends State<MyLocation> {
             ),
           ),
           Container(
-              height: 35,
-              color: const Color.fromRGBO(1, 63, 122, 1),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    Text("©2021 - Universidade Federal do Paraná",
-                        textAlign: TextAlign.center,
-                        style: TextStyle(color: Colors.white))
-                  ]))
+            height: 35,
+            color: const Color.fromRGBO(1, 63, 122, 1),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                Text(
+                  "©2022 - Universidade Federal do Paraná",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(color: Colors.white),
+                )
+              ],
+            ),
+          ),
         ],
       ),
     );

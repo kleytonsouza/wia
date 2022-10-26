@@ -147,7 +147,6 @@ final List<Point> allVertex = [
   Point(
     id: 21,
     name: "joinPoint",
-    // coordinate: ['-25.4288124', '-49.2677515'],
     coordinate: [
       '-25.42882306',
       '-49.26774672',
@@ -156,13 +155,11 @@ final List<Point> allVertex = [
   Point(
     id: 22,
     name: "joinPoint",
-    // coordinate: ['-25.4288239', '-49.2677763'],
     coordinate: ['-25.42883181', '-49.26776901'],
   ),
   Point(
     id: 23,
     name: "joinPoint",
-    // coordinate: ['-25.4288343', '-49.2678039'],
     coordinate: [
       '-25.42884200',
       '-49.26779557',
@@ -171,7 +168,6 @@ final List<Point> allVertex = [
   Point(
     id: 24,
     name: "joinPoint",
-    // coordinate: ['-25.4288634', '-49.2678730'],
     coordinate: [
       '-25.42887101',
       '-49.26786721',
@@ -180,7 +176,6 @@ final List<Point> allVertex = [
   Point(
     id: 25,
     name: "joinPoint",
-    // coordinate: ['-25.4289478', '-49.2676895'],
     coordinate: [
       '-25.42896558',
       '-49.26767531',
@@ -189,7 +184,6 @@ final List<Point> allVertex = [
   Point(
     id: 26,
     name: "joinPoint",
-    // coordinate: ['-25.42927164', '-49.26744471'],
     coordinate: [
       '-25.42928383',
       '-49.26743406',
@@ -198,13 +192,11 @@ final List<Point> allVertex = [
   Point(
     id: 27,
     name: "COPAG,COPEG,Secretaria,Gabinete",
-    // coordinate: ['-25.42927164', '-49.26744471'],
     coordinate: ['-25.42888366', '-49.26790141'],
   ),
   Point(
     id: 28,
     name: "COPAP",
-    // coordinate: ['-25.42927164', '-49.26744471'],
     coordinate: [
       '-25.42900906',
       '-49.26783690',
@@ -213,7 +205,6 @@ final List<Point> allVertex = [
   Point(
     id: 29,
     name: "joinPoint",
-    // coordinate: ['-25.42927164', '-49.26744471'],
     coordinate: [
       '-25.42901322',
       '-49.26779869',
@@ -222,7 +213,6 @@ final List<Point> allVertex = [
   Point(
     id: 30,
     name: "joinPoint",
-    // coordinate: ['-25.42927164', '-49.26744471'],
     coordinate: [
       '-25.42899674',
       '-49.26780693',

@@ -1,5 +1,4 @@
 import 'package:flutter_map/flutter_map.dart';
-import 'package:wia/models/point.dart';
 
 class InfraSector {
   final String info;

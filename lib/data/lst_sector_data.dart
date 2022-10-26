@@ -6,7 +6,6 @@ import 'package:latlong2/latlong.dart';
 import 'lst_infra_sector_data.dart';
 
 List<Sector> lstSector = [
-  //'Selecione um destino:' : '',
   Sector(
       id: 0,
       name: "Selecione um destino",

@@ -42,46 +42,4 @@ class RouteFromTo {
     29: {17: 2, 30: 1},
     30: {29: 1, 28: 1},
   };
-
-  // static List<Polyline> get pointsSectorSevenToFive {
-  //   JoinPoint pointNine = joinPointsLocations[9];
-  //   JoinPoint pointTen = joinPointsLocations[10];
-  //   JoinPoint pointEleven = joinPointsLocations[11];
-  //   JoinPoint pointTwelve = joinPointsLocations[12];
-
-  //   List<Polyline> pointsSectorSevenToFive = [];
-
-  //   pointsSectorSevenToFive.add(Polyline(
-  //     strokeWidth: 2.0,
-  //     color: Colors.red,
-  //     points: [
-  //       LatLng(
-  //         double.parse(pointNine.coordinate[0]),
-  //         double.parse(
-  //           pointNine.coordinate[0],
-  //         ),
-  //       ),
-  //       LatLng(
-  //         double.parse(pointTen.coordinate[0]),
-  //         double.parse(
-  //           pointTen.coordinate[0],
-  //         ),
-  //       ),
-  //       LatLng(
-  //         double.parse(pointEleven.coordinate[0]),
-  //         double.parse(
-  //           pointEleven.coordinate[0],
-  //         ),
-  //       ),
-  //       LatLng(
-  //         double.parse(pointTwelve.coordinate[0]),
-  //         double.parse(
-  //           pointTwelve.coordinate[0],
-  //         ),
-  //       ),
-  //     ],
-  //   ));
-
-  //   return pointsSectorSevenToFive;
-  // }
 }
