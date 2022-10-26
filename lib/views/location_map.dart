@@ -214,7 +214,7 @@ class _MyLocation extends State<MyLocation> {
               options: MapOptions(
                 center: LatLng(-25.4290388, -49.2675310),
                 minZoom: 18,
-                maxZoom: 22,
+                maxZoom: 21,
                 swPanBoundary: LatLng(-25.4295623, -49.2679661),
                 nePanBoundary: LatLng(-25.4286214, -49.2673541),
                 zoom: 19,
@@ -222,7 +222,7 @@ class _MyLocation extends State<MyLocation> {
               children: [
                 TileLayer(
                   tileProvider: AssetTileProvider(),
-                  maxZoom: 22,
+                  maxZoom: 21,
                   tms: true,
                   urlTemplate: "assets/k1_tms/Mapnik3/{z}/{x}/{y}.png",
                 ),
