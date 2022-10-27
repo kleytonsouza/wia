@@ -27,7 +27,7 @@ class _MyLocation extends State<MyLocation> {
   Stream<dynamic> _pdrStream = const Stream.empty();
 
   Future<void> _pdr() async {
-    return await _pluginPdrPlugin.pdr();
+    return await _pluginPdrPlugin.pdr(qrSector.coordinate);
   }
 
   Stream<dynamic> pdrStream() {
