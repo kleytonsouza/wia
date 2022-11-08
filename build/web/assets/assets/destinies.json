@@ -1,0 +1,79 @@
+{
+                        "name": "Atendimento",
+                        "description": "Atendimento PROGRAD",
+                        "puid": "poi_2ec63105-277c-420b-b8d6-4a7dbc77e044",
+                        "pois_type": "Room",
+                        "coordinates_lat": "-25.4288948",
+                        "coordinates_lon": "-49.2677837",
+                        "overwrite": "false",
+                        "is_building_entrance": "true"
+                    },
+                    {
+                        "name": "COSIS",
+                        "description": "informatica prograd",
+                        "puid": "poi_1a3cbc24-0d60-429d-af6d-54a60c219238",
+                        "pois_type": "Room",
+                        "coordinates_lat": "-25.42885259",
+                        "coordinates_lon": "-49.26787655",
+                        "overwrite": "false",
+                        "is_building_entrance": "false"
+                    },
+                    {
+                        "name": "CIPEAD",
+                        "description": "Educacao a distancia",
+                        "puid": "poi_1d76a160-c91a-49bd-96d4-aabcd348fabe",
+                        "pois_type": "Room",
+                        "coordinates_lat": "-25.42933392",
+                        "coordinates_lon": "-49.26767055",
+                        "overwrite": "false",
+                        "is_building_entrance": "false"
+                    },
+                    {
+                        "name": "COPAP",
+                        "description": "unidade de diplomas",
+                        "puid": "poi_1e92cfa4-809f-4c6c-8df3-6adf3b8e00a3",
+                        "pois_type": "Room",
+                        "coordinates_lat": "-25.42937111",
+                        "coordinates_lon": "-49.26754533",
+                        "overwrite": "false",
+                        "is_building_entrance": "false"
+                    },
+                    {
+                        "name": "COAFE",
+                        "description": "Unidade de Estagio",
+                        "puid": "poi_1d9d3e88-557a-4829-a6f6-abecaa9ef30e",
+                        "pois_type": "Room",
+                        "coordinates_lat": "-25.42928025",
+                        "coordinates_lon": "-49.26741163",
+                        "overwrite": "false",
+                        "is_building_entrance": "false"
+                    },
+                    {
+                        "name": "Entrada/Saida Principal",
+                        "description": "entrada e saida principal pela praca santos andrade",
+                        "puid": "poi_e964a587-0d50-449e-aad8-a7a7cca3938a",
+                        "pois_type": "Entrance",
+                        "coordinates_lat": "-25.42900698",
+                        "coordinates_lon": "-49.26745130",
+                        "overwrite": "false",
+                        "is_building_entrance": "true"
+                    },
+                    {
+                        "name": "Entrada/Saida lateral",
+                        "description": "entrada e saida lateral rua bufren",
+                        "puid": "poi_28c6fbec-9a20-486a-b051-b79a62ee08c4",
+                        "pois_type": "Entrance",
+                        "coordinates_lat": "-25.42876089",
+                        "coordinates_lon": "-49.26780696",
+                        "overwrite": "false",
+                        "is_building_entrance": "true"
+                    },
+                    {
+                        "name": "Biblioteca",
+                        "description": "biblioteca juridica",
+                        "puid": "poi_9e75e70a-c05d-44c0-bdff-c402ec2c7156",
+                        "pois_type": "Room",
+                        "coordinates_lat": "-25.42881006",
+                        "coordinates_lon": "-49.26774100",
+                        "overwrite": "false",
+                        "is_building_entrance": "false"
