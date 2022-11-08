@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';
 import 'package:wia/views/location_map.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 import 'package:wia/data/lst_sector_data.dart';
 
@@ -88,19 +89,24 @@ class _MyAppState extends State<MyApp> {
               Container(
                 margin: const EdgeInsets.only(top: 40),
                 child: TextButton.icon(
-                  icon: Image.asset('assets/qr_wia.png'),
-                  label: const Text(""),
-                  onPressed: () => scanQR(),
-                  // onPressed: () => Navigator.push(
-                  //   context,
-                  //   MaterialPageRoute(
-                  //     builder: (context) => MyLocation(
-                  //       sector:
-                  //           lstSector.firstWhere((element) => element.id == 7),
-                  //     ),
-                  //   ),
-                  // ),
-                ),
+                    icon: Image.asset('assets/qr_wia.png'),
+                    label: const Text(""),
+                    onPressed: () => {
+                          if (!kIsWeb)
+                            {scanQR()}
+                          else
+                            {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MyLocation(
+                                    sector: lstSector.firstWhere(
+                                        (element) => element.id == 7),
+                                  ),
+                                ),
+                              ),
+                            }
+                        }),
               ),
               Column(
                 children: const [
