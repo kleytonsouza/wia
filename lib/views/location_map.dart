@@ -203,8 +203,8 @@ class _MyLocation extends State<MyLocation> {
                 child: !kIsWeb ? MaterialButton(
                   color: Colors.green,
                   textColor: Colors.white,
-                  onPressed: !kIsWeb ? () => _pdr() : null,
-                  child: !kIsWeb ? const Text('PDR leitura') : const Text(" "),
+                  onPressed: !!kIsWeb ? () => _pdr() : null,
+                  child: !!kIsWeb ? const Text('PDR leitura') : const Text(" "),
                 ) : null,
               ),
             ],
