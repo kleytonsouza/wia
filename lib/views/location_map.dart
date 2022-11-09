@@ -200,12 +200,12 @@ class _MyLocation extends State<MyLocation> {
             children: [
               Padding(
                 padding: const EdgeInsets.only(right: 20),
-                child: MaterialButton(
+                child: !kIsWeb ? MaterialButton(
                   color: Colors.green,
                   textColor: Colors.white,
                   onPressed: !kIsWeb ? () => _pdr() : null,
                   child: !kIsWeb ? const Text('PDR leitura') : const Text(" "),
-                ),
+                ) : null,
               ),
             ],
           ),
