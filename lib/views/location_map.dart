@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:latlong2/latlong.dart';
 import 'package:plugin_pdr/plugin_pdr.dart';
+import 'package:flutter/foundation.dart' show kIsWeb;
 
 import '../utils/route_from_to.dart';
 import '../models/infra_sector.dart';
@@ -202,8 +203,8 @@ class _MyLocation extends State<MyLocation> {
                 child: MaterialButton(
                   color: Colors.green,
                   textColor: Colors.white,
-                  child: Text('PDR leitura'),
-                  onPressed: () => _pdr(),
+                  onPressed: !kIsWeb ? () => _pdr() : null,
+                  child: !kIsWeb ? const Text('PDR leitura') : const Text(" "),
                 ),
               ),
             ],
