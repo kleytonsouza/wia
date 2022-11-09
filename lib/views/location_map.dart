@@ -37,6 +37,7 @@ class _MyLocation extends State<MyLocation> {
   }
 
   Sector currentSelectedValue = lstSector[0];
+  
   bool setDestiny = false;
 
   List<Marker> markers() {
